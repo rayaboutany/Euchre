@@ -10,7 +10,6 @@ func _initialize_deck():
 	for i in 4:
 		for j in 6:
 			var card = load_card.instantiate()
-			#get_tree().root.add_child(card)
 			card.suit = suits[i]
 			card.value = j+9
 			card.id = deckBuildIndex
@@ -35,7 +34,6 @@ func shuffle():
 				nextCardIndex = 0
 		shuffleDeck[i] = deck[nextCardIndex]
 		deck[nextCardIndex] = null
-		#print(shuffleDeck[i].suit + str(shuffleDeck[i].value))
 	for i in 24:
 		deck[i] = shuffleDeck[i]
 		print(deck[i].suit + str(deck[i].value))
