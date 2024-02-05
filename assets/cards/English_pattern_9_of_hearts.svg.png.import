@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkhadnqjr0ux0"
-path="res://.godot/imported/logo.png-cca8726399059c8d4f806e28e356b14d.ctex"
+uid="uid://d3nvx2cegpl5u"
+path="res://.godot/imported/English_pattern_9_of_hearts.svg.png-60908aa64de70837bceba35bbe02e9b7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://logo.png"
-dest_files=["res://.godot/imported/logo.png-cca8726399059c8d4f806e28e356b14d.ctex"]
+source_file="res://assets/cards/English_pattern_9_of_hearts.svg.png"
+dest_files=["res://.godot/imported/English_pattern_9_of_hearts.svg.png-60908aa64de70837bceba35bbe02e9b7.ctex"]
 
 [params]
 

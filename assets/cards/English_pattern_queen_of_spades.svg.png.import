@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dal0vo6i8ci4o"
-path="res://.godot/imported/English_pattern_queen_of_diamonds.svg.png-0624ff88bdbac07bffd7141b1fcf5158.ctex"
+uid="uid://bowbpiw22r81i"
+path="res://.godot/imported/English_pattern_queen_of_spades.svg.png-9a1d4da373f820bf42923cde6dc9638e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cards/English_pattern_queen_of_diamonds.svg.png"
-dest_files=["res://.godot/imported/English_pattern_queen_of_diamonds.svg.png-0624ff88bdbac07bffd7141b1fcf5158.ctex"]
+source_file="res://assets/cards/English_pattern_queen_of_spades.svg.png"
+dest_files=["res://.godot/imported/English_pattern_queen_of_spades.svg.png-9a1d4da373f820bf42923cde6dc9638e.ctex"]
 
 [params]
 

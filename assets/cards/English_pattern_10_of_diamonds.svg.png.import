@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dda0dsl7ikutj"
-path="res://.godot/imported/English_pattern_king_of_diamonds.svg.png-7eb386f1498edbca1f7c112ba85756fe.ctex"
+uid="uid://cvg006e6n3ytm"
+path="res://.godot/imported/English_pattern_10_of_diamonds.svg.png-fb4be35fa163e859e698a245dafa5456.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cards/English_pattern_king_of_diamonds.svg.png"
-dest_files=["res://.godot/imported/English_pattern_king_of_diamonds.svg.png-7eb386f1498edbca1f7c112ba85756fe.ctex"]
+source_file="res://assets/cards/English_pattern_10_of_diamonds.svg.png"
+dest_files=["res://.godot/imported/English_pattern_10_of_diamonds.svg.png-fb4be35fa163e859e698a245dafa5456.ctex"]
 
 [params]
 

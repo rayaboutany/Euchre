@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://d2ytjy7jrk76j"]
 
-[ext_resource type="AudioStream" uid="uid://b8lfilwsdl1o0" path="res://05 Crawling.mp3" id="1_o2nm1"]
+[ext_resource type="AudioStream" uid="uid://b8lfilwsdl1o0" path="res://assets/05 Crawling.mp3" id="1_o2nm1"]
 [ext_resource type="Script" path="res://scripts/bgm.gd" id="2_daqxm"]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer"]

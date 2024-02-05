@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dad438uhmrbqq"
-path="res://.godot/imported/English_pattern_ace_of_spades.svg.png-c3d10107475391ddf9568232cae4599e.ctex"
+uid="uid://dnyuhuwa02jgx"
+path="res://.godot/imported/English_pattern_9_of_diamonds.svg.png-c174d8a985d36886f417cf0c5369254f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cards/English_pattern_ace_of_spades.svg.png"
-dest_files=["res://.godot/imported/English_pattern_ace_of_spades.svg.png-c3d10107475391ddf9568232cae4599e.ctex"]
+source_file="res://assets/cards/English_pattern_9_of_diamonds.svg.png"
+dest_files=["res://.godot/imported/English_pattern_9_of_diamonds.svg.png-c174d8a985d36886f417cf0c5369254f.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bowbpiw22r81i"
-path="res://.godot/imported/English_pattern_queen_of_spades.svg.png-24fa592756c8b110e5f908921c34778e.ctex"
+uid="uid://dk8f6w5mywfac"
+path="res://.godot/imported/English_pattern_jack_of_spades.svg.png-7ba6b1e950f193d89294c080f5558c66.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cards/English_pattern_queen_of_spades.svg.png"
-dest_files=["res://.godot/imported/English_pattern_queen_of_spades.svg.png-24fa592756c8b110e5f908921c34778e.ctex"]
+source_file="res://assets/cards/English_pattern_jack_of_spades.svg.png"
+dest_files=["res://.godot/imported/English_pattern_jack_of_spades.svg.png-7ba6b1e950f193d89294c080f5558c66.ctex"]
 
 [params]
 

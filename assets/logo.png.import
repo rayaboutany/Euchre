@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3nlxyxsfgj53"
-path="res://.godot/imported/English_pattern_9_of_spades.svg.png-5cd4f64f01592b4504b7d09412f70e8b.ctex"
+uid="uid://dkhadnqjr0ux0"
+path="res://.godot/imported/logo.png-e2220799298e3631eb0e245316e0501a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cards/English_pattern_9_of_spades.svg.png"
-dest_files=["res://.godot/imported/English_pattern_9_of_spades.svg.png-5cd4f64f01592b4504b7d09412f70e8b.ctex"]
+source_file="res://assets/logo.png"
+dest_files=["res://.godot/imported/logo.png-e2220799298e3631eb0e245316e0501a.ctex"]
 
 [params]
 

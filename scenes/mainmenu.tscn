@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://dyp0krby3irxp"]
 
 [ext_resource type="Script" path="res://scripts/mainmenu.gd" id="1_nw3d1"]
-[ext_resource type="Texture2D" uid="uid://dpwr2xxec4e02" path="res://background.png" id="2_6fgya"]
+[ext_resource type="Texture2D" uid="uid://dpwr2xxec4e02" path="res://assets/background.png" id="2_6fgya"]
 [ext_resource type="Script" path="res://scripts/StartGame.gd" id="3_3o4nt"]
 [ext_resource type="Script" path="res://scripts/OptionsButton.gd" id="4_20f50"]
 [ext_resource type="Script" path="res://scripts/CreditsButton.gd" id="5_tar1a"]
-[ext_resource type="Texture2D" uid="uid://dkhadnqjr0ux0" path="res://logo.png" id="6_yd5vh"]
+[ext_resource type="Texture2D" uid="uid://dkhadnqjr0ux0" path="res://assets/logo.png" id="6_yd5vh"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_nw3d1")

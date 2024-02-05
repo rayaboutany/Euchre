@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ce4aj4mrqsq7s"
-path="res://.godot/imported/English_pattern_ace_of_hearts.svg.png-51a68a5f56560d32bccb4165a21dad9f.ctex"
+uid="uid://dad438uhmrbqq"
+path="res://.godot/imported/English_pattern_ace_of_spades.svg.png-573bbdd3dcd08bd0d557e63a0452f11c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cards/English_pattern_ace_of_hearts.svg.png"
-dest_files=["res://.godot/imported/English_pattern_ace_of_hearts.svg.png-51a68a5f56560d32bccb4165a21dad9f.ctex"]
+source_file="res://assets/cards/English_pattern_ace_of_spades.svg.png"
+dest_files=["res://.godot/imported/English_pattern_ace_of_spades.svg.png-573bbdd3dcd08bd0d557e63a0452f11c.ctex"]
 
 [params]
 

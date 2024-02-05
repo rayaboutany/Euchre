@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://n2q2m2d52g2u"]
 
-[ext_resource type="Texture2D" uid="uid://dpwr2xxec4e02" path="res://background.png" id="1_r4ahg"]
+[ext_resource type="Texture2D" uid="uid://dpwr2xxec4e02" path="res://assets/background.png" id="1_r4ahg"]
 [ext_resource type="Script" path="res://scripts/CheckButton.gd" id="2_erayk"]
 [ext_resource type="Script" path="res://scripts/BackButton.gd" id="3_jmh5t"]
 

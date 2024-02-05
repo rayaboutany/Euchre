@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://idbixon4myjr"
-path="res://.godot/imported/English_pattern_jack_of_clubs.svg.png-610992791c5cfec7377c2e6455551265.ctex"
+path="res://.godot/imported/English_pattern_jack_of_clubs.svg.png-52c0b747fba0eea63f52c3182c7a183f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cards/English_pattern_jack_of_clubs.svg.png"
-dest_files=["res://.godot/imported/English_pattern_jack_of_clubs.svg.png-610992791c5cfec7377c2e6455551265.ctex"]
+source_file="res://assets/cards/English_pattern_jack_of_clubs.svg.png"
+dest_files=["res://.godot/imported/English_pattern_jack_of_clubs.svg.png-52c0b747fba0eea63f52c3182c7a183f.ctex"]
 
 [params]
 

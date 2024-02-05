@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhrbtawbmkgbj"
-path="res://.godot/imported/English_pattern_9_of_clubs.svg.png-195e193a07fe673dd4bd279fe0b46f58.ctex"
+uid="uid://dal0vo6i8ci4o"
+path="res://.godot/imported/English_pattern_queen_of_diamonds.svg.png-8d13a07aef020c9e532cb6a77a36df0e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cards/English_pattern_9_of_clubs.svg.png"
-dest_files=["res://.godot/imported/English_pattern_9_of_clubs.svg.png-195e193a07fe673dd4bd279fe0b46f58.ctex"]
+source_file="res://assets/cards/English_pattern_queen_of_diamonds.svg.png"
+dest_files=["res://.godot/imported/English_pattern_queen_of_diamonds.svg.png-8d13a07aef020c9e532cb6a77a36df0e.ctex"]
 
 [params]
 

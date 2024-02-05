@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dp8j4korgd7dh"
-path="res://.godot/imported/English_pattern_ace_of_clubs.svg.png-36691961826ad74d3c9a46ebe866b544.ctex"
+uid="uid://cenfy2h75hw5f"
+path="res://.godot/imported/English_pattern_10_of_clubs.svg.png-a203e56aeccdd017b2517b2617aaee8e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cards/English_pattern_ace_of_clubs.svg.png"
-dest_files=["res://.godot/imported/English_pattern_ace_of_clubs.svg.png-36691961826ad74d3c9a46ebe866b544.ctex"]
+source_file="res://assets/cards/English_pattern_10_of_clubs.svg.png"
+dest_files=["res://.godot/imported/English_pattern_10_of_clubs.svg.png-a203e56aeccdd017b2517b2617aaee8e.ctex"]
 
 [params]
 

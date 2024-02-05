@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccrm0x3pe17ei"
-path="res://.godot/imported/English_pattern_10_of_hearts.svg.png-db17e38e64c2a3465f487d15d8ab4a75.ctex"
+uid="uid://cf1xj6l3um6lm"
+path="res://.godot/imported/English_pattern_10_of_spades.svg.png-84d4461f8b953bd71297f4187f1ee8df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cards/English_pattern_10_of_hearts.svg.png"
-dest_files=["res://.godot/imported/English_pattern_10_of_hearts.svg.png-db17e38e64c2a3465f487d15d8ab4a75.ctex"]
+source_file="res://assets/cards/English_pattern_10_of_spades.svg.png"
+dest_files=["res://.godot/imported/English_pattern_10_of_spades.svg.png-84d4461f8b953bd71297f4187f1ee8df.ctex"]
 
 [params]
 

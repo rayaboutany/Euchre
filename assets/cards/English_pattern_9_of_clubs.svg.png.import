@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cf1xj6l3um6lm"
-path="res://.godot/imported/English_pattern_10_of_spades.svg.png-a8ffbaaa6019f9b6a392722646569cdb.ctex"
+uid="uid://dhrbtawbmkgbj"
+path="res://.godot/imported/English_pattern_9_of_clubs.svg.png-5ee1db7dfc2cf61b7ade3bbda12da0fc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cards/English_pattern_10_of_spades.svg.png"
-dest_files=["res://.godot/imported/English_pattern_10_of_spades.svg.png-a8ffbaaa6019f9b6a392722646569cdb.ctex"]
+source_file="res://assets/cards/English_pattern_9_of_clubs.svg.png"
+dest_files=["res://.godot/imported/English_pattern_9_of_clubs.svg.png-5ee1db7dfc2cf61b7ade3bbda12da0fc.ctex"]
 
 [params]
 

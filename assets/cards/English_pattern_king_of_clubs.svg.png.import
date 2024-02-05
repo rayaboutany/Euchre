@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dursa1jbkfhew"
-path="res://.godot/imported/English_pattern_jack_of_diamonds.svg.png-ea8d5351f92c732e822085acda82ff9f.ctex"
+uid="uid://cin7nmphd4lk2"
+path="res://.godot/imported/English_pattern_king_of_clubs.svg.png-52d53d62d9b653f8deb1eae3b479beab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cards/English_pattern_jack_of_diamonds.svg.png"
-dest_files=["res://.godot/imported/English_pattern_jack_of_diamonds.svg.png-ea8d5351f92c732e822085acda82ff9f.ctex"]
+source_file="res://assets/cards/English_pattern_king_of_clubs.svg.png"
+dest_files=["res://.godot/imported/English_pattern_king_of_clubs.svg.png-52d53d62d9b653f8deb1eae3b479beab.ctex"]
 
 [params]
 

@@ -1,16 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://bhkl35l7oqywa"]
 
-[ext_resource type="Texture2D" uid="uid://dpwr2xxec4e02" path="res://background.png" id="1_xui37"]
-[ext_resource type="Texture2D" uid="uid://daub011uxunw8" path="res://icon.svg" id="2_11plt"]
+[ext_resource type="Script" path="res://scenes/table.gd" id="1_wwq6p"]
+[ext_resource type="Texture2D" uid="uid://dpwr2xxec4e02" path="res://assets/background.png" id="1_xui37"]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_wwq6p")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(0.667711, 0.667115)
 texture = ExtResource("1_xui37")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(624, 365)
-texture = ExtResource("2_11plt")

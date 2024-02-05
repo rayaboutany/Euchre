@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cin7nmphd4lk2"
-path="res://.godot/imported/English_pattern_king_of_clubs.svg.png-35b9e02ae5bc3f38985ee30d5b89a59c.ctex"
+uid="uid://clxc61udi6cec"
+path="res://.godot/imported/English_pattern_king_of_hearts.svg.png-61cf879b1c8d5c249912f03914f94843.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cards/English_pattern_king_of_clubs.svg.png"
-dest_files=["res://.godot/imported/English_pattern_king_of_clubs.svg.png-35b9e02ae5bc3f38985ee30d5b89a59c.ctex"]
+source_file="res://assets/cards/English_pattern_king_of_hearts.svg.png"
+dest_files=["res://.godot/imported/English_pattern_king_of_hearts.svg.png-61cf879b1c8d5c249912f03914f94843.ctex"]
 
 [params]
 

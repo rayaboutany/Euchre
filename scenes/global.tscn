@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://kxjv6jilrtoi"]
 
-[ext_resource type="Script" path="res://scripts/signalbus.gd" id="1_vmidl"]
+[ext_resource type="Script" path="res://scripts/global.gd" id="1_vmidl"]
 
 [node name="Control" type="Control"]
 layout_mode = 3

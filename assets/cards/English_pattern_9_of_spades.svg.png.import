@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0bwt6vaax2em"
-path="res://.godot/imported/English_pattern_queen_of_clubs.svg.png-8781b88c6102893ae23780783edb076b.ctex"
+uid="uid://3nlxyxsfgj53"
+path="res://.godot/imported/English_pattern_9_of_spades.svg.png-2cdba3b8f4959ba4d0cd228494619052.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cards/English_pattern_queen_of_clubs.svg.png"
-dest_files=["res://.godot/imported/English_pattern_queen_of_clubs.svg.png-8781b88c6102893ae23780783edb076b.ctex"]
+source_file="res://assets/cards/English_pattern_9_of_spades.svg.png"
+dest_files=["res://.godot/imported/English_pattern_9_of_spades.svg.png-2cdba3b8f4959ba4d0cd228494619052.ctex"]
 
 [params]
 

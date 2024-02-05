@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnyuhuwa02jgx"
-path="res://.godot/imported/English_pattern_9_of_diamonds.svg.png-5db669605e3864df3bc819a58f080d8f.ctex"
+uid="uid://3xgw5aymjx0f"
+path="res://.godot/imported/English_pattern_jack_of_hearts.svg.png-99579b0a7d09e70f8c6379f76f5e58ff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cards/English_pattern_9_of_diamonds.svg.png"
-dest_files=["res://.godot/imported/English_pattern_9_of_diamonds.svg.png-5db669605e3864df3bc819a58f080d8f.ctex"]
+source_file="res://assets/cards/English_pattern_jack_of_hearts.svg.png"
+dest_files=["res://.godot/imported/English_pattern_jack_of_hearts.svg.png-99579b0a7d09e70f8c6379f76f5e58ff.ctex"]
 
 [params]
 

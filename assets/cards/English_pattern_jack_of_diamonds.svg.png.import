@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyd82pf1eu8ly"
-path="res://.godot/imported/English_pattern_ace_of_diamonds.svg.png-6265f1537ff989c0f1603dafd75386c2.ctex"
+uid="uid://dursa1jbkfhew"
+path="res://.godot/imported/English_pattern_jack_of_diamonds.svg.png-9648139cb0c22796e78747fe5795ffa6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cards/English_pattern_ace_of_diamonds.svg.png"
-dest_files=["res://.godot/imported/English_pattern_ace_of_diamonds.svg.png-6265f1537ff989c0f1603dafd75386c2.ctex"]
+source_file="res://assets/cards/English_pattern_jack_of_diamonds.svg.png"
+dest_files=["res://.godot/imported/English_pattern_jack_of_diamonds.svg.png-9648139cb0c22796e78747fe5795ffa6.ctex"]
 
 [params]
 
