@@ -12,4 +12,4 @@ func _process(delta):
 
 
 func _on_pressed():
-	global.goto_scene("res://mainmenu.tscn")
+	global.goto_scene("res://scenes/options.tscn")

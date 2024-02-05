@@ -1,10 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://kxjv6jilrtoi"]
 
-[ext_resource type="Script" path="res://signalbus.gd" id="1_hw2h5"]
+[ext_resource type="Script" path="res://scripts/signalbus.gd" id="1_vmidl"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_hw2h5")
+script = ExtResource("1_vmidl")

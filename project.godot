@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="Euchre"
-run/main_scene="res://mainmenu.tscn"
+run/main_scene="res://scenes/mainmenu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-global="*res://global.tscn"
-bgm="*res://bgm.tscn"
+global="*res://scenes/global.tscn"
+bgm="*res://scenes/bgm.tscn"
 
 [display]
 

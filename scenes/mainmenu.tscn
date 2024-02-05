@@ -1,14 +1,14 @@
 [gd_scene load_steps=7 format=3 uid="uid://dyp0krby3irxp"]
 
-[ext_resource type="Texture2D" uid="uid://dpwr2xxec4e02" path="res://background.png" id="1_djchl"]
-[ext_resource type="Script" path="res://mainmenu.gd" id="1_guoao"]
-[ext_resource type="Script" path="res://StartGame.gd" id="3_saho5"]
-[ext_resource type="Texture2D" uid="uid://dkhadnqjr0ux0" path="res://logo.png" id="3_yandu"]
-[ext_resource type="Script" path="res://OptionsButton.gd" id="4_3axup"]
-[ext_resource type="Script" path="res://CreditsButton.gd" id="5_fve3d"]
+[ext_resource type="Script" path="res://scripts/mainmenu.gd" id="1_nw3d1"]
+[ext_resource type="Texture2D" uid="uid://dpwr2xxec4e02" path="res://background.png" id="2_6fgya"]
+[ext_resource type="Script" path="res://scripts/StartGame.gd" id="3_3o4nt"]
+[ext_resource type="Script" path="res://scripts/OptionsButton.gd" id="4_20f50"]
+[ext_resource type="Script" path="res://scripts/CreditsButton.gd" id="5_tar1a"]
+[ext_resource type="Texture2D" uid="uid://dkhadnqjr0ux0" path="res://logo.png" id="6_yd5vh"]
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_guoao")
+script = ExtResource("1_nw3d1")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = 1.00001
@@ -16,7 +16,7 @@ offset_top = 4.00001
 offset_right = 1921.0
 offset_bottom = 1084.0
 scale = Vector2(0.666752, 0.662682)
-texture = ExtResource("1_djchl")
+texture = ExtResource("2_6fgya")
 expand_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -35,21 +35,21 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "Start Game"
 alignment = 0
-script = ExtResource("3_saho5")
+script = ExtResource("3_3o4nt")
 
 [node name="OptionsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "Options"
 alignment = 0
-script = ExtResource("4_3axup")
+script = ExtResource("4_20f50")
 
 [node name="CreditsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "Credits"
 alignment = 0
-script = ExtResource("5_fve3d")
+script = ExtResource("5_tar1a")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 offset_left = 665.0
@@ -57,7 +57,7 @@ offset_top = 60.0
 offset_right = 1365.0
 offset_bottom = 960.0
 scale = Vector2(0.75, 0.75)
-texture = ExtResource("3_yandu")
+texture = ExtResource("6_yd5vh")
 
 [connection signal="pressed" from="VBoxContainer/StartGame" to="VBoxContainer/StartGame" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionsButton" to="VBoxContainer/OptionsButton" method="_on_pressed"]

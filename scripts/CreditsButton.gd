@@ -9,7 +9,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-
-
+	
 func _on_pressed():
-	global.goto_scene("res://options.tscn")
+	global.goto_scene("res://scenes/credits.tscn")
