@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqft0aikhvlu1"]
+
+[ext_resource type="Texture2D" uid="uid://dpwr2xxec4e02" path="res://background.png" id="1_cdn5b"]
+[ext_resource type="Script" path="res://BackButton.gd" id="2_a76qk"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(0.668192, 0.668513)
+texture = ExtResource("1_cdn5b")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 94.0
+offset_top = 62.0
+offset_right = 340.0
+offset_bottom = 161.0
+theme_override_font_sizes/font_size = 72
+text = "Credits"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 122.0
+offset_top = 200.0
+offset_right = 445.0
+offset_bottom = 308.0
+theme_override_font_sizes/font_size = 24
+text = "Team Leader: Raya Boutany
+UI Design: River Dyke
+Programming: River Dyke"
+
+[node name="BackButton" type="Button" parent="."]
+offset_left = 1018.0
+offset_top = 62.0
+offset_right = 1232.0
+offset_bottom = 120.0
+theme_override_font_sizes/font_size = 36
+text = "Back"
+script = ExtResource("2_a76qk")
+
+[connection signal="pressed" from="BackButton" to="BackButton" method="_on_pressed"]
