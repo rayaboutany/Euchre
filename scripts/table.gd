@@ -2,7 +2,7 @@ extends Node2D
 var load_card = preload("res://scenes/card.tscn")
 var deck = []
 var playerHand = []
-var suits = ["hearts","diamonds","clubs","spades"]
+var suits = ["HEARTS","DIAMONDS","CLUBS","SPADES"]
 
 func _initialize_deck():
 	var deckBuildIndex = 0
@@ -13,7 +13,8 @@ func _initialize_deck():
 			#get_tree().root.add_child(card)
 			card.suit = suits[i]
 			card.value = j+9
-			card.texture = load("res://assets/cards/English_pattern_9_of_clubs.svg.png")
+			card.id = deckBuildIndex
+			card.setTexture()
 			deck[deckBuildIndex] = card
 			print(deck[deckBuildIndex].suit + str(deck[deckBuildIndex].value))
 			deckBuildIndex += 1
@@ -53,7 +54,7 @@ func showHand(hand):
 	for i in hand.size():
 		print(hand[i].suit + str(hand[i].value))
 		get_tree().root.add_child(hand[i])
-		hand[i].position = Vector2(120+150*i,600)
+		hand[i].position = Vector2(415+120*i,600)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

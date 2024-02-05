@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhkl35l7oqywa"]
+[gd_scene load_steps=4 format=3 uid="uid://bhkl35l7oqywa"]
 
-[ext_resource type="Script" path="res://scenes/table.gd" id="1_wwq6p"]
+[ext_resource type="Script" path="res://scripts/table.gd" id="1_wwq6p"]
 [ext_resource type="Texture2D" uid="uid://dpwr2xxec4e02" path="res://assets/background.png" id="1_xui37"]
+[ext_resource type="Script" path="res://scripts/BackButton.gd" id="3_kec1j"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_wwq6p")
@@ -11,3 +12,14 @@ offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(0.667711, 0.667115)
 texture = ExtResource("1_xui37")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 1128.0
+offset_top = 13.0
+offset_right = 1260.0
+offset_bottom = 55.0
+theme_override_font_sizes/font_size = 24
+text = "Quit Game"
+script = ExtResource("3_kec1j")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

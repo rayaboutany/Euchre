@@ -13,3 +13,4 @@ func _process(delta):
 
 func _on_pressed():
 	global.goto_scene("res://scenes/mainmenu.tscn")
+
