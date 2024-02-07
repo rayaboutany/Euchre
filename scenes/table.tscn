@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bhkl35l7oqywa"]
+[gd_scene load_steps=6 format=3 uid="uid://bhkl35l7oqywa"]
 
 [ext_resource type="Script" path="res://scripts/table.gd" id="1_wwq6p"]
 [ext_resource type="Texture2D" uid="uid://dpwr2xxec4e02" path="res://assets/background.png" id="1_xui37"]
 [ext_resource type="Script" path="res://scripts/BackButton.gd" id="3_kec1j"]
 [ext_resource type="Script" path="res://scenes/trumpDisplay.gd" id="4_yeeve"]
+[ext_resource type="Script" path="res://scenes/turnNumber.gd" id="5_jrwic"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_wwq6p")
@@ -38,5 +39,21 @@ offset_right = 1216.0
 offset_bottom = 368.0
 scale = Vector2(0.25, 0.25)
 script = ExtResource("4_yeeve")
+
+[node name="turnHeader" type="Label" parent="."]
+offset_left = 1176.0
+offset_top = 88.0
+offset_right = 1232.0
+offset_bottom = 111.0
+text = "Turn #:
+"
+
+[node name="turnNumber" type="Label" parent="turnHeader"]
+offset_top = 32.0
+offset_right = 56.0
+offset_bottom = 55.0
+text = "<turn>"
+horizontal_alignment = 1
+script = ExtResource("5_jrwic")
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
