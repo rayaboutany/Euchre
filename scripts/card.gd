@@ -40,3 +40,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+func selectCard():
+	# card playing logic here
+		emit_signal("cardSelected", self)
+
+func playCard():
+	# card playing logic here
+		emit_signal("cardPlayed", self)

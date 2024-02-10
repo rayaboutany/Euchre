@@ -49,6 +49,7 @@ text = "Turn #:
 "
 
 [node name="turnNumber" type="Label" parent="turnHeader"]
+layout_mode = 0
 offset_top = 32.0
 offset_right = 56.0
 offset_bottom = 55.0

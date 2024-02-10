@@ -68,3 +68,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+func _onCardSelected(card):
+	# Handle the selected card
+	print("Card selected:", card)
+
+func _onCardPlayed(card):
+	# Handle the played card
+	print("Card played:", card)

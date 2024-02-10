@@ -1,6 +1,8 @@
 extends Control
 
 signal musicPressed(toggled_on)
+signal cardSelected(card)
+signal cardPlayed(card)
 #signal switchScene(scene)
 var current_scene = null
 
