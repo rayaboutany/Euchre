@@ -1,5 +1,6 @@
 extends Control
 
+#route signals through here:
 signal musicPressed(toggled_on)
 signal cardSelected(card)
 signal cardPlayed(card)
