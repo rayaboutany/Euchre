@@ -1,10 +1,9 @@
 extends Control
 
-#route signals through here:
 signal musicPressed(toggled_on)
-signal cardSelected(card)
-signal cardPlayed(card)
 #signal switchScene(scene)
+signal cardSelected()
+signal cardPlayed()
 var current_scene = null
 
 # Called when the node enters the scene tree for the first time.

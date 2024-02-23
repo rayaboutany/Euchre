@@ -17,7 +17,9 @@ func _initialize_deck():
 			deck[deckBuildIndex] = card
 			print(deck[deckBuildIndex].suit + str(deck[deckBuildIndex].value))
 			deckBuildIndex += 1
-
+	global.cardSelected.connect(_onCardSelected)
+	global.cardPlayed.connect(_onCardPlayed)
+	
 func _initialize_hand(hand):
 	hand.resize(5)
 	
@@ -55,6 +57,7 @@ func showHand(hand):
 		hand[i].position = Vector2(415+120*i,600)
 
 # Called when the node enters the scene tree for the first time.
+
 func _ready():
 	_initialize_deck()
 	_initialize_hand(playerHand)
@@ -64,15 +67,26 @@ func _ready():
 	print("player's hand")
 	showHand(playerHand)
 	
+	##var container = VBoxContainer.new()
+	#get_tree().root.add_child(container)
+
+	#for i in range(5):
+	#	var button = Button.new())
+	#	container.add_child(button)
+	#	button.rect_min_size = Vector2(100, 50)
+	#	button.rect_position = Vector2(button) 
+
+		
+#func button_pressed():
+#	print("YURR")
+
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
 func _onCardSelected(card):
-	# Handle the selected card
-	print("Card selected:", card)
+	print("Card selected:", card.suit, card.value)
 
 func _onCardPlayed(card):
-	# Handle the played card
-	print("Card played:", card)
+	print("Card played:", card.suit, card.value)
