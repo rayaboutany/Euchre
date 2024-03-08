@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cg61vbke6cx0s"]
+
+[ext_resource type="Texture2D" uid="uid://dhrbtawbmkgbj" path="res://assets/cards/English_pattern_9_of_clubs.svg.png" id="1_uej4n"]
+[ext_resource type="Script" path="res://scripts/card.gd" id="2_kwaxb"]
+
+[node name="Sprite2D" type="Sprite2D"]
+position = Vector2(230, 128)
+scale = Vector2(0.33, 0.33)
+texture = ExtResource("1_uej4n")
+script = ExtResource("2_kwaxb")
