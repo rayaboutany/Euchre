@@ -1,6 +1,5 @@
 res://scenes/global.tscn
 res://scenes/Label3.gd
 res://scripts/card.gd
-res://scripts/table.gd
-res://scripts/global.gd
 res://scenes/credits.tscn
+res://scenes/bgm.tscn

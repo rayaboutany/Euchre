@@ -123,7 +123,7 @@ func _onCardSelected(card):
 
 func _onCardPlayed(card):
 	print("Card played:", card.suit, card.value)
-	for i in playerHand:
-		if playerHand[i] == card:
-			currentTrick.append(card)
-			playerHand[i] = null
+	#for i in playerHand:
+	#	if playerHand[i] == card:
+	#		currentTrick.append(card)
+	#		playerHand[i] = null
