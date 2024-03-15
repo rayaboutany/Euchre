@@ -7,6 +7,7 @@ var suit
 var value
 var id 
 var isSelected = false
+var player
 
 var textureURLs = [
 "res://assets/cards/English_pattern_9_of_hearts.svg.png",
