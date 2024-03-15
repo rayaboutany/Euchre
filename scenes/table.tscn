@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bhkl35l7oqywa"]
+[gd_scene load_steps=12 format=3 uid="uid://bhkl35l7oqywa"]
 
 [ext_resource type="Script" path="res://scripts/table.gd" id="1_wwq6p"]
 [ext_resource type="Texture2D" uid="uid://dpwr2xxec4e02" path="res://assets/background.png" id="1_xui37"]
@@ -10,15 +10,16 @@
 [ext_resource type="Script" path="res://scenes/Trickcount.gd" id="8_j12rs"]
 [ext_resource type="Script" path="res://scenes/buttoncard1.gd" id="9_tg204"]
 [ext_resource type="Script" path="res://scenes/buttoncard2.gd" id="10_efgy1"]
+[ext_resource type="Script" path="res://scenes/Label2.gd" id="11_4ee3c"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_wwq6p")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = 1.0
-offset_top = 8.0
-offset_right = 1921.0
-offset_bottom = 1088.0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 1924.0
+offset_bottom = 1083.0
 scale = Vector2(0.667711, 0.667115)
 texture = ExtResource("1_xui37")
 
@@ -252,15 +253,8 @@ offset_bottom = 50.0
 text = "< >"
 script = ExtResource("8_j12rs")
 
-[node name="buttoncard1" type="Button" parent="."]
-offset_left = 1896.0
-offset_top = 518.0
-offset_right = 1904.0
-offset_bottom = 978.0
-flat = true
-script = ExtResource("9_tg204")
-
 [node name="buttoncard2" type="Button" parent="."]
+visible = false
 offset_left = 1947.0
 offset_top = 553.0
 offset_right = 2010.0
@@ -292,6 +286,62 @@ offset_right = 936.0
 offset_bottom = 661.0
 flat = true
 
+[node name="Control4" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 491.0
+offset_top = 235.0
+offset_right = 774.0
+offset_bottom = 346.0
+
+[node name="buttoncard1" type="Button" parent="Control4"]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 20.0
+offset_right = 284.0
+offset_bottom = 70.0
+text = "No"
+flat = true
+script = ExtResource("9_tg204")
+
+[node name="buttoncard2" type="Button" parent="Control4"]
+layout_mode = 0
+offset_left = -15.0
+offset_top = 21.0
+offset_right = 117.0
+offset_bottom = 71.0
+text = "Yes"
+flat = true
+script = ExtResource("9_tg204")
+
+[node name="Control" type="Control" parent="Control4/buttoncard2"]
+anchors_preset = 0
+offset_left = -9.0
+offset_top = 49.0
+offset_right = 146.0
+offset_bottom = 124.0
+
+[node name="Label" type="Label" parent="Control4"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = -46.0
+offset_right = 301.0
+offset_bottom = 8.0
+text = "Would you like                to  be trump?"
+
+[node name="Label2" type="Label" parent="Control4"]
+layout_mode = 0
+offset_left = 148.0
+offset_top = -48.0
+offset_right = 198.0
+offset_bottom = -22.0
+text = "<>"
+script = ExtResource("11_4ee3c")
+
+[connection signal="work" from="." to="Label2/Label3" method="_on_node_2d_work"]
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
-[connection signal="pressed" from="buttoncard1" to="Label2/Label3" method="_on_buttoncard_1_pressed"]
+[connection signal="focus_exited" from="Label2/Label3" to="." method="_on_label_3_focus_exited"]
 [connection signal="pressed" from="buttoncard2" to="Label2/Label3" method="_on_buttoncard_2_pressed"]
+[connection signal="pressed" from="Control4/buttoncard1" to="." method="_on_buttoncard_1_pressed"]
+[connection signal="pressed" from="Control4/buttoncard1" to="Label2/Label3" method="_on_buttoncard_1_pressed"]
+[connection signal="pressed" from="Control4/buttoncard2" to="Label2/Label3" method="_on_buttoncard_1_pressed"]

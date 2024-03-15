@@ -3,6 +3,7 @@ var suit
 var value
 var id 
 
+signal cardPlayed
 var textureURLs = [
 "res://assets/cards/English_pattern_9_of_hearts.svg.png",
 "res://assets/cards/English_pattern_10_of_hearts.svg.png",
@@ -56,5 +57,10 @@ func ClickCard():
 func _unhandled_input(texture):
 	if texture is InputEventMouseButton and texture.pressed and texture.button_index == MOUSE_BUTTON_LEFT:
 		if get_rect().has_point(to_local(texture.position)):
-			emit_signal("personclick", self)
+			global.emit_signal("cardPlayed", self)
 			print("super bruh")
+
+
+func _on_card_played():
+	global.emit_signal("cardPlayed", self)
+	pass # Replace with function body.

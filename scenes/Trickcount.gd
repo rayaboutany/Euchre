@@ -1,5 +1,6 @@
 extends Label
 var tricks = 0
+signal cardPlayed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

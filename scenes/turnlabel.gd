@@ -15,7 +15,7 @@ func _process(delta):
 	pass
 
 
-func _on_buttoncard_1_pressed():
+func cardclick(card):
 	var turn = 2
 	set_text(str(turn))
 	 # Replace with function body.

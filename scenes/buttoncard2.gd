@@ -11,6 +11,7 @@ func _process(delta):
 	pass
 
 func _on_pressed():
+	hide()
 	var labelchange2
 	labelchange2 = get_node("Label2/Label3")
 	get_parent().newturn()

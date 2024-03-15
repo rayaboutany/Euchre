@@ -3,6 +3,7 @@ var load_card = preload("res://scenes/card.tscn")
 var deck = []
 var playerHand = []
 var suits = ["HEARTS","DIAMONDS","CLUBS","SPADES"]
+signal work
 
 func _initialize_deck():
 	var deckBuildIndex = 0
@@ -37,6 +38,13 @@ func shuffle():
 	for i in 24:
 		deck[i] = shuffleDeck[i]
 		print(deck[i].suit + str(deck[i].value))
+		
+func get_trump_card():
+	for nextcard in deck:
+		if nextcard!= null:
+			print(nextcard)
+			return nextcard
+	return null
 
 func deal(hand):
 	var cardsDrawn = 0
@@ -56,6 +64,7 @@ func showHand(hand):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	global.cardPlayed.connect(_onCardPlayed)
 	_initialize_deck()
 	_initialize_hand(playerHand)
 	print("suffling...")
@@ -63,6 +72,7 @@ func _ready():
 	deal(playerHand)
 	print("player's hand")
 	showHand(playerHand)
+	
 	
 	
 	##var container = VBoxContainer.new()
@@ -88,5 +98,11 @@ func _onCardSelected(card):
 	print("Card selected:", card)
 
 func _onCardPlayed(card):
-	# Handle the played card
-	print("Card played:", card)
+	print("cardPlayed:" + str(card.id))
+
+
+func _on_sprite_2d_card_played():
+	pass
+
+
+

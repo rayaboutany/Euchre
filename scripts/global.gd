@@ -4,6 +4,7 @@ signal musicPressed(toggled_on)
 signal cardSelected(card)
 signal cardPlayed(card)
 signal cardclicked(card)
+
 #signal switchScene(scene)
 var current_scene = null
 
@@ -27,5 +28,5 @@ func _deferred_goto_scene(path):
 func _process(delta):
 	pass
 
-func cardclicker(cardclicked):
-	print("card clicked")
+
+

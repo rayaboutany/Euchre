@@ -1,0 +1,6 @@
+res://scenes/table.tscn
+res://scenes/Label3.gd
+res://scripts/card.gd
+res://scripts/table.gd
+res://scenes/global.tscn
+res://scenes/credits.tscn
