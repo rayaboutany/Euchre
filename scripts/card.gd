@@ -1,9 +1,11 @@
 extends Sprite2D
+
 var suit
 var value
 var id 
+var isSelected = false
+var player
 
-signal cardPlayed
 var textureURLs = [
 "res://assets/cards/English_pattern_9_of_hearts.svg.png",
 "res://assets/cards/English_pattern_10_of_hearts.svg.png",
@@ -33,6 +35,12 @@ var textureURLs = [
 
 func setTexture():
 	texture = load(textureURLs[id])
+	if isSelected:
+		# Change the appearance of the card to indicate it's selected
+		# This is a placeholder, replace it with your own logic
+		self.modulate = Color(1, 1, 1, 0.5)
+	else:
+		self.modulate = Color(1, 1, 1, 1)
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():

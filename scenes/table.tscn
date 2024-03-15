@@ -1,25 +1,37 @@
+<<<<<<< HEAD
 [gd_scene load_steps=12 format=3 uid="uid://bhkl35l7oqywa"]
+=======
+[gd_scene load_steps=6 format=3 uid="uid://bhkl35l7oqywa"]
+>>>>>>> f59b974ceee74639d719f59bcf7b0aa255a37b88
 
 [ext_resource type="Script" path="res://scripts/table.gd" id="1_wwq6p"]
 [ext_resource type="Texture2D" uid="uid://dpwr2xxec4e02" path="res://assets/background.png" id="1_xui37"]
 [ext_resource type="Script" path="res://scripts/BackButton.gd" id="3_kec1j"]
 [ext_resource type="Script" path="res://scenes/trumpDisplay.gd" id="4_yeeve"]
 [ext_resource type="Script" path="res://scenes/turnNumber.gd" id="5_jrwic"]
+<<<<<<< HEAD
 [ext_resource type="Script" path="res://scenes/Label3.gd" id="6_k3f6b"]
 [ext_resource type="Texture2D" uid="uid://c4a71tcwbhjjg" path="res://assets/card back blue.png" id="7_pdtdi"]
 [ext_resource type="Script" path="res://scenes/Trickcount.gd" id="8_j12rs"]
 [ext_resource type="Script" path="res://scenes/buttoncard1.gd" id="9_tg204"]
 [ext_resource type="Script" path="res://scenes/buttoncard2.gd" id="10_efgy1"]
 [ext_resource type="Script" path="res://scenes/Label2.gd" id="11_4ee3c"]
+=======
+>>>>>>> f59b974ceee74639d719f59bcf7b0aa255a37b88
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_wwq6p")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+<<<<<<< HEAD
 offset_left = 4.0
 offset_top = 3.0
 offset_right = 1924.0
 offset_bottom = 1083.0
+=======
+offset_right = 40.0
+offset_bottom = 40.0
+>>>>>>> f59b974ceee74639d719f59bcf7b0aa255a37b88
 scale = Vector2(0.667711, 0.667115)
 texture = ExtResource("1_xui37")
 
@@ -65,6 +77,7 @@ text = "<turn>"
 horizontal_alignment = 1
 script = ExtResource("5_jrwic")
 
+<<<<<<< HEAD
 [node name="Label2" type="Label" parent="."]
 offset_left = 564.0
 offset_top = 410.0
@@ -345,3 +358,6 @@ script = ExtResource("11_4ee3c")
 [connection signal="pressed" from="Control4/buttoncard1" to="." method="_on_buttoncard_1_pressed"]
 [connection signal="pressed" from="Control4/buttoncard1" to="Label2/Label3" method="_on_buttoncard_1_pressed"]
 [connection signal="pressed" from="Control4/buttoncard2" to="Label2/Label3" method="_on_buttoncard_1_pressed"]
+=======
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+>>>>>>> f59b974ceee74639d719f59bcf7b0aa255a37b88

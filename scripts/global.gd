@@ -4,8 +4,6 @@ signal musicPressed(toggled_on)
 signal cardSelected(card)
 signal cardPlayed(card)
 signal cardclicked(card)
-
-#signal switchScene(scene)
 var current_scene = null
 
 # Called when the node enters the scene tree for the first time.
@@ -27,6 +25,9 @@ func _deferred_goto_scene(path):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> f59b974ceee74639d719f59bcf7b0aa255a37b88
