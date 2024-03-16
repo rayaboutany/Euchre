@@ -9,6 +9,21 @@ var bot2Hand = []
 var bot3Hand = []
 var currentTrick = []
 var tricks = []
+var teamTricks = 0
+var oppTricks = 0
+var teamScore = 0
+var oppScore = 0
+#question: Attackers (Trump Selector) & Defenders Logic for Scoring?
+#question 2: Scoring for going alone? (Maybe Future)
+#Scoring notes:
+#Attackers: 3-4 tricks = 1pt, 5 tricks = 2pts
+#Defenders: 3-4 tricks = 2pts, 5 tricks = 4pts
+#Attacking Alone: 3-4 tricks = 2pts, 5 tricks = 4pts
+#Defending Alone: 3-4 tricks = 4pts, 5 tricks = 5pts
+#Needs: 
+#calculateTrick function to update trick scores
+#roundScore function updating score vars and display to UI
+#future: win function call in roundScore when a score reaches/exceeds 10
 
 #instantiates all of the card scenes and adds them to the deck array
 func _initialize_deck():
@@ -29,7 +44,7 @@ func _initialize_hand(hand):
 	hand.resize(5)
 
 func shuffle():
-	print("suffling...")
+	print("shuffling...")
 	var shuffleDeck = []
 	var rng = RandomNumberGenerator.new()
 	var nextCardIndex
@@ -100,9 +115,6 @@ func createHands():
 	showHand(bot1Hand)
 	showHand(bot2Hand)
 	showHand(bot3Hand)
-
-func calculateTrick():
-	pass
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -8,6 +8,9 @@ func _ready():
 # newTurn function, call in another script with get_node()/signals
 func newTurn():
 	turn += 1
+	#make decision structure:
+	#if turn == 5: call newTrick and reset turn to 1
+	#update display
 	set_text(str(turn))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

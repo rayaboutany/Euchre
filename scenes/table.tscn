@@ -7,19 +7,17 @@
 [ext_resource type="Script" path="res://scenes/turnNumber.gd" id="5_jrwic"]
 [ext_resource type="Script" path="res://scenes/Label3.gd" id="6_k3f6b"]
 [ext_resource type="Texture2D" uid="uid://c4a71tcwbhjjg" path="res://assets/card back blue.png" id="7_pdtdi"]
-[ext_resource type="Script" path="res://scenes/Trickcount.gd" id="8_j12rs"]
 [ext_resource type="Script" path="res://scenes/buttoncard1.gd" id="9_tg204"]
 [ext_resource type="Script" path="res://scenes/buttoncard2.gd" id="10_efgy1"]
 [ext_resource type="Script" path="res://scenes/Label2.gd" id="11_4ee3c"]
+[ext_resource type="Script" path="res://scenes/trickScore.gd" id="11_7tkpw"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_wwq6p")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = 4.0
-offset_top = 3.0
-offset_right = 1924.0
-offset_bottom = 1083.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 scale = Vector2(0.667711, 0.667115)
 texture = ExtResource("1_xui37")
 
@@ -236,23 +234,6 @@ offset_right = 693.0
 offset_bottom = 714.0
 text = "Player 1"
 
-[node name="Tricks Pulled" type="Label" parent="."]
-offset_left = 63.0
-offset_top = 85.0
-offset_right = 219.0
-offset_bottom = 134.0
-text = "Tricks pulled 
-"
-
-[node name="Label" type="Label" parent="Tricks Pulled"]
-layout_mode = 0
-offset_left = 26.0
-offset_top = 27.0
-offset_right = 66.0
-offset_bottom = 50.0
-text = "< >"
-script = ExtResource("8_j12rs")
-
 [node name="buttoncard2" type="Button" parent="."]
 visible = false
 offset_left = 1947.0
@@ -337,6 +318,58 @@ offset_right = 198.0
 offset_bottom = -22.0
 text = "<>"
 script = ExtResource("11_4ee3c")
+
+[node name="trickScoreContainer" type="VBoxContainer" parent="."]
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 157.0
+offset_bottom = 275.0
+theme_override_constants/separation = 2
+script = ExtResource("11_7tkpw")
+
+[node name="teamTricksHeader" type="Label" parent="trickScoreContainer"]
+layout_mode = 2
+text = "Team Tricks:
+"
+horizontal_alignment = 1
+
+[node name="teamTricks" type="Label" parent="trickScoreContainer"]
+layout_mode = 2
+text = "<teamTricks>"
+horizontal_alignment = 1
+
+[node name="oppTricksHeader" type="Label" parent="trickScoreContainer"]
+layout_mode = 2
+text = "Opp Tricks:"
+horizontal_alignment = 1
+
+[node name="oppTricks" type="Label" parent="trickScoreContainer"]
+layout_mode = 2
+text = "<oppTricks>"
+horizontal_alignment = 1
+
+[node name="spacer" type="Label" parent="trickScoreContainer"]
+layout_mode = 2
+
+[node name="teamScoreHeader" type="Label" parent="trickScoreContainer"]
+layout_mode = 2
+text = "Team Score:"
+horizontal_alignment = 1
+
+[node name="teamScore" type="Label" parent="trickScoreContainer"]
+layout_mode = 2
+text = "<teamScore>"
+horizontal_alignment = 1
+
+[node name="oppScoreHeader" type="Label" parent="trickScoreContainer"]
+layout_mode = 2
+text = "Opp Score:"
+horizontal_alignment = 1
+
+[node name="oppScore" type="Label" parent="trickScoreContainer"]
+layout_mode = 2
+text = "<oppScore>"
+horizontal_alignment = 1
 
 [connection signal="work" from="." to="Label2/Label3" method="_on_node_2d_work"]
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
