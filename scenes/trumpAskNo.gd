@@ -16,5 +16,6 @@ func _on_pressed():
 	labelchange2 = get_node("Label2/Label3")
 	get_parent().newturn()
 	turn.text= "2"
+	visible = false
 	
 

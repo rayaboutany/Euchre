@@ -1,10 +1,12 @@
-extends "res://scenes/turnlabel.gd"
+#extends "res://scenes/turnlabel.gd"
+extends Label
 signal cardPlayed
+var turn = 0
 
 #
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	global.cardPlayed.connect(_onemitclick)
+	#global.cardPlayed.connect(_onemitclick)
 	set_text(str(turn))
 
 # newTurn function, call in another script with get_node()/signals
@@ -18,17 +20,19 @@ func _process(delta):
 
 
 func _on_buttoncard_1_pressed():
-	var turn = 2
+	visible = true
+	turn = 1
 	set_text(str(turn))
 	 # Replace with function body.
 
 func _on_buttoncard_2_pressed():
-		var turn = 2
-		set_text(str(turn))  # Replace with function body.
+	visible = true
+	turn = 1
+	set_text(str(turn))  # Replace with function body.
 
 func _onemitclick(card):
 
-	var turn = 2
+	turn = 2
 	set_text(str(turn))
 	print("hi")
 	
