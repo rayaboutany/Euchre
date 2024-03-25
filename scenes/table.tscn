@@ -1,17 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://bhkl35l7oqywa"]
+[gd_scene load_steps=13 format=3 uid="uid://bhkl35l7oqywa"]
 
 [ext_resource type="Script" path="res://scripts/table.gd" id="1_wwq6p"]
 [ext_resource type="Texture2D" uid="uid://dpwr2xxec4e02" path="res://assets/background.png" id="1_xui37"]
 [ext_resource type="Script" path="res://scripts/BackButton.gd" id="3_kec1j"]
 [ext_resource type="Script" path="res://scenes/trumpDisplay.gd" id="4_yeeve"]
 [ext_resource type="Script" path="res://scenes/turnNumber.gd" id="5_jrwic"]
+[ext_resource type="Script" path="res://scenes/playerTurnStatic.gd" id="6_cp70b"]
+[ext_resource type="Script" path="res://scenes/playerTurnNumber.gd" id="6_k3f6b"]
+[ext_resource type="Script" path="res://scenes/trumpAskYes.gd" id="9_tg204"]
+[ext_resource type="Script" path="res://scenes/trumpAsk.gd" id="10_ecrvb"]
+[ext_resource type="Script" path="res://scenes/trumpAskNo.gd" id="10_efgy1"]
+[ext_resource type="Script" path="res://scenes/trumpAskSuit.gd" id="11_4ee3c"]
+[ext_resource type="Script" path="res://scenes/trickScore.gd" id="11_7tkpw"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_wwq6p")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 scale = Vector2(0.667711, 0.667115)
 texture = ExtResource("1_xui37")
 
@@ -57,4 +64,210 @@ text = "<turn>"
 horizontal_alignment = 1
 script = ExtResource("5_jrwic")
 
+[node name="playerTurnStatic" type="Label" parent="."]
+visible = false
+offset_left = 564.0
+offset_top = 410.0
+offset_right = 1006.0
+offset_bottom = 481.0
+text = "It is player   's turn"
+script = ExtResource("6_cp70b")
+
+[node name="playerTurnNumber" type="Label" parent="playerTurnStatic"]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 1.0
+offset_right = 294.0
+offset_bottom = 66.0
+text = "< >"
+script = ExtResource("6_k3f6b")
+
+[node name="Player2Label" type="Label" parent="."]
+offset_left = 280.0
+offset_top = 360.0
+offset_right = 342.0
+offset_bottom = 573.0
+rotation = 4.71239
+text = "Player 2"
+horizontal_alignment = 1
+
+[node name="Player4Label" type="Label" parent="."]
+offset_left = 1000.0
+offset_top = 310.0
+offset_right = 1062.0
+offset_bottom = 523.0
+rotation = 1.5708
+text = "Player 4"
+horizontal_alignment = 1
+
+[node name="Player3Label" type="Label" parent="."]
+offset_left = 609.0
+offset_top = 50.0
+offset_right = 671.0
+offset_bottom = 263.0
+text = "Player 3
+"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 622.0
+offset_top = 691.0
+offset_right = 693.0
+offset_bottom = 714.0
+text = "Player 1"
+
+[node name="buttoncard2" type="Button" parent="."]
+visible = false
+offset_left = 1947.0
+offset_top = 553.0
+offset_right = 2010.0
+offset_bottom = 1209.0
+flat = true
+script = ExtResource("10_efgy1")
+
+[node name="buttoncard3" type="Button" parent="."]
+visible = false
+offset_left = 571.0
+offset_top = 496.0
+offset_right = 697.0
+offset_bottom = 662.0
+flat = true
+
+[node name="buttoncard4" type="Button" parent="."]
+visible = false
+offset_left = 711.0
+offset_top = 487.0
+offset_right = 837.0
+offset_bottom = 653.0
+flat = true
+
+[node name="buttoncard5" type="Button" parent="."]
+visible = false
+offset_left = 810.0
+offset_top = 495.0
+offset_right = 936.0
+offset_bottom = 661.0
+flat = true
+
+[node name="trumpAsk" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 509.0
+offset_top = 309.0
+offset_right = 792.0
+offset_bottom = 420.0
+script = ExtResource("10_ecrvb")
+
+[node name="trumpAskYes" type="Button" parent="trumpAsk"]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 20.0
+offset_right = 284.0
+offset_bottom = 70.0
+text = "No"
+script = ExtResource("9_tg204")
+
+[node name="trumpAskNo" type="Button" parent="trumpAsk"]
+layout_mode = 0
+offset_left = -15.0
+offset_top = 21.0
+offset_right = 117.0
+offset_bottom = 71.0
+text = "Yes"
+script = ExtResource("9_tg204")
+
+[node name="Control" type="Control" parent="trumpAsk/trumpAskNo"]
+anchors_preset = 0
+offset_left = -9.0
+offset_top = 49.0
+offset_right = 146.0
+offset_bottom = 124.0
+
+[node name="trumpAskLabel" type="Label" parent="trumpAsk"]
+layout_mode = 0
+offset_left = -12.0
+offset_top = -46.0
+offset_right = 284.0
+offset_bottom = 8.0
+text = "Would you like                to  be trump?"
+
+[node name="trumpAskSuit" type="Label" parent="trumpAsk"]
+layout_mode = 0
+offset_left = 131.0
+offset_top = -48.0
+offset_right = 181.0
+offset_bottom = -22.0
+text = "<>"
+script = ExtResource("11_4ee3c")
+
+[node name="trickScoreContainer" type="VBoxContainer" parent="."]
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 157.0
+offset_bottom = 275.0
+theme_override_constants/separation = 2
+script = ExtResource("11_7tkpw")
+
+[node name="teamTricksHeader" type="Label" parent="trickScoreContainer"]
+layout_mode = 2
+text = "Team Tricks:
+"
+horizontal_alignment = 1
+
+[node name="teamTricks" type="Label" parent="trickScoreContainer"]
+layout_mode = 2
+text = "<teamTricks>"
+horizontal_alignment = 1
+
+[node name="oppTricksHeader" type="Label" parent="trickScoreContainer"]
+layout_mode = 2
+text = "Opp Tricks:"
+horizontal_alignment = 1
+
+[node name="oppTricks" type="Label" parent="trickScoreContainer"]
+layout_mode = 2
+text = "<oppTricks>"
+horizontal_alignment = 1
+
+[node name="spacer" type="Label" parent="trickScoreContainer"]
+layout_mode = 2
+
+[node name="teamScoreHeader" type="Label" parent="trickScoreContainer"]
+layout_mode = 2
+text = "Team Score:"
+horizontal_alignment = 1
+
+[node name="teamScore" type="Label" parent="trickScoreContainer"]
+layout_mode = 2
+text = "<teamScore>"
+horizontal_alignment = 1
+
+[node name="oppScoreHeader" type="Label" parent="trickScoreContainer"]
+layout_mode = 2
+text = "Opp Score:"
+horizontal_alignment = 1
+
+[node name="oppScore" type="Label" parent="trickScoreContainer"]
+layout_mode = 2
+text = "<oppScore>"
+horizontal_alignment = 1
+
+[node name="dealerLabel" type="Label" parent="."]
+offset_left = 1022.0
+offset_top = 310.0
+offset_right = 1083.0
+offset_bottom = 333.0
+rotation = 1.5708
+text = "(Dealer)"
+
+[connection signal="work" from="." to="playerTurnStatic/playerTurnNumber" method="_on_node_2d_work"]
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="focus_exited" from="playerTurnStatic/playerTurnNumber" to="." method="_on_label_3_focus_exited"]
+[connection signal="pressed" from="buttoncard2" to="playerTurnStatic/playerTurnNumber" method="_on_buttoncard_2_pressed"]
+[connection signal="pressed" from="trumpAsk/trumpAskYes" to="." method="_on_buttoncard_1_pressed"]
+[connection signal="pressed" from="trumpAsk/trumpAskYes" to="playerTurnStatic" method="_on_buttoncard_1_pressed"]
+[connection signal="pressed" from="trumpAsk/trumpAskYes" to="playerTurnStatic/playerTurnNumber" method="_on_buttoncard_1_pressed"]
+[connection signal="pressed" from="trumpAsk/trumpAskYes" to="trumpAsk" method="_on_trump_ask_yes_pressed"]
+[connection signal="pressed" from="trumpAsk/trumpAskNo" to="playerTurnStatic" method="_on_buttoncard_2_pressed"]
+[connection signal="pressed" from="trumpAsk/trumpAskNo" to="playerTurnStatic/playerTurnNumber" method="_on_buttoncard_1_pressed"]
+[connection signal="pressed" from="trumpAsk/trumpAskNo" to="trumpAsk" method="_on_trump_ask_no_pressed"]

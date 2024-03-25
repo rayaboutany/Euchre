@@ -1,17 +1,15 @@
 extends Label
-var turn = 1
+var tricks = 0
+signal cardPlayed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	set_text(str(turn))
+	set_text(str(tricks))
 
 # newTurn function, call in another script with get_node()/signals
 func newTurn():
-	turn += 1
-	#make decision structure:
-	#if turn == 5: call newTrick and reset turn to 1
-	#update display
-	set_text(str(turn))
+	tricks += 1
+	set_text(str(tricks))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
