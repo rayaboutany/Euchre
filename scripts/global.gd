@@ -4,6 +4,10 @@ signal musicPressed(toggled_on)
 signal cardSelected(card)
 signal cardPlayed(card)
 signal cardclicked(card)
+signal newTurn(newTurn)
+signal newTrick(newTrick)
+signal calculateTrick(calculateTrick)
+signal calculateRound(calculateRound)
 var current_scene = null
 
 # Called when the node enters the scene tree for the first time.

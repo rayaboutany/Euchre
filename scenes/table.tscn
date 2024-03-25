@@ -1,16 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://bhkl35l7oqywa"]
+[gd_scene load_steps=12 format=3 uid="uid://bhkl35l7oqywa"]
 
 [ext_resource type="Script" path="res://scripts/table.gd" id="1_wwq6p"]
 [ext_resource type="Texture2D" uid="uid://dpwr2xxec4e02" path="res://assets/background.png" id="1_xui37"]
 [ext_resource type="Script" path="res://scripts/BackButton.gd" id="3_kec1j"]
 [ext_resource type="Script" path="res://scenes/trumpDisplay.gd" id="4_yeeve"]
 [ext_resource type="Script" path="res://scenes/turnNumber.gd" id="5_jrwic"]
-[ext_resource type="Script" path="res://scenes/playerTurnStatic.gd" id="6_cp70b"]
-[ext_resource type="Script" path="res://scenes/playerTurnNumber.gd" id="6_k3f6b"]
-[ext_resource type="Script" path="res://scenes/trumpAskYes.gd" id="9_tg204"]
-[ext_resource type="Script" path="res://scenes/trumpAsk.gd" id="10_ecrvb"]
-[ext_resource type="Script" path="res://scenes/trumpAskNo.gd" id="10_efgy1"]
-[ext_resource type="Script" path="res://scenes/trumpAskSuit.gd" id="11_4ee3c"]
+[ext_resource type="Script" path="res://scenes/Label3.gd" id="6_k3f6b"]
+[ext_resource type="Texture2D" uid="uid://c4a71tcwbhjjg" path="res://assets/card back blue.png" id="7_pdtdi"]
+[ext_resource type="Script" path="res://scenes/buttoncard1.gd" id="9_tg204"]
+[ext_resource type="Script" path="res://scenes/buttoncard2.gd" id="10_efgy1"]
+[ext_resource type="Script" path="res://scenes/Label2.gd" id="11_4ee3c"]
 [ext_resource type="Script" path="res://scenes/trickScore.gd" id="11_7tkpw"]
 
 [node name="Node2D" type="Node2D"]
@@ -64,47 +63,166 @@ text = "<turn>"
 horizontal_alignment = 1
 script = ExtResource("5_jrwic")
 
-[node name="playerTurnStatic" type="Label" parent="."]
-visible = false
+[node name="Label2" type="Label" parent="."]
 offset_left = 564.0
 offset_top = 410.0
 offset_right = 1006.0
 offset_bottom = 481.0
-text = "It is player   's turn"
-script = ExtResource("6_cp70b")
+text = "It is player's    turn"
 
-[node name="playerTurnNumber" type="Label" parent="playerTurnStatic"]
+[node name="Label3" type="Label" parent="Label2"]
 layout_mode = 0
-offset_left = 84.0
+offset_left = 96.0
 offset_top = 1.0
-offset_right = 294.0
+offset_right = 306.0
 offset_bottom = 66.0
 text = "< >"
 script = ExtResource("6_k3f6b")
 
-[node name="Player2Label" type="Label" parent="."]
-offset_left = 280.0
-offset_top = 360.0
-offset_right = 342.0
-offset_bottom = 573.0
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 258.0
+offset_top = 526.0
+offset_right = 332.0
+offset_bottom = 858.0
+rotation = 3.14159
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+position = Vector2(-50, 143)
+rotation = 1.5708
+scale = Vector2(0.0925656, 0.0840164)
+texture = ExtResource("7_pdtdi")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Control"]
+position = Vector2(-48, 323)
+rotation = 1.5708
+scale = Vector2(0.0925656, 0.0840164)
+texture = ExtResource("7_pdtdi")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Control"]
+position = Vector2(-49, 280)
+rotation = 1.5708
+scale = Vector2(0.0925656, 0.0840164)
+texture = ExtResource("7_pdtdi")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Control"]
+position = Vector2(-49, 232)
+rotation = 1.5708
+scale = Vector2(0.0925656, 0.0840164)
+texture = ExtResource("7_pdtdi")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Control"]
+position = Vector2(-50, 181)
+rotation = 1.5708
+scale = Vector2(0.0925656, 0.0840164)
+texture = ExtResource("7_pdtdi")
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 259.0
+offset_right = 83.0
+offset_bottom = 472.0
 rotation = 4.71239
 text = "Player 2"
 horizontal_alignment = 1
 
-[node name="Player4Label" type="Label" parent="."]
-offset_left = 1000.0
-offset_top = 310.0
-offset_right = 1062.0
-offset_bottom = 523.0
+[node name="Control2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 909.0
+offset_top = 529.0
+offset_right = 983.0
+offset_bottom = 861.0
+rotation = 3.14159
+
+[node name="Sprite2D" type="Sprite2D" parent="Control2"]
+position = Vector2(-50, 143)
+rotation = 1.5708
+scale = Vector2(0.0925656, 0.0840164)
+texture = ExtResource("7_pdtdi")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Control2"]
+position = Vector2(-48, 323)
+rotation = 1.5708
+scale = Vector2(0.0925656, 0.0840164)
+texture = ExtResource("7_pdtdi")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Control2"]
+position = Vector2(-49, 280)
+rotation = 1.5708
+scale = Vector2(0.0925656, 0.0840164)
+texture = ExtResource("7_pdtdi")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Control2"]
+position = Vector2(-49, 232)
+rotation = 1.5708
+scale = Vector2(0.0925656, 0.0840164)
+texture = ExtResource("7_pdtdi")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Control2"]
+position = Vector2(-50, 181)
+rotation = 1.5708
+scale = Vector2(0.0925656, 0.0840164)
+texture = ExtResource("7_pdtdi")
+
+[node name="Label" type="Label" parent="Control2"]
+layout_mode = 0
+offset_left = -106.0
+offset_top = 208.0
+offset_right = -44.0
+offset_bottom = 421.0
 rotation = 1.5708
 text = "Player 4"
 horizontal_alignment = 1
 
-[node name="Player3Label" type="Label" parent="."]
-offset_left = 609.0
-offset_top = 50.0
-offset_right = 671.0
-offset_bottom = 263.0
+[node name="Control3" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 394.0
+offset_top = 25.0
+offset_right = 468.0
+offset_bottom = 357.0
+rotation = 4.71239
+
+[node name="Sprite2D" type="Sprite2D" parent="Control3"]
+position = Vector2(-50, 143)
+rotation = 1.5708
+scale = Vector2(0.0925656, 0.0840164)
+texture = ExtResource("7_pdtdi")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Control3"]
+position = Vector2(-48, 323)
+rotation = 1.5708
+scale = Vector2(0.0925656, 0.0840164)
+texture = ExtResource("7_pdtdi")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Control3"]
+position = Vector2(-49, 280)
+rotation = 1.5708
+scale = Vector2(0.0925656, 0.0840164)
+texture = ExtResource("7_pdtdi")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Control3"]
+position = Vector2(-49, 232)
+rotation = 1.5708
+scale = Vector2(0.0925656, 0.0840164)
+texture = ExtResource("7_pdtdi")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Control3"]
+position = Vector2(-50, 181)
+rotation = 1.5708
+scale = Vector2(0.0925656, 0.0840164)
+texture = ExtResource("7_pdtdi")
+
+[node name="Label" type="Label" parent="Control3"]
+layout_mode = 0
+offset_left = -90.9998
+offset_top = 203.0
+offset_right = -28.9998
+offset_bottom = 416.0
+rotation = 1.5708
 text = "Player 3
 "
 horizontal_alignment = 1
@@ -149,53 +267,54 @@ offset_right = 936.0
 offset_bottom = 661.0
 flat = true
 
-[node name="trumpAsk" type="Control" parent="."]
+[node name="Control4" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 509.0
-offset_top = 309.0
-offset_right = 792.0
-offset_bottom = 420.0
-script = ExtResource("10_ecrvb")
+offset_left = 491.0
+offset_top = 235.0
+offset_right = 774.0
+offset_bottom = 346.0
 
-[node name="trumpAskYes" type="Button" parent="trumpAsk"]
+[node name="buttoncard1" type="Button" parent="Control4"]
 layout_mode = 0
 offset_left = 152.0
 offset_top = 20.0
 offset_right = 284.0
 offset_bottom = 70.0
 text = "No"
+flat = true
 script = ExtResource("9_tg204")
 
-[node name="trumpAskNo" type="Button" parent="trumpAsk"]
+[node name="buttoncard2" type="Button" parent="Control4"]
 layout_mode = 0
 offset_left = -15.0
 offset_top = 21.0
 offset_right = 117.0
 offset_bottom = 71.0
 text = "Yes"
+flat = true
 script = ExtResource("9_tg204")
 
-[node name="Control" type="Control" parent="trumpAsk/trumpAskNo"]
+[node name="Control" type="Control" parent="Control4/buttoncard2"]
 anchors_preset = 0
 offset_left = -9.0
 offset_top = 49.0
 offset_right = 146.0
 offset_bottom = 124.0
 
-[node name="trumpAskLabel" type="Label" parent="trumpAsk"]
+[node name="Label" type="Label" parent="Control4"]
 layout_mode = 0
-offset_left = -12.0
+offset_left = 5.0
 offset_top = -46.0
-offset_right = 284.0
+offset_right = 301.0
 offset_bottom = 8.0
 text = "Would you like                to  be trump?"
 
-[node name="trumpAskSuit" type="Label" parent="trumpAsk"]
+[node name="Label2" type="Label" parent="Control4"]
 layout_mode = 0
-offset_left = 131.0
+offset_left = 148.0
 offset_top = -48.0
-offset_right = 181.0
+offset_right = 198.0
 offset_bottom = -22.0
 text = "<>"
 script = ExtResource("11_4ee3c")
@@ -252,22 +371,10 @@ layout_mode = 2
 text = "<oppScore>"
 horizontal_alignment = 1
 
-[node name="dealerLabel" type="Label" parent="."]
-offset_left = 1022.0
-offset_top = 310.0
-offset_right = 1083.0
-offset_bottom = 333.0
-rotation = 1.5708
-text = "(Dealer)"
-
-[connection signal="work" from="." to="playerTurnStatic/playerTurnNumber" method="_on_node_2d_work"]
+[connection signal="work" from="." to="Label2/Label3" method="_on_node_2d_work"]
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
-[connection signal="focus_exited" from="playerTurnStatic/playerTurnNumber" to="." method="_on_label_3_focus_exited"]
-[connection signal="pressed" from="buttoncard2" to="playerTurnStatic/playerTurnNumber" method="_on_buttoncard_2_pressed"]
-[connection signal="pressed" from="trumpAsk/trumpAskYes" to="." method="_on_buttoncard_1_pressed"]
-[connection signal="pressed" from="trumpAsk/trumpAskYes" to="playerTurnStatic" method="_on_buttoncard_1_pressed"]
-[connection signal="pressed" from="trumpAsk/trumpAskYes" to="playerTurnStatic/playerTurnNumber" method="_on_buttoncard_1_pressed"]
-[connection signal="pressed" from="trumpAsk/trumpAskYes" to="trumpAsk" method="_on_trump_ask_yes_pressed"]
-[connection signal="pressed" from="trumpAsk/trumpAskNo" to="playerTurnStatic" method="_on_buttoncard_2_pressed"]
-[connection signal="pressed" from="trumpAsk/trumpAskNo" to="playerTurnStatic/playerTurnNumber" method="_on_buttoncard_1_pressed"]
-[connection signal="pressed" from="trumpAsk/trumpAskNo" to="trumpAsk" method="_on_trump_ask_no_pressed"]
+[connection signal="focus_exited" from="Label2/Label3" to="." method="_on_label_3_focus_exited"]
+[connection signal="pressed" from="buttoncard2" to="Label2/Label3" method="_on_buttoncard_2_pressed"]
+[connection signal="pressed" from="Control4/buttoncard1" to="." method="_on_buttoncard_1_pressed"]
+[connection signal="pressed" from="Control4/buttoncard1" to="Label2/Label3" method="_on_buttoncard_1_pressed"]
+[connection signal="pressed" from="Control4/buttoncard2" to="Label2/Label3" method="_on_buttoncard_1_pressed"]
