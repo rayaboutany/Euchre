@@ -281,7 +281,7 @@ offset_bottom = 23.0
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
 [connection signal="timeout" from="TextureRect2/Label/Timer" to="TextureRect2/Label" method="_on_timer_timeout"]
 [connection signal="focus_exited" from="Control5/Label2/Label3" to="." method="_on_label_3_focus_exited"]
-[connection signal="pressed" from="Control6/buttoncard6" to="TextureRect2/Label" method="_on_buttoncard_2_pressed"]
 [connection signal="pressed" from="Control6/buttoncard6" to="TextureRect2/Label" method="_on_buttoncard_6_pressed"]
+[connection signal="pressed" from="Control6/buttoncard6" to="TextureRect2/Label" method="_on_buttoncard_2_pressed"]
 [connection signal="pressed" from="Control6/buttoncard6" to="Control5/Label2/Label3" method="_on_buttoncard_1_pressed"]
 [connection signal="pressed" from="Control6/buttoncard1" to="TextureRect2/Label" method="_on_buttoncard_1_pressed"]
