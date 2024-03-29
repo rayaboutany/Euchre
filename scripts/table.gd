@@ -28,6 +28,7 @@ var dealer = 0
 
 #instantiates all of the card scenes and adds them to the deck array
 func _initialize_deck():
+	chooseDealer()
 	var deckBuildIndex = 0
 	deck.resize(24)
 	for i in 4:
@@ -62,6 +63,13 @@ func shuffle():
 		deck[i] = shuffleDeck[i]
 		print(deck[i].suit + str(deck[i].value))
 		
+func get_trump_card():
+	for nextcard in deck:
+		if nextcard!= null:
+			print(nextcard)
+			return nextcard
+	return null
+
 func chooseDealer():
 	dealer += 1
 	print("dealer: "+ str(dealer))
@@ -80,9 +88,7 @@ func chooseDealer():
 		2:
 			$dealerLabel.rotation = PI/2
 			$dealerLabel.position = Vector2(1020,310)
-			
-			
-	
+
 #pulls a card off of the top of the deck, adds the card to the specified hand array, and sets the same card in the deck to null
 func deal(hand):
 	var cardsDrawn = 0
@@ -134,8 +140,7 @@ func showHand(hand):
 				hand[i].scale = Vector2(.2,.2)
 				hand[i].rotation = 3*PI/2
 				hand[i].position = Vector2(910,270+36*i)
-
-
+				
 #there's gotta be a better way to do this right
 func createHands():
 	_initialize_hand(playerHand)
@@ -171,7 +176,7 @@ func compareCards(card1, card2):
 			return card1
 		else: if card2.value > card1.value:
 			return card2
-			
+
 func sortCardArray(cardArray):
 	var min_index
 	var buffer
@@ -184,8 +189,6 @@ func sortCardArray(cardArray):
 		cardArray[i] = cardArray[min_index]
 		cardArray[min_index] = buffer
 				
-	
-	
 #runs every frame, has to be here i think
 func _process(delta):
 	if currentTrick[3] != null:
@@ -200,6 +203,7 @@ func _process(delta):
 			currentTrick[i] = null
 		$trickScoreContainer/teamTricks.text = (str(teamTricks))
 		$trickScoreContainer/oppTricks.text = (str(oppTricks))
+
 
 #maybe can delete this signal with how things currently work
 func _onCardSelected(card):
@@ -225,7 +229,7 @@ func _onCardPlayed(card):
 		playBotCard("bot1")
 		playBotCard("bot2")
 		playBotCard("bot3")
-		
+
 func playBotCard(player):
 	var hand
 	var cardShift
@@ -246,7 +250,6 @@ func playBotCard(player):
 			hand[i].z_index = 1
 			for j in 4:
 				print(str(j))
-				
 				if currentTrick[j] == null:
 					currentTrick[j] = hand[i]
 					break

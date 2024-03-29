@@ -71,7 +71,6 @@ func _ready():
 
 			print(suit + " is trump")
 			#will change to forward loop, brain 404 not found, works tho!
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass

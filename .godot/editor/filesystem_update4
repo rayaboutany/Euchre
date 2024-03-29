@@ -1,0 +1,6 @@
+res://scenes/table.tscn
+res://scripts/card.gd
+res://scripts/table.gd
+res://scenes/card.tscn
+res://scenes/playerTurnNumber.gd
+res://scenes/turnlabel.gd

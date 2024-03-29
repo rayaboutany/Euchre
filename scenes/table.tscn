@@ -11,8 +11,6 @@
 [ext_resource type="Script" path="res://scenes/Label500.gd" id="10_nay7j"]
 [ext_resource type="Script" path="res://scenes/Label2.gd" id="11_4ee3c"]
 [ext_resource type="Script" path="res://scenes/trickScore.gd" id="11_7tkpw"]
-[ext_resource type="Script" path="res://scenes/Label.gd" id="12_hhiy6"]
-
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_wwq6p")
 

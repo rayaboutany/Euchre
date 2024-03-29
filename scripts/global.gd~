@@ -4,6 +4,11 @@ signal musicPressed(toggled_on)
 signal cardSelected(card)
 signal cardPlayed(card)
 signal cardclicked(card)
+<<<<<<< HEAD
+signal trumpselected(suit)
+signal delete()
+=======
+>>>>>>> 41965ef93cbf31a16df9ffbc2ea2854652ee0b15
 var current_scene = null
 
 # Called when the node enters the scene tree for the first time.

@@ -32,7 +32,6 @@ var textureURLs = [
 "res://assets/cards/English_pattern_queen_of_spades.svg.png",
 "res://assets/cards/English_pattern_king_of_spades.svg.png",
 "res://assets/cards/English_pattern_ace_of_spades.svg.png"
-
 ]
 
 func setFaceTexture():
