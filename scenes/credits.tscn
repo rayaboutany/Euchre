@@ -26,8 +26,10 @@ offset_right = 445.0
 offset_bottom = 308.0
 theme_override_font_sizes/font_size = 24
 text = "Project Management: Raya Boutany
-UI Design: River Dyke
-Programming: River Dyke"
+Main UI Design: River Dyke
+Table Design: River Dyke, Erin Cook, Nick Barney, Robbie Atwood & Elijah Day
+Programming: River Dyke, Erin Cook, Nick Barney, Robbie Atwood & Elijah Day
+Testing/Bugfixing: Elijah Day"
 
 [node name="BackButton" type="Button" parent="."]
 offset_left = 1018.0

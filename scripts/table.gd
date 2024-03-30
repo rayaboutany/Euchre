@@ -1,4 +1,5 @@
 extends Node2D
+#variables and signals
 var load_card = preload("res://scenes/card.tscn")
 var deck = []
 var playerHand = []
@@ -42,9 +43,11 @@ func _initialize_deck():
 			print(deck[deckBuildIndex].suit + str(deck[deckBuildIndex].value))
 			deckBuildIndex += 1
 
+#resizes hand for the table scene
 func _initialize_hand(hand):
 	hand.resize(5)
 
+#shuffles the deck array
 func shuffle():
 	print("shuffling...")
 	var shuffleDeck = []
@@ -62,7 +65,8 @@ func shuffle():
 	for i in 24:
 		deck[i] = shuffleDeck[i]
 		print(deck[i].suit + str(deck[i].value))
-		
+
+#retrieves the trump card		
 func get_trump_card():
 	for nextcard in deck:
 		if nextcard!= null:
@@ -70,6 +74,7 @@ func get_trump_card():
 			return nextcard
 	return null
 
+#tracking the dealer for the current hand
 func chooseDealer():
 	dealer += 1
 	print("dealer: "+ str(dealer))
@@ -140,7 +145,8 @@ func showHand(hand):
 				hand[i].scale = Vector2(.2,.2)
 				hand[i].rotation = 3*PI/2
 				hand[i].position = Vector2(910,270+36*i)
-				
+
+#calling hand and deal functions to setup player hands				
 #there's gotta be a better way to do this right
 func createHands():
 	_initialize_hand(playerHand)
@@ -164,7 +170,8 @@ func _ready():
 	currentTrick.resize(4)
 	shuffle()
 	createHands()
-	
+
+#assessing card values and returning the greater card
 func compareCards(card1, card2):
 	var trump = $TextureRect2.suit
 	if (card1.suit == trump && card2.suit != trump):
@@ -177,6 +184,7 @@ func compareCards(card1, card2):
 		else: if card2.value > card1.value:
 			return card2
 
+#sorting the given card array
 func sortCardArray(cardArray):
 	var min_index
 	var buffer
@@ -209,6 +217,7 @@ func _process(delta):
 func _onCardSelected(card):
 	print("Card selected:", card.suit, card.value)
 
+#output response for cards played providing debug info
 func _onCardPlayed(card):
 	print("Card played:", card.suit, card.value)
 	print(str($Control5/Label2/Label3.turn))
@@ -230,6 +239,7 @@ func _onCardPlayed(card):
 		playBotCard("bot2")
 		playBotCard("bot3")
 
+#playing cards for bots
 func playBotCard(player):
 	var hand
 	var cardShift
@@ -256,3 +266,4 @@ func playBotCard(player):
 			hand[i] = null
 			break
 	print(currentTrick)
+#end of script

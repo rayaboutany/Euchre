@@ -10,6 +10,6 @@ func _ready():
 func _process(delta):
 	pass
 
-
+#switches scene to game table when start button is pressed
 func _on_pressed():
 	global.goto_scene("res://scenes/table.tscn")

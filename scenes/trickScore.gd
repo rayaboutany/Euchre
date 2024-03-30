@@ -1,4 +1,5 @@
 extends VBoxContainer
+#variables and signals
 var trickCount = 1
 var teamTricks = 0
 var oppTricks = 0
