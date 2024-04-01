@@ -15,6 +15,7 @@ var oppTricks = 0
 var teamScore = 0
 var oppScore = 0
 var dealer = 0
+signal nextPlayer
 #question: Attackers (Trump Selector) & Defenders Logic for Scoring?
 #question 2: Scoring for going alone? (Maybe Future)
 #Scoring notes:
@@ -164,7 +165,8 @@ func createHands():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	global.cardPlayed.connect(_onCardPlayed)
+	#global.cardPlayed.connect(_onCardPlayed)
+	global.tablePlayCard.connect(_onCardPlayed)
 	_initialize_deck()
 	tricks.resize(5)
 	currentTrick.resize(4)
@@ -209,8 +211,8 @@ func _process(delta):
 		for i in 4:
 			currentTrick[i].visible = false
 			currentTrick[i] = null
-		$trickScoreContainer/teamTricks.text = (str(teamTricks))
-		$trickScoreContainer/oppTricks.text = (str(oppTricks))
+		$trickScoreContainer/teamContainer/teamTricks.text = (str(teamTricks) + " Tricks")
+		$trickScoreContainer/oppContainer/oppTricks.text = (str(oppTricks) + " Tricks")
 
 
 #maybe can delete this signal with how things currently work
@@ -221,23 +223,23 @@ func _onCardSelected(card):
 func _onCardPlayed(card):
 	print("Card played:", card.suit, card.value)
 	print(str($Control5/Label3.turn))
-	if $Control5/Label3.turn == 1:
-		$Control5/Label3._onemitclick(card)
-		print("Card played:", card.suit, card.value)
-		for i in 5:
-			if playerHand[i] != null:
-				if playerHand[i].id == card.id:
-					playerHand[i].position -= Vector2(0,100)
-					for j in 4:
-						print(str(j))
-						if currentTrick[j] == null:
-							currentTrick[j] = playerHand[i]
-							break
-					playerHand[i] = null
-		print(currentTrick)
-		playBotCard("bot1")
-		playBotCard("bot2")
-		playBotCard("bot3")
+	#if $Control5/Label3.turn == 1:
+		#$Control5/Label3.cardEmitted(card)
+	print("Card played:", card.id)
+	for i in 5:
+		if playerHand[i] != null:
+			if playerHand[i].id == card.id:
+				playerHand[i].position -= Vector2(0,100)
+				for j in 4:
+					#print(str(j))
+					if currentTrick[j] == null:
+						currentTrick[j] = playerHand[i]
+						break
+				playerHand[i] = null
+	print("Current Trick: "+str(currentTrick))
+	playBotCard("bot1")
+	playBotCard("bot2")
+	playBotCard("bot3")
 
 #playing cards for bots
 func playBotCard(player):
@@ -266,4 +268,10 @@ func playBotCard(player):
 			hand[i] = null
 			break
 	print(currentTrick)
+	nextPlayer.emit()
 #end of script
+
+
+func _on_move_timer_timeout():
+	
+	pass # Replace with function body.

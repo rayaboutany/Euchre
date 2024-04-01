@@ -49,6 +49,7 @@ func _on_buttoncard_2_pressed():
 	
 func _unhandled_input(texture):
 	if texture is InputEventMouseButton and texture.pressed and texture.button_index == MOUSE_BUTTON_LEFT:
+		print(texture)
 		for i in range(textureURLs.size()):
 			match textureURLs[i]:
 				"res://assets/cards/Hearts.png":
@@ -66,7 +67,7 @@ func _unhandled_input(texture):
 					print(texture +"spades")
 					
 			break
-		print(texture)
+		
 		#the 
 func meowplz(suits):
 	meow =suits

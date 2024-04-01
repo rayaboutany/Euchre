@@ -4,13 +4,16 @@ signal cardPlayed
 #
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	global.cardPlayed.connect(_onemitclick)
+	global.cardPlayed.connect(cardEmitted)
+	#nextPlayer.connect(newTurn)
 	set_text("It's player "+ str(turn) + "'s turn")
 
 # newTurn function, call in another script with get_node()/signals
 func newTurn():
 	turn += 1
-	
+	if turn > 4:
+		turn = 1
+	set_text("It's player "+ str(turn) + "'s turn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -18,22 +21,26 @@ func _process(delta):
 
 
 func _on_buttoncard_1_pressed():
-	var turn = "1"
+	visible = true
+	turn = 1
 	set_text("It's player "+ str(turn) + "'s turn")
 	 # Replace with function body.
 
-func _on_buttoncard_2_pressed():
-		var turn = 2
-		set_text("It's player "+ str(turn) + "'s turn")  # Replace with function body.
+#func _on_buttoncard_2_pressed():
+#	visible = true
+#	var turn = 2
+#	set_text("It's player "+ str(turn) + "'s turn")  # Replace with function body.
 
-func _onemitclick(card):
-
-	var turn = 2
-	set_text("It's player "+ str(turn) + "'s turn")
-	print("hi")
+func cardEmitted(card):
+	print("turn: "+str(turn) )
+	if turn == 1:
+		global.tablePlayCard.emit(card)
+		turn = 2
+		set_text("It's player "+ str(turn) + "'s turn")
+		print("hi")
 	
 
 func _on_node_2d_work():
-	var turn = 2
+	turn = 2
 	set_text("It's player "+ str(turn) + "'s turn")
 	print("hi") # Replace with function body.

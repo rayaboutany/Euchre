@@ -6,6 +6,7 @@ var current_scene = null
 signal musicPressed(toggled_on)
 signal cardSelected(card)
 signal cardPlayed(card)
+signal tablePlayCard(card)
 signal cardclicked(card)
 signal trumpselected(suit)
 signal delete()

@@ -12,10 +12,10 @@ signal cardplayed
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# $ referencing child label objects of trickScoreContainer. Neat!
-	$teamTricks.text = str(teamTricks)
-	$oppTricks.text = str(oppTricks)
-	$teamScore.text = str(teamScore)
-	$oppScore.text = str(oppScore)
+	$teamContainer/teamTricks.text = str(teamTricks) + " Tricks"
+	$oppContainer/oppTricks.text = str(oppTricks) + " Tricks"
+	$teamContainer/teamScore.text = str(teamScore) + " Points"
+	$oppContainer/oppScore.text = str(oppScore) + " Points"
 
 # newTrick function, call in another script with signals
 func newTrick():
@@ -31,8 +31,8 @@ func calculateTrick():
 	#determine trick winner
 	#add trick to score
 	#update display
-	$teamTricks.text = str(teamTricks)
-	$oppTricks.text = str(oppTricks)
+	$teamTricks.text = str(teamTricks) + " Tricks"
+	$oppTricks.text = str(oppTricks) + " Tricks"
 	
 func calculateRound():
 	#determine round winner
