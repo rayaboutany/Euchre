@@ -11,3 +11,5 @@ res://scripts/global.gd
 res://scenes/trickScore.gd
 res://scenes/turnNumber.gd
 res://scenes/Label.gd
+res://scripts/suitIcon.gd
+res://scenes/suitIcon.tscn

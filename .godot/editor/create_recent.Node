@@ -1,4 +1,6 @@
+Sprite2D
+TextureRect
+Control
 HBoxContainer
 Timer
 Label
-Control
