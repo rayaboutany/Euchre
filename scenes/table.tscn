@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bhkl35l7oqywa"]
+[gd_scene load_steps=12 format=3 uid="uid://bhkl35l7oqywa"]
 
 [ext_resource type="Script" path="res://scripts/table.gd" id="1_wwq6p"]
 [ext_resource type="Texture2D" uid="uid://dpwr2xxec4e02" path="res://assets/background.png" id="1_xui37"]
@@ -8,7 +8,6 @@
 [ext_resource type="Script" path="res://scenes/Label3.gd" id="6_k3f6b"]
 [ext_resource type="Script" path="res://scenes/Timer.gd" id="7_hkfmt"]
 [ext_resource type="Script" path="res://scenes/buttoncard1.gd" id="9_tg204"]
-[ext_resource type="Script" path="res://scenes/Label500.gd" id="10_nay7j"]
 [ext_resource type="Script" path="res://scenes/Label2.gd" id="11_4ee3c"]
 [ext_resource type="Script" path="res://scenes/trickScore.gd" id="11_7tkpw"]
 [ext_resource type="Script" path="res://scenes/Label.gd" id="12_hhiy6"]
@@ -49,12 +48,13 @@ script = ExtResource("4_yeeve")
 
 [node name="Label2" type="Label" parent="TextureRect2"]
 layout_mode = 0
-offset_left = -2208.0
-offset_top = -620.0
-offset_right = -336.0
-offset_bottom = -20.0
+offset_left = -2624.0
+offset_top = -436.0
+offset_right = -1850.0
+offset_bottom = -344.0
 theme_override_font_sizes/font_size = 50
-text = "<>"
+text = "Would you like        to be trump?"
+horizontal_alignment = 1
 script = ExtResource("11_4ee3c")
 
 [node name="Label" type="Label" parent="TextureRect2"]
@@ -100,10 +100,10 @@ rotation = 3.14159
 
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 21.0
-offset_top = 259.0
-offset_right = 83.0
-offset_bottom = 472.0
+offset_left = 12.9995
+offset_top = 210.0
+offset_right = 74.9995
+offset_bottom = 423.0
 rotation = 4.71239
 text = "Player 2"
 horizontal_alignment = 1
@@ -119,10 +119,10 @@ rotation = 3.14159
 
 [node name="Label" type="Label" parent="Control2"]
 layout_mode = 0
-offset_left = -106.0
-offset_top = 208.0
-offset_right = -44.0
-offset_bottom = 421.0
+offset_left = -130.0
+offset_top = 148.0
+offset_right = -68.0004
+offset_bottom = 361.0
 rotation = 1.5708
 text = "Player 4"
 horizontal_alignment = 1
@@ -138,10 +138,10 @@ rotation = 4.71239
 
 [node name="Label" type="Label" parent="Control3"]
 layout_mode = 0
-offset_left = -90.9998
-offset_top = 203.0
-offset_right = -28.9998
-offset_bottom = 416.0
+offset_left = 11.0002
+offset_top = 204.0
+offset_right = 73.0002
+offset_bottom = 229.0
 rotation = 1.5708
 text = "Player 3
 "
@@ -153,23 +153,6 @@ offset_top = 691.0
 offset_right = 693.0
 offset_bottom = 714.0
 text = "Player 1"
-
-[node name="Control4" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 491.0
-offset_top = 235.0
-offset_right = 774.0
-offset_bottom = 346.0
-
-[node name="Label" type="Label" parent="Control4"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = -65.0
-offset_right = 301.0
-offset_bottom = -11.0
-text = "Would you like                         to  be trump?"
-script = ExtResource("10_nay7j")
 
 [node name="trickScoreContainer" type="VBoxContainer" parent="."]
 offset_left = 24.0
@@ -229,21 +212,13 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label2" type="Label" parent="Control5"]
+[node name="Label3" type="Label" parent="Control5"]
 layout_mode = 0
-offset_left = 564.0
-offset_top = 410.0
-offset_right = 1006.0
-offset_bottom = 481.0
-text = "It is player's    turn"
-
-[node name="Label3" type="Label" parent="Control5/Label2"]
-layout_mode = 0
-offset_left = 96.0
-offset_top = 1.0
-offset_right = 306.0
-offset_bottom = 66.0
-text = "< >"
+offset_left = 565.0
+offset_top = 435.0
+offset_right = 775.0
+offset_bottom = 500.0
+text = "It's player X's turn"
 script = ExtResource("6_k3f6b")
 
 [node name="Control6" type="Control" parent="."]
@@ -254,34 +229,34 @@ offset_bottom = 40.0
 
 [node name="buttoncard6" type="Button" parent="Control6"]
 layout_mode = 0
-offset_left = 491.0
-offset_top = 240.0
-offset_right = 610.0
-offset_bottom = 317.0
+offset_left = 498.0
+offset_top = 258.0
+offset_right = 618.0
+offset_bottom = 303.0
 theme_override_font_sizes/font_size = 20
 text = "Yes"
-flat = true
 script = ExtResource("9_tg204")
 
 [node name="buttoncard1" type="Button" parent="Control6"]
 layout_mode = 0
-offset_left = 643.0
-offset_top = 255.0
-offset_right = 775.0
-offset_bottom = 305.0
+offset_left = 640.0
+offset_top = 259.0
+offset_right = 760.0
+offset_bottom = 304.0
+theme_override_font_sizes/font_size = 20
 text = "No"
-flat = true
 script = ExtResource("9_tg204")
 
 [node name="dealerLabel" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
+text = "(Dealer)"
 
-[connection signal="work" from="." to="Control5/Label2/Label3" method="_on_node_2d_work"]
+[connection signal="work" from="." to="Control5/Label3" method="_on_node_2d_work"]
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
 [connection signal="timeout" from="TextureRect2/Label/Timer" to="TextureRect2/Label" method="_on_timer_timeout"]
-[connection signal="focus_exited" from="Control5/Label2/Label3" to="." method="_on_label_3_focus_exited"]
+[connection signal="focus_exited" from="Control5/Label3" to="." method="_on_label_3_focus_exited"]
 [connection signal="pressed" from="Control6/buttoncard6" to="TextureRect2/Label" method="_on_buttoncard_2_pressed"]
 [connection signal="pressed" from="Control6/buttoncard6" to="TextureRect2/Label" method="_on_buttoncard_6_pressed"]
-[connection signal="pressed" from="Control6/buttoncard6" to="Control5/Label2/Label3" method="_on_buttoncard_1_pressed"]
+[connection signal="pressed" from="Control6/buttoncard6" to="Control5/Label3" method="_on_buttoncard_1_pressed"]
 [connection signal="pressed" from="Control6/buttoncard1" to="TextureRect2/Label" method="_on_buttoncard_1_pressed"]

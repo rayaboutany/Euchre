@@ -220,9 +220,9 @@ func _onCardSelected(card):
 #output response for cards played providing debug info
 func _onCardPlayed(card):
 	print("Card played:", card.suit, card.value)
-	print(str($Control5/Label2/Label3.turn))
-	if $Control5/Label2/Label3.turn == 1:
-		$Control5/Label2/Label3._onemitclick(card)
+	print(str($Control5/Label3.turn))
+	if $Control5/Label3.turn == 1:
+		$Control5/Label3._onemitclick(card)
 		print("Card played:", card.suit, card.value)
 		for i in 5:
 			if playerHand[i] != null:

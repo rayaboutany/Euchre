@@ -14,7 +14,7 @@ func _process(delta):
 
 func _on_texture_rect_2_trumpselected(suits):
 	meow = suits
-	set_text(str(meow))
+	set_text("Would you like " + str(meow) + " to be trump?")
 	 # Replace with function body.
 
 func farewell():
