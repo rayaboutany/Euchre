@@ -92,6 +92,7 @@ offset_bottom = 858.0
 rotation = 3.14159
 
 [node name="Label1" type="Label" parent="playerLabels"]
+layout_mode = 0
 offset_left = -364.0
 offset_top = -165.001
 offset_right = -293.0
@@ -112,6 +113,7 @@ text = "Player 2"
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="playerLabels"]
+layout_mode = 0
 offset_left = -340.001
 offset_top = 511.999
 offset_right = -278.001

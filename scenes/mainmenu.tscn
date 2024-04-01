@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dyp0krby3irxp"]
+[gd_scene load_steps=9 format=3 uid="uid://dyp0krby3irxp"]
 
 [ext_resource type="Script" path="res://scripts/mainmenu.gd" id="1_nw3d1"]
 [ext_resource type="Texture2D" uid="uid://dpwr2xxec4e02" path="res://assets/background.png" id="2_6fgya"]
 [ext_resource type="Script" path="res://scripts/StartGame.gd" id="3_3o4nt"]
 [ext_resource type="Script" path="res://scripts/OptionsButton.gd" id="4_20f50"]
+[ext_resource type="Script" path="res://scenes/HowToPlay.gd" id="4_p2ert"]
 [ext_resource type="Script" path="res://scripts/CreditsButton.gd" id="5_tar1a"]
 [ext_resource type="Script" path="res://scenes/ExitButton.gd" id="6_a48qg"]
 [ext_resource type="Texture2D" uid="uid://dkhadnqjr0ux0" path="res://assets/logo.png" id="6_yd5vh"]
@@ -22,9 +23,9 @@ expand_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 offset_left = 186.0
-offset_top = 158.0
+offset_top = 88.0
 offset_right = 507.0
-offset_bottom = 1058.0
+offset_bottom = 988.0
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -37,6 +38,13 @@ theme_override_font_sizes/font_size = 48
 text = "Start Game"
 alignment = 0
 script = ExtResource("3_3o4nt")
+
+[node name="HowToPlay" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "How To Play"
+alignment = 0
+script = ExtResource("4_p2ert")
 
 [node name="OptionsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -69,6 +77,7 @@ scale = Vector2(0.75, 0.75)
 texture = ExtResource("6_yd5vh")
 
 [connection signal="pressed" from="VBoxContainer/StartGame" to="VBoxContainer/StartGame" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/HowToPlay" to="VBoxContainer/HowToPlay" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionsButton" to="VBoxContainer/OptionsButton" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/CreditsButton" to="VBoxContainer/CreditsButton" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="VBoxContainer/ExitButton" method="_on_pressed"]
