@@ -1,10 +1,16 @@
 extends Control
 
+#variables
+var current_scene = null
+#signal connections to functions in other scripts
 signal musicPressed(toggled_on)
 signal cardSelected(card)
 signal cardPlayed(card)
-#signal switchScene(scene)
-var current_scene = null
+signal tablePlayCard(card)
+signal suitChosen(suit)
+signal cardclicked(card)
+signal trumpselected(suit)
+signal delete()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,6 +18,7 @@ func _ready():
 	current_scene = root.get_child(root.get_child_count() - 1)
 	pass # Replace with function body.
 
+#scene initialization
 func goto_scene(path):
 	call_deferred("_deferred_goto_scene", path)
 
