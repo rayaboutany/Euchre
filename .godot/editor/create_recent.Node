@@ -1,6 +1,9 @@
+Button
+VBoxContainer
+NinePatchRect
+Control
 Sprite2D
 TextureRect
-Control
 HBoxContainer
 Timer
 Label

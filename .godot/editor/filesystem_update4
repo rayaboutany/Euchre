@@ -1,15 +1,8 @@
 res://scenes/table.tscn
 res://scenes/Label3.gd
 res://scripts/card.gd
-res://scenes/turnlabel.gd
+res://scenes/GameMenu.gd
 res://scenes/global.tscn
 res://scenes/credits.tscn
 res://scenes/bgm.tscn
-res://scripts/table.gd
-res://scenes/buttoncard1.gd
-res://scripts/global.gd
-res://scenes/trickScore.gd
-res://scenes/turnNumber.gd
-res://scenes/Label.gd
-res://scripts/suitIcon.gd
 res://scenes/suitIcon.tscn
