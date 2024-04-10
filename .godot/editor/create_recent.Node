@@ -1,10 +1,9 @@
-AnimationPlayer
-Sprite2D
+Label
 Button
 VBoxContainer
 NinePatchRect
 Control
+Sprite2D
 TextureRect
 HBoxContainer
 Timer
-Label

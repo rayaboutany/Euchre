@@ -1,6 +1,6 @@
 extends Node2D
 #variables and signals
-var load_card = preload("res://scenes/card2.tscn")
+var load_card = preload("res://scenes/card.tscn")
 var deck = []
 var playerHand = []
 var suits = ["HEARTS","DIAMONDS","CLUBS","SPADES"]
@@ -229,21 +229,16 @@ func _onCardPlayed(card):
 	for i in 5:
 		if playerHand[i] != null:
 			if playerHand[i].id == card.id:
-				#playerHand[i].position -= Vector2(0,100)
-				var anim = playerHand[i].get_node("AnimationPlayer")
-				anim.play("card_playing")
+				playerHand[i].position -= Vector2(0,100)
 				for j in 4:
 					#print(str(j))
 					if currentTrick[j] == null:
 						currentTrick[j] = playerHand[i]
 						break
-				#playerHand[i] = null
+				playerHand[i] = null
 	print("Current Trick: "+str(currentTrick))
-	await get_tree().create_timer(1.0).timeout
 	playBotCard("bot1")
-	await get_tree().create_timer(1.0).timeout
 	playBotCard("bot2")
-	await get_tree().create_timer(1.0).timeout
 	playBotCard("bot3")
 
 #playing cards for bots
@@ -262,9 +257,7 @@ func playBotCard(player):
 			cardShift = Vector2(-20,0)
 	for i in 5:
 		if hand[i] != null:
-			#hand[i].position += cardShift
-			var anim = hand[i].get_node("AnimationPlayer")
-			anim.play("card_playing")
+			hand[i].position += cardShift
 			hand[i].setFaceTexture()
 			hand[i].z_index = 1
 			for j in 4:

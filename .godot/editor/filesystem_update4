@@ -1,6 +1,6 @@
-res://scenes/table.tscn
+res://scenes/win.tscn
 res://scenes/Label3.gd
 res://scripts/card.gd
-res://scripts/table.gd
-res://scenes/mainmenu.tscn
-res://scenes/card2.tscn
+res://scenes/lose.tscn
+res://scenes/table.tscn
+res://scenes/trickScore.gd
