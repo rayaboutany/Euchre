@@ -273,7 +273,6 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "Main Menu"
 
-[connection signal="work" from="." to="Control5/Label3" method="_on_node_2d_work"]
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
 [connection signal="timeout" from="TextureRect2/Label/Timer" to="TextureRect2/Label" method="_on_timer_timeout"]
 [connection signal="focus_exited" from="Control5/Label3" to="." method="_on_label_3_focus_exited"]

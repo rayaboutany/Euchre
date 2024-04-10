@@ -10,6 +10,7 @@ signal tablePlayCard(card)
 signal suitChosen(suit)
 signal cardclicked(card)
 signal trumpselected(suit)
+signal nextPlayer()
 signal delete()
 
 # Called when the node enters the scene tree for the first time.

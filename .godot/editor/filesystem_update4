@@ -1,6 +1,10 @@
-res://scenes/table.tscn
+res://scenes/mainmenu.tscn
 res://scenes/Label3.gd
 res://scripts/card.gd
 res://scripts/table.gd
-res://scenes/mainmenu.tscn
+res://scenes/table.tscn
 res://scenes/card2.tscn
+res://scenes/Label.gd
+res://scenes/suitIcon.tscn
+res://scripts/global.gd
+res://scenes/global.tscn

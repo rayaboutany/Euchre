@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1712774778
+::res://::1712776868
 README.md::TextFile::-1::1712267661::0::1::::<><>::
 ::res://assets/::1712610779
 05 Crawling.mp3::AudioStreamMP3::4725679162922757029::1712267661::1712267661::1::::<><>::
@@ -37,11 +37,11 @@ English_pattern_queen_of_hearts.svg.png::CompressedTexture2D::360760287543805758
 English_pattern_queen_of_spades.svg.png::CompressedTexture2D::3414568764552252440::1712267661::1712267661::1::::<><>::
 Hearts.png::CompressedTexture2D::4571125827819828475::1712267676::1712267855::1::::<><>::
 Spades.png::CompressedTexture2D::3765219937803587402::1712267676::1712267855::1::::<><>::
-::res://scenes/::1712767982
+::res://scenes/::1712775990
 bgm.tscn::PackedScene::9105076900837531431::1712609097::0::1::::<><>::uid://b8lfilwsdl1o0::::res://assets/05 Crawling.mp3<>res://scripts/bgm.gd
 buttoncard1.gd::GDScript::-1::1712267676::0::1::::<>Button<>::
 buttoncard2.gd::GDScript::-1::1712267676::0::1::::<>Button<>::
-card2.tscn::PackedScene::8487485836186943407::1712767982::0::1::::<><>::uid://dhrbtawbmkgbj::::res://assets/cards/English_pattern_9_of_clubs.svg.png<>res://scripts/card.gd
+card2.tscn::PackedScene::8487485836186943407::1712775941::0::1::::<><>::uid://dhrbtawbmkgbj::::res://assets/cards/English_pattern_9_of_clubs.svg.png<>res://scripts/card.gd
 card.tscn::PackedScene::5259586351268848832::1712267676::0::1::::<><>::uid://dhrbtawbmkgbj::::res://assets/cards/English_pattern_9_of_clubs.svg.png<>res://scripts/card.gd<>uid://bhkl35l7oqywa::::res://scenes/table.tscn<>uid://kxjv6jilrtoi::::res://scenes/global.tscn
 Control4.gd::GDScript::-1::1712267676::0::1::::<>Control<>::
 Control6.gd::GDScript::-1::1712267676::0::1::::<>Control<>::
@@ -52,15 +52,15 @@ GameMenu.gd::GDScript::-1::1712610726::0::1::::<>Control<>::
 global.tscn::PackedScene::749954721836567592::1712609097::0::1::::<><>::res://scripts/global.gd
 HowToPlay.gd::GDScript::-1::1712267676::0::1::::<>Button<>::
 Label2.gd::GDScript::-1::1712267676::0::1::::<>Label<>::
-Label3.gd::GDScript::-1::1712767022::0::1::::<>Label<>::
+Label3.gd::GDScript::-1::1712774978::0::1::::<>Label<>::
 Label500.gd::GDScript::-1::1712267676::0::1::::<>Label<>::
 Label.gd::GDScript::-1::1712267676::0::1::::<>Label<>::
-mainmenu.tscn::PackedScene::8876296643031146913::1712767760::0::1::::<><>::res://scripts/mainmenu.gd<>uid://dpwr2xxec4e02::::res://assets/background.png<>res://scripts/StartGame.gd<>res://scripts/OptionsButton.gd<>res://scenes/HowToPlay.gd<>res://scripts/CreditsButton.gd<>res://scenes/ExitButton.gd<>uid://dkhadnqjr0ux0::::res://assets/logo.png
+mainmenu.tscn::PackedScene::8876296643031146913::1712775940::0::1::::<><>::res://scripts/mainmenu.gd<>uid://dpwr2xxec4e02::::res://assets/background.png<>res://scripts/StartGame.gd<>res://scripts/OptionsButton.gd<>res://scenes/HowToPlay.gd<>res://scripts/CreditsButton.gd<>res://scenes/ExitButton.gd<>uid://dkhadnqjr0ux0::::res://assets/logo.png
 options.tscn::PackedScene::969213527141116954::1712267661::0::1::::<><>::uid://dpwr2xxec4e02::::res://assets/background.png<>res://scripts/CheckButton.gd<>res://scripts/BackButton.gd
 playerTurnNumber.gd::GDScript::-1::1712267676::0::1::::<>Label<>::
 playerTurnStatic.gd::GDScript::-1::1712267676::0::1::::<>Label<>::
 suitIcon.tscn::PackedScene::7352983101566582303::1712609098::0::1::::<><>::res://scripts/suitIcon.gd
-table.tscn::PackedScene::2899105850016346220::1712767760::0::1::::<><>::res://scripts/table.gd<>uid://dpwr2xxec4e02::::res://assets/background.png<>res://scripts/BackButton.gd<>res://scenes/trumpDisplay.gd<>res://scenes/turnNumber.gd<>res://scenes/Label3.gd<>res://scenes/Timer.gd<>res://scenes/buttoncard1.gd<>res://scenes/Label2.gd<>res://scenes/trickScore.gd<>res://scenes/Label.gd<>res://scripts/moveTimer.gd<>res://scenes/GameMenu.gd<>uid://b7a0mjhuvddqt::::res://assets/lightblue1.png
+table.tscn::PackedScene::2899105850016346220::1712775990::0::1::::<><>::res://scripts/table.gd<>uid://dpwr2xxec4e02::::res://assets/background.png<>res://scripts/BackButton.gd<>res://scenes/trumpDisplay.gd<>res://scenes/turnNumber.gd<>res://scenes/Label3.gd<>res://scenes/Timer.gd<>res://scenes/buttoncard1.gd<>res://scenes/Label2.gd<>res://scenes/trickScore.gd<>res://scenes/Label.gd<>res://scripts/moveTimer.gd<>res://scenes/GameMenu.gd<>uid://b7a0mjhuvddqt::::res://assets/lightblue1.png
 Timer.gd::GDScript::-1::1712267676::0::1::::<>Timer<>::
 Trickcount.gd::GDScript::-1::1712267676::0::1::::<>Label<>::
 trickScore.gd::GDScript::-1::1712267676::0::1::::<>VBoxContainer<>::
@@ -73,10 +73,10 @@ turnlabel.gd::GDScript::-1::1712267676::0::1::::<>Label<>::
 turnNumber.gd::GDScript::-1::1712267676::0::1::::<>Label<>::
 tutorial.tscn::PackedScene::7373871860331866990::1712267676::0::1::::<><>::uid://dpwr2xxec4e02::::res://assets/background.png<>res://scripts/BackButton.gd<>uid://3xgw5aymjx0f::::res://assets/cards/English_pattern_jack_of_hearts.svg.png<>uid://dursa1jbkfhew::::res://assets/cards/English_pattern_jack_of_diamonds.svg.png
 urls.txt::TextFile::-1::1712267661::0::1::::<><>::
-::res://scripts/::1712767760
+::res://scripts/::1712775885
 BackButton.gd::GDScript::-1::1712610480::0::1::::<>Button<>::
 bgm.gd::GDScript::-1::1712267661::0::1::::<>AudioStreamPlayer<>::
-card.gd::GDScript::-1::1712767022::0::1::::<>Sprite2D<>::
+card.gd::GDScript::-1::1712774978::0::1::::<>Sprite2D<>::
 CheckButton.gd::GDScript::-1::1712267661::0::1::::<>CheckButton<>::
 clickerscript.gd::GDScript::-1::1712267676::0::1::::<>Node2D<>::
 CreditsButton.gd::GDScript::-1::1712267661::0::1::::<>Button<>::
@@ -86,5 +86,5 @@ moveTimer.gd::GDScript::-1::1712267676::0::1::::<>Timer<>::
 OptionsButton.gd::GDScript::-1::1712267676::0::1::::<>Button<>::
 StartGame.gd::GDScript::-1::1712267676::0::1::::<>Button<>::
 suitIcon.gd::GDScript::-1::1712267676::0::1::::<>Sprite2D<>::
-table.gd::GDScript::-1::1712767760::0::1::::<>Node2D<>::
+table.gd::GDScript::-1::1712775885::0::1::::<>Node2D<>::
 trumpDisplay.gd::GDScript::-1::1712267676::0::1::::<>TextureRect<>::

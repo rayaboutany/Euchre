@@ -5,6 +5,7 @@ signal cardPlayed
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	global.cardPlayed.connect(cardEmitted)
+	global.nextPlayer.connect(newTurn)
 	#nextPlayer.connect(newTurn)
 	set_text("It's player "+ str(turn) + "'s turn")
 
@@ -39,8 +40,3 @@ func cardEmitted(card):
 		set_text("It's player "+ str(turn) + "'s turn")
 		print("hi")
 	
-
-func _on_node_2d_work():
-	turn = 2
-	set_text("It's player "+ str(turn) + "'s turn")
-	print("hi") # Replace with function body.

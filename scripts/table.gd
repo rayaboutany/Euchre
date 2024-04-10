@@ -15,7 +15,6 @@ var oppTricks = 0
 var teamScore = 0
 var oppScore = 0
 var dealer = 0
-signal nextPlayer
 #question: Attackers (Trump Selector) & Defenders Logic for Scoring?
 #question 2: Scoring for going alone? (Maybe Future)
 #Scoring notes:
@@ -139,6 +138,7 @@ func showHand(hand):
 				hand[i].setBackTexture()
 				get_tree().root.add_child(hand[i])
 				hand[i].scale = Vector2(.2,.2)
+				hand[i].rotation = PI
 				hand[i].position = Vector2(574+36*i,150)
 			bot3Hand:
 				hand[i].setBackTexture()
@@ -174,36 +174,77 @@ func _ready():
 	createHands()
 
 #assessing card values and returning the greater card
+#10 billion fucking if statements - improve later if there's time
 func compareCards(card1, card2):
-	var trump = $TextureRect2.suit
+	var trump = $TextureRect2/Label.trumpsuit
+	var leftTrump
+	print("comparing " + str(card1.suit) + str(card1.value) + " and " + str(card2.suit) + str(card2.value))
+	#determine suit for left bauer
+	match (trump):
+		"HEARTS":
+			leftTrump = "DIAMONDS"
+		"DIAMONDS":
+			leftTrump = "HEARTS"
+		"CLUBS":
+			leftTrump = "SPADES"
+		"SPADES":
+			leftTrump = "CLUBS"
+	#automatically return if right bauer
+	if (card1.suit == trump && card1.value == 11):
+		print("chose " + str(card1.suit) + str(card1.value))
+		return card1
+	if (card2.suit == trump && card2.value == 11):
+		print("chose " + str(card2.suit) + str(card2.value))
+		return card2
+	#if it's still going then there's no right bauer, auto return for left bauer
+	if (card1.suit == leftTrump && card1.value == 11):
+		print("chose " + str(card1.suit) + str(card1.value))
+		return card1
+	if (card2.suit == leftTrump && card2.value == 11):
+		print("chose " + str(card2.suit) + str(card2.value))
+		return card2
+	#return if one card is trump and the other isn't
 	if (card1.suit == trump && card2.suit != trump):
+		print("chose " + str(card1.suit) + str(card1.value))
 		return card1
 	else: if (card2.suit == trump && card1.suit != trump):
+		print("chose " + str(card2.suit) + str(card2.value))
 		return card2
+	#if neither are bauer or neither/both are trump pick the higher value card
 	else:
 		if card1.value > card2.value:
+			print("chose " + str(card1.suit) + str(card1.value))
 			return card1
 		else: if card2.value > card1.value:
+			print("chose " + str(card2.suit) + str(card2.value))
 			return card2
+	#if all else fails then their value is equal, return card1
+	print("chose " + str(card1.suit) + str(card1.value))
+	return card1
 
 #sorting the given card array
 func sortCardArray(cardArray):
+	print("trump: " + $TextureRect2/Label.trumpsuit)
 	var min_index
 	var buffer
 	for i in cardArray.size():
 		min_index = i
-		for j in range (i+11, cardArray.size()):
+		for j in range (i+1, cardArray.size()):
+			print(cardArray.size())
+			print(cardArray)
 			if compareCards(cardArray[j], cardArray[min_index]).id != cardArray[j].id:
 				min_index = j
 		buffer = cardArray[i]
 		cardArray[i] = cardArray[min_index]
 		cardArray[min_index] = buffer
+	#for i in cardArray.size():
+	#	print(str(cardArray[i].suit) + str(cardArray[i].value))
 				
 #runs every frame, has to be here i think
 func _process(delta):
 	if currentTrick[3] != null:
 		sortCardArray(currentTrick)
-		match (currentTrick[0].player):
+		match (currentTrick[3].player):
 			"player", "bot2":
 				teamTricks += 1
 			"bot1", "bot3":
@@ -217,15 +258,16 @@ func _process(delta):
 
 #maybe can delete this signal with how things currently work
 func _onCardSelected(card):
-	print("Card selected:", card.suit, card.value)
+	pass
+	#print("Card selected:", card.suit, card.value)
 
 #output response for cards played providing debug info
 func _onCardPlayed(card):
 	print("Card played:", card.suit, card.value)
-	print(str($Control5/Label3.turn))
+	#print(str($Control5/Label3.turn))
 	#if $Control5/Label3.turn == 1:
 		#$Control5/Label3.cardEmitted(card)
-	print("Card played:", card.id)
+	#print("Card played:", card.id)
 	for i in 5:
 		if playerHand[i] != null:
 			if playerHand[i].id == card.id:
@@ -238,7 +280,7 @@ func _onCardPlayed(card):
 						currentTrick[j] = playerHand[i]
 						break
 				#playerHand[i] = null
-	print("Current Trick: "+str(currentTrick))
+	#print("Current Trick: "+str(currentTrick))
 	await get_tree().create_timer(1.0).timeout
 	playBotCard("bot1")
 	await get_tree().create_timer(1.0).timeout
@@ -268,14 +310,14 @@ func playBotCard(player):
 			hand[i].setFaceTexture()
 			hand[i].z_index = 1
 			for j in 4:
-				print(str(j))
+				#print(str(j))
 				if currentTrick[j] == null:
 					currentTrick[j] = hand[i]
 					break
 			hand[i] = null
 			break
-	print(currentTrick)
-	nextPlayer.emit()
+	#print(currentTrick)
+	global.nextPlayer.emit()
 #end of script
 
 
