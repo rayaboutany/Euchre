@@ -1,2 +1,8 @@
 # Godot 4+ specific ignores
 .godot/
+.godot/editor/bgm.tscn-editstate-07dfce10e3f7d7fe766b50b3263f315b.cfg
+.godot/editor/credits.tscn-editstate-5458de4021be8c034221a84b705724a2.cfg
+.godot/editor/filesystem_cache8
+.godot/editor/filesystem_update4
+.godot/editor/global.tscn-editstate-c49e1122a5a97eb09526f8c4b4de4935.cfg
+.godot/editor/table.tscn-editstate-cd696a2f98392b4b9bc4af9a0698fd3d.cfg
