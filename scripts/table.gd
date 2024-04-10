@@ -251,6 +251,7 @@ func _onCardSelected(card):
 	#print("Card selected:", card.suit, card.value)
 
 #output response for cards played providing debug info
+#updates trick score table
 func _onCardPlayed(card):
 	print("Card played:", card.suit, card.value)
 	#print(str($Control5/Label3.turn))

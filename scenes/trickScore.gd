@@ -7,6 +7,7 @@ var teamScore = 0
 var oppScore = 0
 signal cardplayed
 #remember: need to reset variables when tricks(turn) & rounds(trickCount) reset
+#major point: With how vars are set up we may want to move the calc functions to table.gd and keep this for initial setup
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
