@@ -1,9 +1,0 @@
-res://scenes/global.tscn
-res://scenes/Label3.gd
-res://scripts/card.gd
-res://scenes/credits.tscn
-res://scenes/bgm.tscn
-res://scenes/table.tscn
-res://scenes/suitIcon.tscn
-res://scenes/win.tscn
-res://scenes/lose.tscn

@@ -235,8 +235,9 @@ func _onCardPlayed(card):
 					if currentTrick[j] == null:
 						currentTrick[j] = playerHand[i]
 						break
-				playerHand[i] = null
+				#playerHand[i] = null
 	print("Current Trick: "+str(currentTrick))
+	await get_tree().create_timer(1.0).timeout
 	playBotCard("bot1")
 	playBotCard("bot2")
 	playBotCard("bot3")

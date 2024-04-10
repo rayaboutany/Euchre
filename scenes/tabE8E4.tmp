@@ -1,0 +1,289 @@
+[gd_scene load_steps=16 format=3 uid="uid://bhkl35l7oqywa"]
+
+[ext_resource type="Script" path="res://scripts/table.gd" id="1_wwq6p"]
+[ext_resource type="Texture2D" uid="uid://dpwr2xxec4e02" path="res://assets/background.png" id="1_xui37"]
+[ext_resource type="Script" path="res://scripts/BackButton.gd" id="3_kec1j"]
+[ext_resource type="Script" path="res://scenes/trumpDisplay.gd" id="4_yeeve"]
+[ext_resource type="Script" path="res://scenes/turnNumber.gd" id="5_jrwic"]
+[ext_resource type="Script" path="res://scenes/Label3.gd" id="6_k3f6b"]
+[ext_resource type="Script" path="res://scenes/Timer.gd" id="7_hkfmt"]
+[ext_resource type="Script" path="res://scenes/buttoncard1.gd" id="9_tg204"]
+[ext_resource type="Script" path="res://scenes/Label2.gd" id="11_4ee3c"]
+[ext_resource type="Script" path="res://scenes/trickScore.gd" id="11_7tkpw"]
+[ext_resource type="Script" path="res://scenes/Label.gd" id="12_hhiy6"]
+[ext_resource type="Script" path="res://scripts/moveTimer.gd" id="12_p61hc"]
+[ext_resource type="Script" path="res://scenes/GameMenu.gd" id="13_5p51i"]
+[ext_resource type="Texture2D" uid="uid://b7a0mjhuvddqt" path="res://assets/lightblue1.png" id="14_o56wc"]
+
+[sub_resource type="SystemFont" id="SystemFont_d75s8"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_wwq6p")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(0.667711, 0.667115)
+texture = ExtResource("1_xui37")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 1128.0
+offset_top = 13.0
+offset_right = 1260.0
+offset_bottom = 55.0
+theme_override_font_sizes/font_size = 24
+text = "Quit Game"
+script = ExtResource("3_kec1j")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1176.0
+offset_top = 303.0
+offset_right = 1232.0
+offset_bottom = 326.0
+text = "Trump:
+"
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = 1176.0
+offset_top = 328.0
+offset_right = 1216.0
+offset_bottom = 368.0
+scale = Vector2(0.25, 0.25)
+script = ExtResource("4_yeeve")
+
+[node name="Label2" type="Label" parent="TextureRect2"]
+layout_mode = 0
+offset_left = -2624.0
+offset_top = -436.0
+offset_right = -1850.0
+offset_bottom = -344.0
+theme_override_font_sizes/font_size = 50
+text = "Would you like        to be trump?"
+horizontal_alignment = 1
+script = ExtResource("11_4ee3c")
+
+[node name="Label" type="Label" parent="TextureRect2"]
+layout_mode = 0
+offset_left = -2464.0
+offset_top = -16.0
+offset_right = -1853.0
+offset_bottom = 67.0
+theme_override_font_sizes/font_size = 60
+text = "Waiting on player 1..."
+script = ExtResource("12_hhiy6")
+
+[node name="Timer" type="Timer" parent="TextureRect2/Label"]
+wait_time = 3.0
+one_shot = true
+script = ExtResource("7_hkfmt")
+
+[node name="turnNumber" type="Label" parent="."]
+offset_left = 1201.0
+offset_top = 80.0
+offset_right = 1257.0
+offset_bottom = 103.0
+text = "<turn>"
+horizontal_alignment = 1
+script = ExtResource("5_jrwic")
+
+[node name="playerLabels" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 258.0
+offset_top = 526.0
+offset_right = 332.0
+offset_bottom = 858.0
+rotation = 3.14159
+
+[node name="Label1" type="Label" parent="playerLabels"]
+layout_mode = 0
+offset_left = -364.0
+offset_top = -165.001
+offset_right = -293.0
+offset_bottom = -142.001
+rotation = 3.14159
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+text = "Player 1"
+
+[node name="Label2" type="Label" parent="playerLabels"]
+layout_mode = 0
+offset_left = 12.9995
+offset_top = 210.0
+offset_right = 74.9995
+offset_bottom = 423.0
+rotation = 4.71239
+theme_override_colors/font_color = Color(1, 0.72549, 0.156863, 1)
+text = "Player 2"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="playerLabels"]
+layout_mode = 0
+offset_left = -340.001
+offset_top = 511.999
+offset_right = -278.001
+offset_bottom = 536.999
+rotation = 3.14159
+theme_override_colors/font_color = Color(0, 0.882353, 1, 1)
+text = "Player 3
+"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="playerLabels"]
+layout_mode = 0
+offset_left = -750.0
+offset_top = 161.998
+offset_right = -688.0
+offset_bottom = 374.998
+rotation = 1.5708
+theme_override_colors/font_color = Color(1, 0.72549, 0.156863, 1)
+text = "Player 4"
+horizontal_alignment = 1
+
+[node name="trickScoreContainer" type="VBoxContainer" parent="."]
+offset_left = 44.0
+offset_top = 40.0
+offset_right = 177.0
+offset_bottom = 97.0
+theme_override_constants/separation = 2
+script = ExtResource("11_7tkpw")
+
+[node name="teamContainer" type="HBoxContainer" parent="trickScoreContainer"]
+layout_mode = 2
+
+[node name="teamTricks" type="Label" parent="trickScoreContainer/teamContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+text = "X Tricks"
+horizontal_alignment = 1
+
+[node name="teamScore" type="Label" parent="trickScoreContainer/teamContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+text = "X Points"
+horizontal_alignment = 1
+
+[node name="oppContainer" type="HBoxContainer" parent="trickScoreContainer"]
+layout_mode = 2
+
+[node name="oppTricks" type="Label" parent="trickScoreContainer/oppContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.72549, 0.156863, 1)
+text = "X Tricks"
+horizontal_alignment = 1
+
+[node name="oppScore" type="Label" parent="trickScoreContainer/oppContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.72549, 0.156863, 1)
+text = "X Points"
+horizontal_alignment = 1
+
+[node name="Control5" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label3" type="Label" parent="Control5"]
+visible = false
+layout_mode = 0
+offset_left = 565.0
+offset_top = 435.0
+offset_right = 775.0
+offset_bottom = 500.0
+text = "It's player X's turn"
+script = ExtResource("6_k3f6b")
+
+[node name="Control6" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="buttoncard6" type="Button" parent="Control6"]
+layout_mode = 0
+offset_left = 498.0
+offset_top = 258.0
+offset_right = 618.0
+offset_bottom = 303.0
+theme_override_font_sizes/font_size = 20
+text = "Yes"
+script = ExtResource("9_tg204")
+
+[node name="buttoncard1" type="Button" parent="Control6"]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 259.0
+offset_right = 760.0
+offset_bottom = 304.0
+theme_override_font_sizes/font_size = 20
+text = "No"
+script = ExtResource("9_tg204")
+
+[node name="dealerLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "(Dealer)"
+
+[node name="moveTimer" type="Timer" parent="."]
+script = ExtResource("12_p61hc")
+
+[node name="GameMenu" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("13_5p51i")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="GameMenu"]
+layout_mode = 0
+offset_left = 763.0
+offset_top = 14.0
+offset_right = 1232.0
+offset_bottom = 491.0
+texture = ExtResource("14_o56wc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameMenu/NinePatchRect"]
+layout_direction = 2
+layout_mode = 0
+offset_left = 35.0
+offset_top = 25.0
+offset_right = 436.0
+offset_bottom = 440.0
+alignment = 1
+
+[node name="Back To Game" type="Button" parent="GameMenu/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = SubResource("SystemFont_d75s8")
+text = "Back To Game"
+
+[node name="Pause" type="Button" parent="GameMenu/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Pause"
+
+[node name="Play" type="Button" parent="GameMenu/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Play"
+
+[node name="Main Menu" type="Button" parent="GameMenu/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Main Menu"
+
+[connection signal="work" from="." to="Control5/Label3" method="_on_node_2d_work"]
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="timeout" from="TextureRect2/Label/Timer" to="TextureRect2/Label" method="_on_timer_timeout"]
+[connection signal="focus_exited" from="Control5/Label3" to="." method="_on_label_3_focus_exited"]
+[connection signal="pressed" from="Control6/buttoncard6" to="TextureRect2/Label" method="_on_buttoncard_2_pressed"]
+[connection signal="pressed" from="Control6/buttoncard6" to="TextureRect2/Label" method="_on_buttoncard_6_pressed"]
+[connection signal="pressed" from="Control6/buttoncard6" to="Control5/Label3" method="_on_buttoncard_1_pressed"]
+[connection signal="pressed" from="Control6/buttoncard1" to="TextureRect2/Label" method="_on_buttoncard_1_pressed"]
+[connection signal="pressed" from="Control6/buttoncard1" to="Control5/Label3" method="_on_buttoncard_1_pressed"]
+[connection signal="timeout" from="moveTimer" to="." method="_on_move_timer_timeout"]
+[connection signal="pressed" from="GameMenu/NinePatchRect/VBoxContainer/Back To Game" to="GameMenu" method="_on_back_to_game_pressed"]
+[connection signal="pressed" from="GameMenu/NinePatchRect/VBoxContainer/Pause" to="GameMenu" method="_on_pause_pressed"]
+[connection signal="pressed" from="GameMenu/NinePatchRect/VBoxContainer/Play" to="GameMenu" method="_on_play_pressed"]
+[connection signal="pressed" from="GameMenu/NinePatchRect/VBoxContainer/Main Menu" to="GameMenu" method="_on_main_menu_pressed"]
