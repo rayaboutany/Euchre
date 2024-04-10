@@ -1,10 +1,6 @@
-res://scripts/card.gd
-<<<<<<< HEAD
+res://scenes/table.tscn
 res://scenes/Label3.gd
-=======
-res://scenes/GameMenu.gd
-res://scenes/global.tscn
-res://scenes/credits.tscn
-res://scenes/bgm.tscn
-res://scenes/suitIcon.tscn
->>>>>>> 055d31b2aa4165cacaa72f4171f6fa898a32669a
+res://scripts/card.gd
+res://scripts/table.gd
+res://scenes/mainmenu.tscn
+res://scenes/card2.tscn

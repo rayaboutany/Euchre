@@ -1,8 +1,9 @@
+AnimationPlayer
+Sprite2D
 Button
 VBoxContainer
 NinePatchRect
 Control
-Sprite2D
 TextureRect
 HBoxContainer
 Timer
