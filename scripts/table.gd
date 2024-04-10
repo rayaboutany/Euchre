@@ -240,20 +240,9 @@ func sortCardArray(cardArray):
 	#for i in cardArray.size():
 	#	print(str(cardArray[i].suit) + str(cardArray[i].value))
 				
-#runs every frame, has to be here i think
+#runs every frame
 func _process(delta):
-	if currentTrick[3] != null:
-		sortCardArray(currentTrick)
-		match (currentTrick[3].player):
-			"player", "bot2":
-				teamTricks += 1
-			"bot1", "bot3":
-				oppTricks += 1
-		for i in 4:
-			currentTrick[i].visible = false
-			currentTrick[i] = null
-		$trickScoreContainer/teamContainer/teamTricks.text = (str(teamTricks) + " Tricks")
-		$trickScoreContainer/oppContainer/oppTricks.text = (str(oppTricks) + " Tricks")
+	pass
 
 
 #maybe can delete this signal with how things currently work
@@ -279,7 +268,7 @@ func _onCardPlayed(card):
 					if currentTrick[j] == null:
 						currentTrick[j] = playerHand[i]
 						break
-				#playerHand[i] = null
+				playerHand[i] = null
 	#print("Current Trick: "+str(currentTrick))
 	await get_tree().create_timer(1.0).timeout
 	playBotCard("bot1")
@@ -287,6 +276,19 @@ func _onCardPlayed(card):
 	playBotCard("bot2")
 	await get_tree().create_timer(1.0).timeout
 	playBotCard("bot3")
+	if currentTrick[3] != null:
+		await get_tree().create_timer(2.0).timeout	
+		sortCardArray(currentTrick)
+		match (currentTrick[3].player):
+			"player", "bot2":
+				teamTricks += 1
+			"bot1", "bot3":
+				oppTricks += 1
+		for i in 4:
+			currentTrick[i].visible = false
+			currentTrick[i] = null
+		$trickScoreContainer/teamContainer/teamTricks.text = (str(teamTricks) + " Tricks")
+		$trickScoreContainer/oppContainer/oppTricks.text = (str(oppTricks) + " Tricks")
 
 #playing cards for bots
 func playBotCard(player):

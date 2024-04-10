@@ -12,5 +12,4 @@ func _process(delta):
 
 #exits the scene tree when exit button is pressed
 func _on_pressed():
-	get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
-	SceneTree.quit
+	get_tree().quit()
