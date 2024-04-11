@@ -6,6 +6,7 @@ signal cardPlayed
 func _ready():
 	global.cardPlayed.connect(cardEmitted)
 	global.nextPlayer.connect(newTurn)
+	global.setPlayer.connect(setTurn)
 	#nextPlayer.connect(newTurn)
 	set_text("It's player "+ str(turn) + "'s turn")
 
@@ -16,6 +17,10 @@ func newTurn():
 		turn = 1
 	set_text("It's player "+ str(turn) + "'s turn")
 
+func setTurn(player):
+	turn = player
+	set_text("It's player "+ str(turn) + "'s turn")
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
@@ -23,7 +28,7 @@ func _process(delta):
 
 func _on_buttoncard_1_pressed():
 	visible = true
-	turn = 1
+	#turn = 1
 	set_text("It's player "+ str(turn) + "'s turn")
 	 # Replace with function body.
 

@@ -1,20 +1,29 @@
 extends Node2D
 #variables and signals
+#preload card scene
 var load_card = preload("res://scenes/card2.tscn")
+
+#other
+signal work
+var rng = RandomNumberGenerator.new()
+
+#arrays
 var deck = []
 var playerHand = []
 var suits = ["HEARTS","DIAMONDS","CLUBS","SPADES"]
-signal work
 var bot1Hand = []
 var bot2Hand = []
 var bot3Hand = []
 var currentTrick = []
 var tricks = []
+
+#ints
 var teamTricks = 0
 var oppTricks = 0
 var teamScore = 0
 var oppScore = 0
-var dealer = 0
+var dealer = int(rng.randf_range(1,4))
+
 #question: Attackers (Trump Selector) & Defenders Logic for Scoring?
 #question 2: Scoring for going alone? (Maybe Future)
 #Scoring notes:
@@ -51,7 +60,6 @@ func _initialize_hand(hand):
 func shuffle():
 	print("shuffling...")
 	var shuffleDeck = []
-	var rng = RandomNumberGenerator.new()
 	var nextCardIndex
 	shuffleDeck.resize(24)
 	for i in 24:
@@ -85,14 +93,14 @@ func chooseDealer():
 			$dealerLabel.rotation = 0
 			$dealerLabel.position = Vector2(690,690)
 		2:
-			$dealerLabel.rotation = 3*PI/2
-			$dealerLabel.position = Vector2(250,360)
+			$dealerLabel.rotation = PI/2
+			$dealerLabel.position = Vector2(247,375)
 		3:
 			$dealerLabel.rotation = 0
-			$dealerLabel.position = Vector2(610,30)
-		2:
-			$dealerLabel.rotation = PI/2
-			$dealerLabel.position = Vector2(1020,310)
+			$dealerLabel.position = Vector2(670,14)
+		4:
+			$dealerLabel.rotation = 3*PI/2
+			$dealerLabel.position = Vector2(1009,294)
 
 #pulls a card off of the top of the deck, adds the card to the specified hand array, and sets the same card in the deck to null
 func deal(hand):
@@ -172,6 +180,8 @@ func _ready():
 	currentTrick.resize(4)
 	shuffle()
 	createHands()
+	global.setPlayer.emit(dealer)
+	
 
 #assessing card values and returning the greater card
 #10 billion fucking if statements - improve later if there's time
@@ -323,7 +333,7 @@ func playBotCard(player):
 	global.nextPlayer.emit()
 #end of script
 
-
+			
 func _on_move_timer_timeout():
 	
 	pass # Replace with function body.
