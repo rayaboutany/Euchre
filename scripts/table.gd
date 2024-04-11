@@ -10,6 +10,7 @@ var bot2Hand = []
 var bot3Hand = []
 var currentTrick = []
 var tricks = []
+var trickCount = 1
 var teamTricks = 0
 var oppTricks = 0
 var teamScore = 0
@@ -244,14 +245,13 @@ func sortCardArray(cardArray):
 func _process(delta):
 	pass
 
-
 #maybe can delete this signal with how things currently work
 func _onCardSelected(card):
 	pass
 	#print("Card selected:", card.suit, card.value)
 
 #output response for cards played providing debug info
-#updates trick score table
+#updates trick score vbox container
 func _onCardPlayed(card):
 	print("Card played:", card.suit, card.value)
 	#print(str($Control5/Label3.turn))
@@ -277,6 +277,7 @@ func _onCardPlayed(card):
 	playBotCard("bot2")
 	await get_tree().create_timer(1.0).timeout
 	playBotCard("bot3")
+	#if all cards are played, begins card evaluation
 	if currentTrick[3] != null:
 		await get_tree().create_timer(2.0).timeout	
 		sortCardArray(currentTrick)
@@ -285,11 +286,54 @@ func _onCardPlayed(card):
 				teamTricks += 1
 			"bot1", "bot3":
 				oppTricks += 1
+		trickCount += 1
+		print("Trick Count: " + str(trickCount))
 		for i in 4:
 			currentTrick[i].visible = false
 			currentTrick[i] = null
 		$trickScoreContainer/teamContainer/teamTricks.text = (str(teamTricks) + " Tricks")
 		$trickScoreContainer/oppContainer/oppTricks.text = (str(oppTricks) + " Tricks")
+		#here is where calc functions will be called
+		if trickCount == 6:
+			#team round score
+			match teamTricks:
+				3:
+					teamScore += 1
+				4:
+					teamScore += 1
+				5:
+					teamScore += 2
+			#resetting teamTricks for next round
+			teamTricks = 0
+			#opp round score
+			match oppTricks:
+				3:
+					oppScore += 1
+				4:
+					oppScore += 1
+				5:
+					oppScore += 2
+			#resetting oppScore for next round
+			oppTricks = 0
+			#updating trick score table display
+			$trickScoreContainer/teamContainer/teamTricks.text = (str(teamTricks) + " Tricks")
+			$trickScoreContainer/oppContainer/oppTricks.text = (str(oppTricks) + " Tricks")
+			$trickScoreContainer/teamContainer/teamScore.text = (str(teamScore) + " Points")
+			$trickScoreContainer/oppContainer/oppScore.text = (str(oppScore) + " Points")
+			#testing
+			#-------
+			print("Team Score: " + str(teamScore))
+			print("Opp Score: " + str(oppScore))
+			#teamScore = 10
+			#oppScore = 10
+			#-------
+			#determining if a team has won
+			if teamScore >= 10:
+				#switching scene to win screen
+				global.goto_scene("res://scenes/win.tscn")
+			if oppScore >= 10:
+				#switching scene to lose screen
+				global.goto_scene("res://scenes/lose.tscn")
 
 #playing cards for bots
 func playBotCard(player):
@@ -321,9 +365,9 @@ func playBotCard(player):
 			break
 	#print(currentTrick)
 	global.nextPlayer.emit()
-#end of script
 
 
 func _on_move_timer_timeout():
 	
 	pass # Replace with function body.
+#end of script
