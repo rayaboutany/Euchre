@@ -82,6 +82,7 @@ offset_bottom = 682.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_jvvsd")
 
 [node name="scoringTable" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
 offset_left = 7.0
 offset_top = 9.0
 offset_right = 470.0
