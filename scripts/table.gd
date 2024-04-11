@@ -334,6 +334,8 @@ func _onCardPlayed(card):
 			if oppScore >= 10:
 				#switching scene to lose screen
 				global.goto_scene("res://scenes/lose.tscn")
+			#resetting trickCount
+			trickCount = 1
 
 #playing cards for bots
 func playBotCard(player):
