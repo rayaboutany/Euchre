@@ -55,6 +55,7 @@ func _initialize_deck():
 	for i in 4:
 		for j in 6:
 			var card = load_card.instantiate()
+			card.add_to_group("cards")
 			card.suit = suits[i]
 			card.value = j+9
 			card.id = deckBuildIndex
@@ -334,8 +335,9 @@ func checkEndOfTrick():
 		print("Trick Count: " + str(trickCount))
 		for i in 4:
 			currentTrick[i].visible = false
-			print(str(currentTrick[i]) + " freed")
-			currentTrick[i].queue_free()
+			#print(str(currentTrick[i]) + " freed")
+			#currentTrick[i].queue_free()
+			currentTrick[i] = null
 		$trickScoreContainer/teamContainer/teamTricks.text = (str(teamTricks) + " Tricks")
 		$trickScoreContainer/oppContainer/oppTricks.text = (str(oppTricks) + " Tricks")
 		#checkForWin()
@@ -386,6 +388,7 @@ func checkForWin():
 		#resetting trickCount
 		trickCount = 1
 	#	print("cFW win")
+		get_tree().call_group("cards", "queue_free")
 		_ready()
 		return true
 	else:
