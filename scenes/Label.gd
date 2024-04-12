@@ -3,6 +3,7 @@ var meow
 var bruh
 var trumpsuit
 signal plz
+signal hideme
 var ugh
 var x
 var id
@@ -78,5 +79,6 @@ func _on_buttoncard_1_pressed():
 	
 
 func _on_timer_timeout():
+	global.emit_signal("hideme")
 	set_text("would you like to call a suit?")
 	x =true
