@@ -1,22 +1,33 @@
 extends Node2D
-var load_card = preload("res://scenes/card.tscn")
+#variables and signals
+#preload card scene
+var load_card = preload("res://scenes/card2.tscn")
+
+#other
+signal work
+var rng = RandomNumberGenerator.new()
+
+#arrays
 var deck = []
 var playerHand = []
 var suits = ["HEARTS","DIAMONDS","CLUBS","SPADES"]
-signal work
 var bot1Hand = []
 var bot2Hand = []
 var bot3Hand = []
 var currentTrick = []
-<<<<<<< HEAD
 var tricks = []
+<<<<<<< HEAD
+
+#ints
 =======
->>>>>>> 41965ef93cbf31a16df9ffbc2ea2854652ee0b15
+var trickCount = 1
+>>>>>>> 6eb4057a1c43989a552aaa7e0de49e7d4a7fb991
 var teamTricks = 0
 var oppTricks = 0
 var teamScore = 0
 var oppScore = 0
-var dealer = 0
+var dealer = int(rng.randf_range(1,4))
+
 #question: Attackers (Trump Selector) & Defenders Logic for Scoring?
 #question 2: Scoring for going alone? (Maybe Future)
 #Scoring notes:
@@ -31,10 +42,7 @@ var dealer = 0
 
 #instantiates all of the card scenes and adds them to the deck array
 func _initialize_deck():
-<<<<<<< HEAD
-=======
 	chooseDealer()
->>>>>>> 41965ef93cbf31a16df9ffbc2ea2854652ee0b15
 	var deckBuildIndex = 0
 	deck.resize(24)
 	for i in 4:
@@ -43,21 +51,19 @@ func _initialize_deck():
 			card.suit = suits[i]
 			card.value = j+9
 			card.id = deckBuildIndex
-<<<<<<< HEAD
 			card.setFaceTexture()
-=======
->>>>>>> 41965ef93cbf31a16df9ffbc2ea2854652ee0b15
 			deck[deckBuildIndex] = card
 			print(deck[deckBuildIndex].suit + str(deck[deckBuildIndex].value))
 			deckBuildIndex += 1
 
+#resizes hand for the table scene
 func _initialize_hand(hand):
 	hand.resize(5)
 
+#shuffles the deck array
 func shuffle():
 	print("shuffling...")
 	var shuffleDeck = []
-	var rng = RandomNumberGenerator.new()
 	var nextCardIndex
 	shuffleDeck.resize(24)
 	for i in 24:
@@ -71,9 +77,8 @@ func shuffle():
 	for i in 24:
 		deck[i] = shuffleDeck[i]
 		print(deck[i].suit + str(deck[i].value))
-		
-<<<<<<< HEAD
-=======
+
+#retrieves the trump card		
 func get_trump_card():
 	for nextcard in deck:
 		if nextcard!= null:
@@ -81,7 +86,7 @@ func get_trump_card():
 			return nextcard
 	return null
 
->>>>>>> 41965ef93cbf31a16df9ffbc2ea2854652ee0b15
+#tracking the dealer for the current hand
 func chooseDealer():
 	dealer += 1
 	print("dealer: "+ str(dealer))
@@ -92,21 +97,15 @@ func chooseDealer():
 			$dealerLabel.rotation = 0
 			$dealerLabel.position = Vector2(690,690)
 		2:
-			$dealerLabel.rotation = 3*PI/2
-			$dealerLabel.position = Vector2(250,360)
+			$dealerLabel.rotation = PI/2
+			$dealerLabel.position = Vector2(247,375)
 		3:
 			$dealerLabel.rotation = 0
-			$dealerLabel.position = Vector2(610,30)
-		2:
-			$dealerLabel.rotation = PI/2
-			$dealerLabel.position = Vector2(1020,310)
-<<<<<<< HEAD
-			
-			
-	
-=======
+			$dealerLabel.position = Vector2(670,14)
+		4:
+			$dealerLabel.rotation = 3*PI/2
+			$dealerLabel.position = Vector2(1009,294)
 
->>>>>>> 41965ef93cbf31a16df9ffbc2ea2854652ee0b15
 #pulls a card off of the top of the deck, adds the card to the specified hand array, and sets the same card in the deck to null
 func deal(hand):
 	var cardsDrawn = 0
@@ -136,11 +135,8 @@ func showHand(hand):
 		print(hand[i].suit + str(hand[i].value))
 		match (hand):
 			playerHand:
-<<<<<<< HEAD
 				get_tree().root.add_child(hand[i])
 				hand[i].position = Vector2(415+120*i,600)
-=======
->>>>>>> 41965ef93cbf31a16df9ffbc2ea2854652ee0b15
 				hand[i].setFaceTexture()
 				get_tree().root.add_child(hand[i])
 				hand[i].position = Vector2(415+120*i,600)
@@ -154,6 +150,7 @@ func showHand(hand):
 				hand[i].setBackTexture()
 				get_tree().root.add_child(hand[i])
 				hand[i].scale = Vector2(.2,.2)
+				hand[i].rotation = PI
 				hand[i].position = Vector2(574+36*i,150)
 			bot3Hand:
 				hand[i].setBackTexture()
@@ -161,12 +158,8 @@ func showHand(hand):
 				hand[i].scale = Vector2(.2,.2)
 				hand[i].rotation = 3*PI/2
 				hand[i].position = Vector2(910,270+36*i)
-<<<<<<< HEAD
 
-=======
-				
->>>>>>> 41965ef93cbf31a16df9ffbc2ea2854652ee0b15
-
+#calling hand and deal functions to setup player hands				
 #there's gotta be a better way to do this right
 func createHands():
 	_initialize_hand(playerHand)
@@ -182,113 +175,182 @@ func createHands():
 	showHand(bot2Hand)
 	showHand(bot3Hand)
 
-<<<<<<< HEAD
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	global.cardPlayed.connect(_onCardPlayed)
+	#global.cardPlayed.connect(_onCardPlayed)
+	global.tablePlayCard.connect(_onCardPlayed)
 	_initialize_deck()
 	tricks.resize(5)
 	currentTrick.resize(4)
 	shuffle()
 	createHands()
+	global.setPlayer.emit(dealer)
 	
-=======
->>>>>>> 41965ef93cbf31a16df9ffbc2ea2854652ee0b15
+
+#assessing card values and returning the greater card
+#10 billion fucking if statements - improve later if there's time
 func compareCards(card1, card2):
-	var trump = $TextureRect2.suit
+	var trump = $TextureRect2/Label.trumpsuit
+	var leftTrump
+	print("comparing " + str(card1.suit) + str(card1.value) + " and " + str(card2.suit) + str(card2.value))
+	#determine suit for left bauer
+	match (trump):
+		"HEARTS":
+			leftTrump = "DIAMONDS"
+		"DIAMONDS":
+			leftTrump = "HEARTS"
+		"CLUBS":
+			leftTrump = "SPADES"
+		"SPADES":
+			leftTrump = "CLUBS"
+	#automatically return if right bauer
+	if (card1.suit == trump && card1.value == 11):
+		print("chose " + str(card1.suit) + str(card1.value))
+		return card1
+	if (card2.suit == trump && card2.value == 11):
+		print("chose " + str(card2.suit) + str(card2.value))
+		return card2
+	#if it's still going then there's no right bauer, auto return for left bauer
+	if (card1.suit == leftTrump && card1.value == 11):
+		print("chose " + str(card1.suit) + str(card1.value))
+		return card1
+	if (card2.suit == leftTrump && card2.value == 11):
+		print("chose " + str(card2.suit) + str(card2.value))
+		return card2
+	#return if one card is trump and the other isn't
 	if (card1.suit == trump && card2.suit != trump):
+		print("chose " + str(card1.suit) + str(card1.value))
 		return card1
 	else: if (card2.suit == trump && card1.suit != trump):
+		print("chose " + str(card2.suit) + str(card2.value))
 		return card2
+	#if neither are bauer or neither/both are trump pick the higher value card
 	else:
 		if card1.value > card2.value:
+			print("chose " + str(card1.suit) + str(card1.value))
 			return card1
 		else: if card2.value > card1.value:
+			print("chose " + str(card2.suit) + str(card2.value))
 			return card2
-<<<<<<< HEAD
-			
-=======
+	#if all else fails then their value is equal, return card1
+	print("chose " + str(card1.suit) + str(card1.value))
+	return card1
 
->>>>>>> 41965ef93cbf31a16df9ffbc2ea2854652ee0b15
+#sorting the given card array
 func sortCardArray(cardArray):
+	print("trump: " + $TextureRect2/Label.trumpsuit)
 	var min_index
 	var buffer
 	for i in cardArray.size():
 		min_index = i
-		for j in range (i+11, cardArray.size()):
+		for j in range (i+1, cardArray.size()):
+			print(cardArray.size())
+			print(cardArray)
 			if compareCards(cardArray[j], cardArray[min_index]).id != cardArray[j].id:
 				min_index = j
 		buffer = cardArray[i]
 		cardArray[i] = cardArray[min_index]
 		cardArray[min_index] = buffer
+	#for i in cardArray.size():
+	#	print(str(cardArray[i].suit) + str(cardArray[i].value))
 				
-<<<<<<< HEAD
-	
-=======
-		
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	global.cardPlayed.connect(_onCardPlayed)
-	_initialize_deck()
-	currentTrick.resize(4)
-	shuffle()
-	createHands()
->>>>>>> 41965ef93cbf31a16df9ffbc2ea2854652ee0b15
-	
-#runs every frame, has to be here i think
+#runs every frame
 func _process(delta):
+	pass
+
+#maybe can delete this signal with how things currently work
+func _onCardSelected(card):
+	pass
+	#print("Card selected:", card.suit, card.value)
+
+#output response for cards played providing debug info
+#updates trick score vbox container
+func _onCardPlayed(card):
+	print("Card played:", card.suit, card.value)
+	#print(str($Control5/Label3.turn))
+	#if $Control5/Label3.turn == 1:
+		#$Control5/Label3.cardEmitted(card)
+	#print("Card played:", card.id)
+	for i in 5:
+		if playerHand[i] != null:
+			if playerHand[i].id == card.id:
+				#playerHand[i].position -= Vector2(0,100)
+				var anim = playerHand[i].get_node("AnimationPlayer")
+				anim.play("card_playing")
+				for j in 4:
+					#print(str(j))
+					if currentTrick[j] == null:
+						currentTrick[j] = playerHand[i]
+						break
+				playerHand[i] = null
+	#print("Current Trick: "+str(currentTrick))
+	await get_tree().create_timer(1.0).timeout
+	playBotCard("bot1")
+	await get_tree().create_timer(1.0).timeout
+	playBotCard("bot2")
+	await get_tree().create_timer(1.0).timeout
+	playBotCard("bot3")
+	#if all cards are played, begins card evaluation
 	if currentTrick[3] != null:
+		await get_tree().create_timer(2.0).timeout	
 		sortCardArray(currentTrick)
-		match (currentTrick[0].player):
+		match (currentTrick[3].player):
 			"player", "bot2":
 				teamTricks += 1
 			"bot1", "bot3":
 				oppTricks += 1
+		trickCount += 1
+		print("Trick Count: " + str(trickCount))
 		for i in 4:
 			currentTrick[i].visible = false
 			currentTrick[i] = null
-		$trickScoreContainer/teamTricks.text = (str(teamTricks))
-		$trickScoreContainer/oppTricks.text = (str(oppTricks))
-<<<<<<< HEAD
-=======
-		
->>>>>>> 41965ef93cbf31a16df9ffbc2ea2854652ee0b15
+		$trickScoreContainer/teamContainer/teamTricks.text = (str(teamTricks) + " Tricks")
+		$trickScoreContainer/oppContainer/oppTricks.text = (str(oppTricks) + " Tricks")
+		#here is where calc functions will be called
+		if trickCount == 6:
+			#team round score
+			match teamTricks:
+				3:
+					teamScore += 1
+				4:
+					teamScore += 1
+				5:
+					teamScore += 2
+			#resetting teamTricks for next round
+			teamTricks = 0
+			#opp round score
+			match oppTricks:
+				3:
+					oppScore += 1
+				4:
+					oppScore += 1
+				5:
+					oppScore += 2
+			#resetting oppScore for next round
+			oppTricks = 0
+			#updating trick score table display
+			$trickScoreContainer/teamContainer/teamTricks.text = (str(teamTricks) + " Tricks")
+			$trickScoreContainer/oppContainer/oppTricks.text = (str(oppTricks) + " Tricks")
+			$trickScoreContainer/teamContainer/teamScore.text = (str(teamScore) + " Points")
+			$trickScoreContainer/oppContainer/oppScore.text = (str(oppScore) + " Points")
+			#testing
+			#-------
+			print("Team Score: " + str(teamScore))
+			print("Opp Score: " + str(oppScore))
+			#teamScore = 10
+			#oppScore = 10
+			#-------
+			#determining if a team has won
+			if teamScore >= 10:
+				#switching scene to win screen
+				global.goto_scene("res://scenes/win.tscn")
+			if oppScore >= 10:
+				#switching scene to lose screen
+				global.goto_scene("res://scenes/lose.tscn")
+			#resetting trickCount
+			trickCount = 1
 
-#maybe can delete this signal with how things currently work
-func _onCardSelected(card):
-	print("Card selected:", card.suit, card.value)
-
-func _onCardPlayed(card):
-<<<<<<< HEAD
-	print("Card played:", card.suit, card.value)
-	print(str($Control5/Label2/Label3.turn))
-	if $Control5/Label2/Label3.turn == 1:
-		$Control5/Label2/Label3._onemitclick(card)
-=======
-	print(str($playerTurnStatic/playerTurnNumber.turn))
-	if $playerTurnStatic/playerTurnNumber.turn == 1:
-		$playerTurnStatic/playerTurnNumber._onemitclick(card)
->>>>>>> 41965ef93cbf31a16df9ffbc2ea2854652ee0b15
-		print("Card played:", card.suit, card.value)
-		for i in 5:
-			if playerHand[i] != null:
-				if playerHand[i].id == card.id:
-					playerHand[i].position -= Vector2(0,100)
-					for j in 4:
-						print(str(j))
-						if currentTrick[j] == null:
-							currentTrick[j] = playerHand[i]
-							break
-					playerHand[i] = null
-		print(currentTrick)
-		playBotCard("bot1")
-		playBotCard("bot2")
-		playBotCard("bot3")
-<<<<<<< HEAD
-		
-=======
-
->>>>>>> 41965ef93cbf31a16df9ffbc2ea2854652ee0b15
+#playing cards for bots
 func playBotCard(player):
 	var hand
 	var cardShift
@@ -304,18 +366,23 @@ func playBotCard(player):
 			cardShift = Vector2(-20,0)
 	for i in 5:
 		if hand[i] != null:
-			hand[i].position += cardShift
+			#hand[i].position += cardShift
+			var anim = hand[i].get_node("AnimationPlayer")
+			anim.play("card_playing")
 			hand[i].setFaceTexture()
 			hand[i].z_index = 1
 			for j in 4:
-				print(str(j))
-<<<<<<< HEAD
-				
-=======
->>>>>>> 41965ef93cbf31a16df9ffbc2ea2854652ee0b15
+				#print(str(j))
 				if currentTrick[j] == null:
 					currentTrick[j] = hand[i]
 					break
 			hand[i] = null
 			break
-	print(currentTrick)
+	#print(currentTrick)
+	global.nextPlayer.emit()
+
+			
+func _on_move_timer_timeout():
+	
+	pass # Replace with function body.
+#end of script

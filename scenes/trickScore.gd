@@ -6,8 +6,8 @@ var oppTricks = 0
 var teamScore = 0
 var oppScore = 0
 signal cardplayed
-#question: In the future, should we make the win func global?
 #remember: need to reset variables when tricks(turn) & rounds(trickCount) reset
+#major point: With how vars are set up we may want to move the calc functions to table.gd and keep this for initial setup
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -37,7 +37,19 @@ func calculateTrick():
 func calculateRound():
 	#determine round winner
 	#add points given num of tricks
+	#make decision structure:
+	#if teamScore >= 10:
+	#win function switching scene to win screen
+	#else if oppScore >= 10:
+	#lose function switching scene to lose screen?
+	#else:
 	#call newTurn to reset trick vars and increment turn (can we do this yet?)
+	pass #remove when theres code
+	
+func win():
+	#variable resets for replay?
+	#switch scene to win screen scene
+	#for win scene, add button calling BackButton; alter back button code to reset trickScore vars (or another way thats easy)
 	pass #remove when theres code
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.

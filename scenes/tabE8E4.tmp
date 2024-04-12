@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bhkl35l7oqywa"]
+[gd_scene load_steps=16 format=3 uid="uid://bhkl35l7oqywa"]
 
 [ext_resource type="Script" path="res://scripts/table.gd" id="1_wwq6p"]
 [ext_resource type="Texture2D" uid="uid://dpwr2xxec4e02" path="res://assets/background.png" id="1_xui37"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://scenes/Label2.gd" id="11_4ee3c"]
 [ext_resource type="Script" path="res://scenes/trickScore.gd" id="11_7tkpw"]
 [ext_resource type="Script" path="res://scenes/Label.gd" id="12_hhiy6"]
+[ext_resource type="Script" path="res://scripts/moveTimer.gd" id="12_p61hc"]
 [ext_resource type="Script" path="res://scenes/GameMenu.gd" id="13_5p51i"]
 [ext_resource type="Texture2D" uid="uid://b7a0mjhuvddqt" path="res://assets/lightblue1.png" id="14_o56wc"]
 
@@ -106,10 +107,10 @@ text = "Player 1"
 
 [node name="Label2" type="Label" parent="playerLabels"]
 layout_mode = 0
-offset_left = 10.9994
-offset_top = 225.0
-offset_right = 72.9994
-offset_bottom = 387.0
+offset_left = 12.9995
+offset_top = 210.0
+offset_right = 74.9995
+offset_bottom = 423.0
 rotation = 4.71239
 theme_override_colors/font_color = Color(1, 0.72549, 0.156863, 1)
 text = "Player 2"
@@ -130,9 +131,9 @@ horizontal_alignment = 1
 [node name="Label4" type="Label" parent="playerLabels"]
 layout_mode = 0
 offset_left = -750.0
-offset_top = 163.0
+offset_top = 161.998
 offset_right = -688.0
-offset_bottom = 376.0
+offset_bottom = 374.998
 rotation = 1.5708
 theme_override_colors/font_color = Color(1, 0.72549, 0.156863, 1)
 text = "Player 4"
@@ -219,12 +220,12 @@ text = "No"
 script = ExtResource("9_tg204")
 
 [node name="dealerLabel" type="Label" parent="."]
-offset_left = 1009.0
-offset_top = 294.0
-offset_right = 1072.0
-offset_bottom = 317.0
-rotation = 4.71239
+offset_right = 40.0
+offset_bottom = 23.0
 text = "(Dealer)"
+
+[node name="moveTimer" type="Timer" parent="."]
+script = ExtResource("12_p61hc")
 
 [node name="GameMenu" type="Control" parent="."]
 process_mode = 3
@@ -235,7 +236,6 @@ offset_bottom = 40.0
 script = ExtResource("13_5p51i")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="GameMenu"]
-visible = false
 layout_mode = 0
 offset_left = 763.0
 offset_top = 14.0
@@ -282,6 +282,7 @@ text = "Main Menu"
 [connection signal="pressed" from="Control6/buttoncard6" to="Control5/Label3" method="_on_buttoncard_1_pressed"]
 [connection signal="pressed" from="Control6/buttoncard1" to="TextureRect2/Label" method="_on_buttoncard_1_pressed"]
 [connection signal="pressed" from="Control6/buttoncard1" to="Control5/Label3" method="_on_buttoncard_1_pressed"]
+[connection signal="timeout" from="moveTimer" to="." method="_on_move_timer_timeout"]
 [connection signal="pressed" from="GameMenu/NinePatchRect/VBoxContainer/Back To Game" to="GameMenu" method="_on_back_to_game_pressed"]
 [connection signal="pressed" from="GameMenu/NinePatchRect/VBoxContainer/Pause" to="GameMenu" method="_on_pause_pressed"]
 [connection signal="pressed" from="GameMenu/NinePatchRect/VBoxContainer/Play" to="GameMenu" method="_on_play_pressed"]

@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6mgqsfdjevoe"]
+
+[ext_resource type="Texture2D" uid="uid://dpwr2xxec4e02" path="res://assets/background.png" id="1_s7iha"]
+[ext_resource type="Script" path="res://scripts/BackButton.gd" id="2_4edde"]
+
+[node name="Win" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(0.668192, 0.668513)
+texture = ExtResource("1_s7iha")
+
+[node name="BackButton" type="Button" parent="."]
+offset_left = 1018.0
+offset_top = 62.0
+offset_right = 1232.0
+offset_bottom = 120.0
+theme_override_font_sizes/font_size = 36
+text = "Quit Game"
+script = ExtResource("2_4edde")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 472.0
+offset_top = 272.0
+offset_right = 811.0
+offset_bottom = 382.0
+theme_override_font_sizes/font_size = 80
+text = "You Win!"
+
+[connection signal="pressed" from="BackButton" to="BackButton" method="_on_pressed"]

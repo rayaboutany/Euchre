@@ -1,7 +1,9 @@
 extends Label
 var meow
 var bruh
+var trumpsuit
 signal plz
+signal hideme
 var ugh
 var x
 var id
@@ -25,6 +27,7 @@ func _process(delta):
 
 func _on_buttoncard_2_pressed():
 	if (x == false):
+		trumpsuit = meow
 		set_text(str(meow) + " is now trump")
 	if (x == true):
 		global.emit_signal("delete")
@@ -45,12 +48,16 @@ func woofplz(suit):
 	match (suit.woof):
 		0: 
 			set_text("hearts is trump")
+			trumpsuit = "HEARTS"
 		1: 
 			set_text("clubs is trump")
+			trumpsuit = "CLUBS"
 		2: 
 			set_text("diamonds is trump")
+			trumpsuit = "DIAMONDS"
 		3: 
 			set_text("spades is trump")
+			trumpsuit = "SPADES"
 	print(suit)
 	pass
 		
@@ -72,5 +79,6 @@ func _on_buttoncard_1_pressed():
 	
 
 func _on_timer_timeout():
+	global.emit_signal("hideme")
 	set_text("would you like to call a suit?")
 	x =true
