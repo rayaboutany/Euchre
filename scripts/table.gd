@@ -186,7 +186,7 @@ func createHands():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("new hand")
+	print("[NEW HAND]")
 	global.tablePlayCard.connect(_onCardPlayed)
 	_initialize_deck()
 	tricks.resize(5)
@@ -418,8 +418,9 @@ func playBotCard(player):
 	#maybe do this with a signal instead
 	await get_tree().create_timer(1.0).timeout
 	print("nP pBC " + player + " -> " + nextPlayer)
-	global.nextPlayer.emit()
+	global.nextPlayer.emit() #<- FUCKS NEW HAND TURN NUMBER !!
 	if (nextPlayer != "player"):
+		print("telling " + nextPlayer + " to play")
 		playBotCard(nextPlayer)
 	
 
