@@ -13,6 +13,7 @@ signal trumpselected(suit)
 signal nextPlayer()
 signal setPlayer(player)
 signal delete()
+signal hideme()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

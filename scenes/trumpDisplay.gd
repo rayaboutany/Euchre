@@ -26,7 +26,8 @@ var textureURLs = [
 "res://assets/cards/English_pattern_jack_of_spades.svg.png",
 "res://assets/cards/English_pattern_queen_of_spades.svg.png",
 "res://assets/cards/English_pattern_king_of_spades.svg.png",
-"res://assets/cards/English_pattern_ace_of_spades.svg.png"
+"res://assets/cards/English_pattern_ace_of_spades.svg.png",
+"res://assets/card back blue.png"
 ]
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -70,7 +71,10 @@ func _ready():
 			global.emit_signal("trumpselected", suit)
 
 			print(suit + " is trump")
+	global.hideme.connect(hideme)
 			#will change to forward loop, brain 404 not found, works tho!
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+func hideme():
+	texture = load(textureURLs[24])
