@@ -16,10 +16,12 @@ func newTurn():
 	if turn > 4:
 		turn = 1
 	set_text("It's player "+ str(turn) + "'s turn")
+	print("new turn " + str(turn))
 
 func setTurn(player):
 	turn = player
 	set_text("It's player "+ str(turn) + "'s turn")
+	print("set turn " + str(turn))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -43,5 +45,5 @@ func cardEmitted(card):
 		global.tablePlayCard.emit(card)
 		turn = 2
 		set_text("It's player "+ str(turn) + "'s turn")
-		print("hi")
+		print("new turn " + str(turn))
 	

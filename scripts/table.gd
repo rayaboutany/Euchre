@@ -23,7 +23,7 @@ var teamTricks = 0
 var oppTricks = 0
 var teamScore = 0
 var oppScore = 0
-var dealer = int(rng.randf_range(1,4))
+var dealer = 1 #int(rng.randf_range(1,4))
 
 #question: Attackers (Trump Selector) & Defenders Logic for Scoring?
 #question 2: Scoring for going alone? (Maybe Future)
@@ -37,11 +37,21 @@ var dealer = int(rng.randf_range(1,4))
 #roundScore function updating score vars and display to UI
 #future: win function call in roundScore when a score reaches/exceeds 10
 
+func _resetArrays():
+	deck = []
+	playerHand = []
+	bot1Hand = []
+	bot2Hand = []
+	bot3Hand = []
+	currentTrick = []
+	tricks = []
 #instantiates all of the card scenes and adds them to the deck array
 func _initialize_deck():
 	chooseDealer()
 	var deckBuildIndex = 0
 	deck.resize(24)
+	for i in 24:
+		deck[i] = null
 	for i in 4:
 		for j in 6:
 			var card = load_card.instantiate()
@@ -50,12 +60,14 @@ func _initialize_deck():
 			card.id = deckBuildIndex
 			card.setFaceTexture()
 			deck[deckBuildIndex] = card
-			print(deck[deckBuildIndex].suit + str(deck[deckBuildIndex].value))
+			#print(deck[deckBuildIndex].suit + str(deck[deckBuildIndex].value))
 			deckBuildIndex += 1
 
 #resizes hand for the table scene
 func _initialize_hand(hand):
 	hand.resize(5)
+	for i in hand.size():
+		hand[i] = null
 
 #shuffles the deck array
 func shuffle():
@@ -73,22 +85,22 @@ func shuffle():
 		deck[nextCardIndex] = null
 	for i in 24:
 		deck[i] = shuffleDeck[i]
-		print(deck[i].suit + str(deck[i].value))
+		#print(deck[i].suit + str(deck[i].value))
 
 #retrieves the trump card		
 func get_trump_card():
 	for nextcard in deck:
 		if nextcard!= null:
-			print(nextcard)
+			#print(nextcard)
 			return nextcard
 	return null
 
 #tracking the dealer for the current hand
 func chooseDealer():
 	dealer += 1
-	print("dealer: "+ str(dealer))
 	if (dealer > 4):
 		dealer = 1
+	print("dealer: "+ str(dealer))
 	match (dealer):
 		1:
 			$dealerLabel.rotation = 0
@@ -123,13 +135,13 @@ func deal(hand):
 			bot3Hand:
 				playerName = "bot3"
 		hand[cardsDrawn].player = playerName
-		print(hand[cardsDrawn].player)
+		#print(hand[cardsDrawn].player)
 		cardsDrawn += 1
 
 #prints out hand information and if it's the player's hand, displays the cards in the scene
 func showHand(hand):
 	for i in hand.size():
-		print(hand[i].suit + str(hand[i].value))
+		#print(hand[i].suit + str(hand[i].value))
 		match (hand):
 			playerHand:
 				get_tree().root.add_child(hand[i])
@@ -174,22 +186,38 @@ func createHands():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#global.cardPlayed.connect(_onCardPlayed)
+	print("new hand")
 	global.tablePlayCard.connect(_onCardPlayed)
 	_initialize_deck()
 	tricks.resize(5)
+	#print(tricks)
+	for i in tricks.size():
+		tricks[i] = null
 	currentTrick.resize(4)
+	for i in currentTrick.size():
+		currentTrick[i] = null
 	shuffle()
 	createHands()
-	global.setPlayer.emit(dealer)
-	
+	var startingPlayer
+	startingPlayer = dealer+1
+	if startingPlayer > 4: startingPlayer = 1
+	print("sP " + str(startingPlayer))
+	global.setPlayer.emit(startingPlayer)
+	await get_tree().create_timer(1.0).timeout
+	match (startingPlayer):
+		2:
+			playBotCard("bot1")
+		3:
+			playBotCard("bot2")
+		4:
+			playBotCard("bot3")
 
 #assessing card values and returning the greater card
 #10 billion fucking if statements - improve later if there's time
 func compareCards(card1, card2):
 	var trump = $TextureRect2/Label.trumpsuit
 	var leftTrump
-	print("comparing " + str(card1.suit) + str(card1.value) + " and " + str(card2.suit) + str(card2.value))
+	#print("comparing " + str(card1.suit) + str(card1.value) + " and " + str(card2.suit) + str(card2.value))
 	#determine suit for left bauer
 	match (trump):
 		"HEARTS":
@@ -202,47 +230,47 @@ func compareCards(card1, card2):
 			leftTrump = "CLUBS"
 	#automatically return if right bauer
 	if (card1.suit == trump && card1.value == 11):
-		print("chose " + str(card1.suit) + str(card1.value))
+		#print("chose " + str(card1.suit) + str(card1.value))
 		return card1
 	if (card2.suit == trump && card2.value == 11):
-		print("chose " + str(card2.suit) + str(card2.value))
+		#print("chose " + str(card2.suit) + str(card2.value))
 		return card2
 	#if it's still going then there's no right bauer, auto return for left bauer
 	if (card1.suit == leftTrump && card1.value == 11):
-		print("chose " + str(card1.suit) + str(card1.value))
+		#print("chose " + str(card1.suit) + str(card1.value))
 		return card1
 	if (card2.suit == leftTrump && card2.value == 11):
-		print("chose " + str(card2.suit) + str(card2.value))
+		#print("chose " + str(card2.suit) + str(card2.value))
 		return card2
 	#return if one card is trump and the other isn't
 	if (card1.suit == trump && card2.suit != trump):
-		print("chose " + str(card1.suit) + str(card1.value))
+		#print("chose " + str(card1.suit) + str(card1.value))
 		return card1
 	else: if (card2.suit == trump && card1.suit != trump):
-		print("chose " + str(card2.suit) + str(card2.value))
+		#print("chose " + str(card2.suit) + str(card2.value))
 		return card2
 	#if neither are bauer or neither/both are trump pick the higher value card
 	else:
 		if card1.value > card2.value:
-			print("chose " + str(card1.suit) + str(card1.value))
+		#	print("chose " + str(card1.suit) + str(card1.value))
 			return card1
 		else: if card2.value > card1.value:
-			print("chose " + str(card2.suit) + str(card2.value))
+		#	print("chose " + str(card2.suit) + str(card2.value))
 			return card2
 	#if all else fails then their value is equal, return card1
-	print("chose " + str(card1.suit) + str(card1.value))
+	#print("chose " + str(card1.suit) + str(card1.value))
 	return card1
 
 #sorting the given card array
 func sortCardArray(cardArray):
-	print("trump: " + $TextureRect2/Label.trumpsuit)
+	#print("trump: " + $TextureRect2/Label.trumpsuit)
 	var min_index
 	var buffer
 	for i in cardArray.size():
 		min_index = i
 		for j in range (i+1, cardArray.size()):
-			print(cardArray.size())
-			print(cardArray)
+			#print(cardArray.size())
+			#print(cardArray)
 			if compareCards(cardArray[j], cardArray[min_index]).id != cardArray[j].id:
 				min_index = j
 		buffer = cardArray[i]
@@ -250,7 +278,7 @@ func sortCardArray(cardArray):
 		cardArray[min_index] = buffer
 	#for i in cardArray.size():
 	#	print(str(cardArray[i].suit) + str(cardArray[i].value))
-				
+
 #runs every frame
 func _process(delta):
 	pass
@@ -281,15 +309,14 @@ func _onCardPlayed(card):
 						break
 				playerHand[i] = null
 	#print("Current Trick: "+str(currentTrick))
+	checkEndOfTrick()
 	await get_tree().create_timer(1.0).timeout
 	playBotCard("bot1")
-	await get_tree().create_timer(1.0).timeout
-	playBotCard("bot2")
-	await get_tree().create_timer(1.0).timeout
-	playBotCard("bot3")
-	#if all cards are played, begins card evaluation
+	
+#if all cards are played, begins card evaluation
+func checkEndOfTrick():
 	if currentTrick[3] != null:
-		await get_tree().create_timer(2.0).timeout	
+		await get_tree().create_timer(1.0).timeout
 		sortCardArray(currentTrick)
 		match (currentTrick[3].player):
 			"player", "bot2":
@@ -303,63 +330,74 @@ func _onCardPlayed(card):
 			currentTrick[i] = null
 		$trickScoreContainer/teamContainer/teamTricks.text = (str(teamTricks) + " Tricks")
 		$trickScoreContainer/oppContainer/oppTricks.text = (str(oppTricks) + " Tricks")
-		#here is where calc functions will be called
-		if trickCount == 6:
-			#team round score
-			match teamTricks:
-				3:
-					teamScore += 1
-				4:
-					teamScore += 1
-				5:
-					teamScore += 2
-			#resetting teamTricks for next round
-			teamTricks = 0
-			#opp round score
-			match oppTricks:
-				3:
-					oppScore += 1
-				4:
-					oppScore += 1
-				5:
-					oppScore += 2
-			#resetting oppScore for next round
-			oppTricks = 0
-			#updating trick score table display
-			$trickScoreContainer/teamContainer/teamTricks.text = (str(teamTricks) + " Tricks")
-			$trickScoreContainer/oppContainer/oppTricks.text = (str(oppTricks) + " Tricks")
-			$trickScoreContainer/teamContainer/teamScore.text = (str(teamScore) + " Points")
-			$trickScoreContainer/oppContainer/oppScore.text = (str(oppScore) + " Points")
-			#testing
-			#-------
-			print("Team Score: " + str(teamScore))
-			print("Opp Score: " + str(oppScore))
-			#teamScore = 10
-			#oppScore = 10
-			#-------
-			#determining if a team has won
-			if teamScore >= 10:
-				#switching scene to win screen
-				global.goto_scene("res://scenes/win.tscn")
-			if oppScore >= 10:
-				#switching scene to lose screen
-				global.goto_scene("res://scenes/lose.tscn")
-			#resetting trickCount
-			trickCount = 1
+		checkForWin()
+		
+
+#here is where calc functions will be called
+func checkForWin():
+	if trickCount == 6:
+		#team round score
+		match teamTricks:
+			3:
+				teamScore += 1
+			4:
+				teamScore += 1
+			5:
+				teamScore += 2
+		#resetting teamTricks for next round
+		teamTricks = 0
+		#opp round score
+		match oppTricks:
+			3:
+				oppScore += 1
+			4:
+				oppScore += 1
+			5:
+				oppScore += 2
+		#resetting oppScore for next round
+		oppTricks = 0
+		#updating trick score table display
+		$trickScoreContainer/teamContainer/teamTricks.text = (str(teamTricks) + " Tricks")
+		$trickScoreContainer/oppContainer/oppTricks.text = (str(oppTricks) + " Tricks")
+		$trickScoreContainer/teamContainer/teamScore.text = (str(teamScore) + " Points")
+		$trickScoreContainer/oppContainer/oppScore.text = (str(oppScore) + " Points")
+		#testing
+		#-------
+		print("Team Score: " + str(teamScore))
+		print("Opp Score: " + str(oppScore))
+		#teamScore = 10
+		#oppScore = 10
+		#-------
+		#determining if a team has won
+		if teamScore >= 10:
+			#switching scene to win screen
+			global.goto_scene("res://scenes/win.tscn")
+		if oppScore >= 10:
+			#switching scene to lose screen
+			global.goto_scene("res://scenes/lose.tscn")
+		#resetting trickCount
+		trickCount = 1
+		_ready()
 
 #playing cards for bots
 func playBotCard(player):
+	print (player + " playing")
 	var hand
 	var cardShift
+	var nextPlayer
 	match (player):
 		"bot1":
 			hand = bot1Hand
+			#remove 'nextplayer' shit, add match case for control5/label3/turn or smth in checkEndOfTrick
+			nextPlayer = "bot2"
 			cardShift = Vector2(20,0)
 		"bot2":
 			hand = bot2Hand
+			nextPlayer = "bot3"
 			cardShift = Vector2(0,20)
 		"bot3":
 			hand = bot3Hand
+			nextPlayer = "player"
 			cardShift = Vector2(-20,0)
 	for i in 5:
 		if hand[i] != null:
@@ -376,10 +414,12 @@ func playBotCard(player):
 			hand[i] = null
 			break
 	#print(currentTrick)
+	checkEndOfTrick()
+	#maybe do this with a signal instead
+	await get_tree().create_timer(1.0).timeout
+	print("nP pBC " + player + " -> " + nextPlayer)
 	global.nextPlayer.emit()
-
-			
-func _on_move_timer_timeout():
+	if (nextPlayer != "player"):
+		playBotCard(nextPlayer)
 	
-	pass # Replace with function body.
-#end of script
+
