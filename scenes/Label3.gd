@@ -43,7 +43,4 @@ func cardEmitted(card):
 	print("turn: "+str(turn) )
 	if turn == 1:
 		global.tablePlayCard.emit(card)
-		turn = 2
-		set_text("It's player "+ str(turn) + "'s turn")
-		print("new turn " + str(turn))
 	

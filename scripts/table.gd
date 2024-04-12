@@ -23,7 +23,7 @@ var teamTricks = 0
 var oppTricks = 0
 var teamScore = 0
 var oppScore = 0
-var dealer = 1 #int(rng.randf_range(1,4))
+var dealer = 2 #int(rng.randf_range(1,4))
 
 #question: Attackers (Trump Selector) & Defenders Logic for Scoring?
 #question 2: Scoring for going alone? (Maybe Future)
@@ -137,6 +137,7 @@ func deal(hand):
 		hand[cardsDrawn].player = playerName
 		#print(hand[cardsDrawn].player)
 		cardsDrawn += 1
+	print(str(hand))
 
 #prints out hand information and if it's the player's hand, displays the cards in the scene
 func showHand(hand):
@@ -310,8 +311,13 @@ func _onCardPlayed(card):
 				playerHand[i] = null
 	#print("Current Trick: "+str(currentTrick))
 	checkEndOfTrick()
-	await get_tree().create_timer(1.0).timeout
-	playBotCard("bot1")
+	if (!checkForWin()):
+		await get_tree().create_timer(1.0).timeout
+	#	print("nP oCP -> bot1")
+		#global.nextPlayer.emit()
+		global.setPlayer.emit(2)
+	#	print("telling bot1 to play")
+		playBotCard("bot1")
 	
 #if all cards are played, begins card evaluation
 func checkEndOfTrick():
@@ -330,7 +336,7 @@ func checkEndOfTrick():
 			currentTrick[i] = null
 		$trickScoreContainer/teamContainer/teamTricks.text = (str(teamTricks) + " Tricks")
 		$trickScoreContainer/oppContainer/oppTricks.text = (str(oppTricks) + " Tricks")
-		checkForWin()
+		#checkForWin()
 		
 
 #here is where calc functions will be called
@@ -377,27 +383,36 @@ func checkForWin():
 			global.goto_scene("res://scenes/lose.tscn")
 		#resetting trickCount
 		trickCount = 1
+	#	print("cFW win")
 		_ready()
+		return true
+	else:
+	#	print ("cFW no win") 
+		return false
 
 #playing cards for bots
 func playBotCard(player):
-	print (player + " playing")
+	#print (player + " playing")
 	var hand
 	var cardShift
 	var nextPlayer
+	var nextTurn
 	match (player):
 		"bot1":
 			hand = bot1Hand
 			#remove 'nextplayer' shit, add match case for control5/label3/turn or smth in checkEndOfTrick
 			nextPlayer = "bot2"
+			nextTurn = 3
 			cardShift = Vector2(20,0)
 		"bot2":
 			hand = bot2Hand
 			nextPlayer = "bot3"
+			nextTurn = 4
 			cardShift = Vector2(0,20)
 		"bot3":
 			hand = bot3Hand
 			nextPlayer = "player"
+			nextTurn = 1
 			cardShift = Vector2(-20,0)
 	for i in 5:
 		if hand[i] != null:
@@ -414,13 +429,18 @@ func playBotCard(player):
 			hand[i] = null
 			break
 	#print(currentTrick)
-	checkEndOfTrick()
+	await checkEndOfTrick()
 	#maybe do this with a signal instead
-	await get_tree().create_timer(1.0).timeout
-	print("nP pBC " + player + " -> " + nextPlayer)
-	global.nextPlayer.emit() #<- FUCKS NEW HAND TURN NUMBER !!
-	if (nextPlayer != "player"):
-		print("telling " + nextPlayer + " to play")
-		playBotCard(nextPlayer)
+	#print(player + " checking for win")
+	if (!checkForWin()):
+	#	print(player + " no win")
+		await get_tree().create_timer(1.0).timeout
+	#	print("nP pBC " + player + " -> " + nextPlayer)
+		#global.nextPlayer.emit() #<- FUCKS NEW HAND TURN NUMBER !! (maybe?! idfk man)
+		global.setPlayer.emit(nextTurn)
+		if (nextPlayer != "player"):
+	#		print("telling " + nextPlayer + " to play")
+			playBotCard(nextPlayer)
+	#else: print(player + " win")
 	
 
