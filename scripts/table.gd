@@ -216,6 +216,7 @@ func _ready():
 #assessing card values and returning the greater card
 #10 billion fucking if statements - improve later if there's time
 func compareCards(card1, card2):
+	print(str(card1) + " " + str(card2))
 	var trump = $TextureRect2/Label.trumpsuit
 	var leftTrump
 	#print("comparing " + str(card1.suit) + str(card1.value) + " and " + str(card2.suit) + str(card2.value))
@@ -333,7 +334,8 @@ func checkEndOfTrick():
 		print("Trick Count: " + str(trickCount))
 		for i in 4:
 			currentTrick[i].visible = false
-			currentTrick[i] = null
+			print(str(currentTrick[i]) + " freed")
+			currentTrick[i].queue_free()
 		$trickScoreContainer/teamContainer/teamTricks.text = (str(teamTricks) + " Tricks")
 		$trickScoreContainer/oppContainer/oppTricks.text = (str(oppTricks) + " Tricks")
 		#checkForWin()
@@ -394,29 +396,23 @@ func checkForWin():
 func playBotCard(player):
 	#print (player + " playing")
 	var hand
-	var cardShift
 	var nextPlayer
 	var nextTurn
 	match (player):
 		"bot1":
 			hand = bot1Hand
-			#remove 'nextplayer' shit, add match case for control5/label3/turn or smth in checkEndOfTrick
 			nextPlayer = "bot2"
 			nextTurn = 3
-			cardShift = Vector2(20,0)
 		"bot2":
 			hand = bot2Hand
 			nextPlayer = "bot3"
 			nextTurn = 4
-			cardShift = Vector2(0,20)
 		"bot3":
 			hand = bot3Hand
 			nextPlayer = "player"
 			nextTurn = 1
-			cardShift = Vector2(-20,0)
 	for i in 5:
 		if hand[i] != null:
-			#hand[i].position += cardShift
 			var anim = hand[i].get_node("AnimationPlayer")
 			anim.play("card_playing")
 			hand[i].setFaceTexture()
