@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6mgqsfdjevoe"]
+[gd_scene load_steps=5 format=3 uid="uid://b6mgqsfdjevoe"]
 
 [ext_resource type="Texture2D" uid="uid://dpwr2xxec4e02" path="res://assets/background.png" id="1_s7iha"]
 [ext_resource type="Script" path="res://scripts/BackButton.gd" id="2_4edde"]
+[ext_resource type="Texture2D" uid="uid://3xgw5aymjx0f" path="res://assets/cards/English_pattern_jack_of_hearts.svg.png" id="3_mwlo6"]
+[ext_resource type="Texture2D" uid="uid://dk8f6w5mywfac" path="res://assets/cards/English_pattern_jack_of_spades.svg.png" id="4_ihhhv"]
 
 [node name="Win" type="Node2D"]
 
@@ -20,6 +22,14 @@ theme_override_font_sizes/font_size = 36
 text = "Quit Game"
 script = ExtResource("2_4edde")
 
+[node name="Label2" type="Label" parent="."]
+offset_left = 480.0
+offset_top = 376.0
+offset_right = 819.0
+offset_bottom = 486.0
+theme_override_font_sizes/font_size = 40
+text = "Congratulations!"
+
 [node name="Label" type="Label" parent="."]
 offset_left = 472.0
 offset_top = 272.0
@@ -27,5 +37,15 @@ offset_right = 811.0
 offset_bottom = 382.0
 theme_override_font_sizes/font_size = 80
 text = "You Win!"
+
+[node name="EnglishPatternJackOfHearts_svg" type="Sprite2D" parent="."]
+position = Vector2(192, 384.5)
+scale = Vector2(0.711111, 0.709259)
+texture = ExtResource("3_mwlo6")
+
+[node name="EnglishPatternJackOfSpades_svg" type="Sprite2D" parent="."]
+position = Vector2(1088, 384)
+scale = Vector2(0.716667, 0.709259)
+texture = ExtResource("4_ihhhv")
 
 [connection signal="pressed" from="BackButton" to="BackButton" method="_on_pressed"]
