@@ -23,7 +23,11 @@ var teamTricks = 0
 var oppTricks = 0
 var teamScore = 0
 var oppScore = 0
-var dealer = 2 #int(rng.randf_range(1,4))
+var dealer = int(rng.randf_range(1,4))
+var startingPlayer
+
+#boolean
+var trumpPicked = false
 
 #question: Attackers (Trump Selector) & Defenders Logic for Scoring?
 #question 2: Scoring for going alone? (Maybe Future)
@@ -190,6 +194,7 @@ func createHands():
 func _ready():
 	print("[NEW HAND]")
 	global.tablePlayCard.connect(_onCardPlayed)
+	global.goNow.connect(startPlaying)
 	_initialize_deck()
 	tricks.resize(5)
 	#print(tricks)
@@ -200,19 +205,22 @@ func _ready():
 		currentTrick[i] = null
 	shuffle()
 	createHands()
-	var startingPlayer
 	startingPlayer = dealer+1
 	if startingPlayer > 4: startingPlayer = 1
 	print("sP " + str(startingPlayer))
 	global.setPlayer.emit(startingPlayer)
-	await get_tree().create_timer(1.0).timeout
+	if (trumpPicked):
+		await get_tree().create_timer(1.0).timeout
+		startPlaying()
+		
+func startPlaying():
 	match (startingPlayer):
-		2:
-			playBotCard("bot1")
-		3:
-			playBotCard("bot2")
-		4:
-			playBotCard("bot3")
+			2:
+				playBotCard("bot1")
+			3:
+				playBotCard("bot2")
+			4:
+				playBotCard("bot3")
 
 #assessing card values and returning the greater card
 #10 billion fucking if statements - improve later if there's time

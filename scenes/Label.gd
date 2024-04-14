@@ -7,9 +7,11 @@ signal hideme
 var ugh
 var x
 var id
+signal bruh10
 var texture
 var texture_rect 
 var load_icon = preload("res://scenes/suitIcon.tscn")
+var textureURLs = ["res://assets/Screenshot 2024-04-13 at 4.50.32 PM.png"]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,6 +20,7 @@ func _ready():
 	global.trumpselected.connect(meowplz)
 	global.suitChosen.connect(woofplz)
 	x=false
+	global.bruh10.connect(hideicons)
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -29,6 +32,7 @@ func _on_buttoncard_2_pressed():
 	if (x == false):
 		trumpsuit = meow
 		set_text(str(meow) + " is now trump")
+		global.goNow.emit()
 	if (x == true):
 		global.emit_signal("delete")
 		set_text("what would like trump to be?")
@@ -43,6 +47,12 @@ func _on_buttoncard_2_pressed():
 			add_child(texture_rect)
 		#where all the thingies go
 	pass
+	
+func hideicons():
+	for child in get_children():
+		child.queue_free()
+			
+	
 	
 func woofplz(suit):
 	match (suit.woof):

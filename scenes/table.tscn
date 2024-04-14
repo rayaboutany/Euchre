@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bhkl35l7oqywa"]
+[gd_scene load_steps=16 format=3 uid="uid://bhkl35l7oqywa"]
 
 [ext_resource type="Script" path="res://scripts/table.gd" id="1_wwq6p"]
 [ext_resource type="Texture2D" uid="uid://dpwr2xxec4e02" path="res://assets/background.png" id="1_xui37"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scenes/Label3.gd" id="6_k3f6b"]
 [ext_resource type="Script" path="res://scenes/Timer.gd" id="7_hkfmt"]
 [ext_resource type="Script" path="res://scenes/buttoncard1.gd" id="9_tg204"]
+[ext_resource type="Script" path="res://scenes/Control6.gd" id="11_2o035"]
 [ext_resource type="Script" path="res://scenes/Label2.gd" id="11_4ee3c"]
 [ext_resource type="Script" path="res://scenes/trickScore.gd" id="11_7tkpw"]
 [ext_resource type="Script" path="res://scenes/Label.gd" id="12_hhiy6"]
@@ -20,8 +21,10 @@
 script = ExtResource("1_wwq6p")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 1920.0
-offset_bottom = 1080.0
+offset_left = 3.0
+offset_top = -4.00001
+offset_right = 1923.0
+offset_bottom = 1076.0
 scale = Vector2(0.667711, 0.667115)
 texture = ExtResource("1_xui37")
 
@@ -50,17 +53,6 @@ offset_bottom = 368.0
 scale = Vector2(0.25, 0.25)
 script = ExtResource("4_yeeve")
 
-[node name="Label2" type="Label" parent="TextureRect2"]
-layout_mode = 0
-offset_left = -2624.0
-offset_top = -436.0
-offset_right = -1850.0
-offset_bottom = -344.0
-theme_override_font_sizes/font_size = 50
-text = "Would you like        to be trump?"
-horizontal_alignment = 1
-script = ExtResource("11_4ee3c")
-
 [node name="Label" type="Label" parent="TextureRect2"]
 layout_mode = 0
 offset_left = -2464.0
@@ -75,6 +67,26 @@ script = ExtResource("12_hhiy6")
 wait_time = 3.0
 one_shot = true
 script = ExtResource("7_hkfmt")
+
+[node name="Control6" type="Control" parent="TextureRect2"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -4704.0
+offset_top = -1312.0
+offset_right = -4664.0
+offset_bottom = -1272.0
+script = ExtResource("11_2o035")
+
+[node name="Label2" type="Label" parent="TextureRect2/Control6"]
+layout_mode = 0
+offset_left = 2100.0
+offset_top = 908.0
+offset_right = 2874.0
+offset_bottom = 977.0
+theme_override_font_sizes/font_size = 47
+text = "Would you like <  >       to be trump?"
+horizontal_alignment = 1
+script = ExtResource("11_4ee3c")
 
 [node name="turnNumber" type="Label" parent="."]
 offset_left = 1201.0
@@ -197,13 +209,14 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("11_2o035")
 
 [node name="buttoncard6" type="Button" parent="Control6"]
 layout_mode = 0
-offset_left = 498.0
-offset_top = 258.0
-offset_right = 618.0
-offset_bottom = 303.0
+offset_left = 495.0
+offset_top = 259.0
+offset_right = 615.0
+offset_bottom = 304.0
 theme_override_font_sizes/font_size = 20
 text = "Yes"
 script = ExtResource("9_tg204")
@@ -277,11 +290,14 @@ text = "Main Menu"
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
 [connection signal="timeout" from="TextureRect2/Label/Timer" to="TextureRect2/Label" method="_on_timer_timeout"]
 [connection signal="focus_exited" from="Control5/Label3" to="." method="_on_label_3_focus_exited"]
-[connection signal="pressed" from="Control6/buttoncard6" to="TextureRect2/Label" method="_on_buttoncard_2_pressed"]
 [connection signal="pressed" from="Control6/buttoncard6" to="TextureRect2/Label" method="_on_buttoncard_6_pressed"]
+[connection signal="pressed" from="Control6/buttoncard6" to="TextureRect2/Label" method="_on_buttoncard_2_pressed"]
 [connection signal="pressed" from="Control6/buttoncard6" to="Control5/Label3" method="_on_buttoncard_1_pressed"]
+[connection signal="pressed" from="Control6/buttoncard6" to="Control6" method="_on_buttoncard_6_pressed"]
+[connection signal="pressed" from="Control6/buttoncard6" to="Control6/buttoncard6" method="_on_pressed"]
 [connection signal="pressed" from="Control6/buttoncard1" to="TextureRect2/Label" method="_on_buttoncard_1_pressed"]
 [connection signal="pressed" from="Control6/buttoncard1" to="Control5/Label3" method="_on_buttoncard_1_pressed"]
+[connection signal="pressed" from="Control6/buttoncard1" to="Control6" method="_on_buttoncard_1_pressed"]
 [connection signal="pressed" from="GameMenu/NinePatchRect/VBoxContainer/Back To Game" to="GameMenu" method="_on_back_to_game_pressed"]
 [connection signal="pressed" from="GameMenu/NinePatchRect/VBoxContainer/Pause" to="GameMenu" method="_on_pause_pressed"]
 [connection signal="pressed" from="GameMenu/NinePatchRect/VBoxContainer/Play" to="GameMenu" method="_on_play_pressed"]

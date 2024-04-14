@@ -1,34 +1,36 @@
-[gd_scene load_steps=13 format=3 uid="uid://bhkl35l7oqywa"]
+<<<<<<< HEAD
+[gd_scene load_steps=16 format=3 uid="uid://bhkl35l7oqywa"]
+=======
+[gd_scene load_steps=17 format=3 uid="uid://bhkl35l7oqywa"]
+>>>>>>> d45a3ab142968e26e3d9b9f7179d45489172a16a
 
 [ext_resource type="Script" path="res://scripts/table.gd" id="1_wwq6p"]
 [ext_resource type="Texture2D" uid="uid://dpwr2xxec4e02" path="res://assets/background.png" id="1_xui37"]
 [ext_resource type="Script" path="res://scripts/BackButton.gd" id="3_kec1j"]
 [ext_resource type="Script" path="res://scenes/trumpDisplay.gd" id="4_yeeve"]
 [ext_resource type="Script" path="res://scenes/turnNumber.gd" id="5_jrwic"]
-<<<<<<< HEAD
 [ext_resource type="Script" path="res://scenes/Label3.gd" id="6_k3f6b"]
 [ext_resource type="Script" path="res://scenes/Timer.gd" id="7_hkfmt"]
+[ext_resource type="Script" path="res://scenes/Control6.gd" id="7_odjff"]
+[ext_resource type="Script" path="res://scenes/buttoncard6.gd" id="8_xh04b"]
 [ext_resource type="Script" path="res://scenes/buttoncard1.gd" id="9_tg204"]
-[ext_resource type="Script" path="res://scenes/Label500.gd" id="10_nay7j"]
+[ext_resource type="Script" path="res://scenes/Control6.gd" id="11_2o035"]
 [ext_resource type="Script" path="res://scenes/Label2.gd" id="11_4ee3c"]
 [ext_resource type="Script" path="res://scenes/trickScore.gd" id="11_7tkpw"]
 [ext_resource type="Script" path="res://scenes/Label.gd" id="12_hhiy6"]
-=======
-[ext_resource type="Script" path="res://scenes/playerTurnStatic.gd" id="6_cp70b"]
-[ext_resource type="Script" path="res://scenes/playerTurnNumber.gd" id="6_k3f6b"]
-[ext_resource type="Script" path="res://scenes/trumpAskYes.gd" id="9_tg204"]
-[ext_resource type="Script" path="res://scenes/trumpAsk.gd" id="10_ecrvb"]
-[ext_resource type="Script" path="res://scenes/trumpAskNo.gd" id="10_efgy1"]
-[ext_resource type="Script" path="res://scenes/trumpAskSuit.gd" id="11_4ee3c"]
-[ext_resource type="Script" path="res://scenes/trickScore.gd" id="11_7tkpw"]
->>>>>>> 41965ef93cbf31a16df9ffbc2ea2854652ee0b15
+[ext_resource type="Script" path="res://scenes/GameMenu.gd" id="13_5p51i"]
+[ext_resource type="Texture2D" uid="uid://b7a0mjhuvddqt" path="res://assets/lightblue1.png" id="14_o56wc"]
+
+[sub_resource type="SystemFont" id="SystemFont_d75s8"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_wwq6p")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 1920.0
-offset_bottom = 1080.0
+offset_left = 3.0
+offset_top = -4.00001
+offset_right = 1923.0
+offset_bottom = 1076.0
 scale = Vector2(0.667711, 0.667115)
 texture = ExtResource("1_xui37")
 
@@ -57,17 +59,6 @@ offset_bottom = 368.0
 scale = Vector2(0.25, 0.25)
 script = ExtResource("4_yeeve")
 
-<<<<<<< HEAD
-[node name="Label2" type="Label" parent="TextureRect2"]
-layout_mode = 0
-offset_left = -2208.0
-offset_top = -620.0
-offset_right = -336.0
-offset_bottom = -20.0
-theme_override_font_sizes/font_size = 50
-text = "<>"
-script = ExtResource("11_4ee3c")
-
 [node name="Label" type="Label" parent="TextureRect2"]
 layout_mode = 0
 offset_left = -2464.0
@@ -83,27 +74,56 @@ wait_time = 3.0
 one_shot = true
 script = ExtResource("7_hkfmt")
 
-=======
->>>>>>> 41965ef93cbf31a16df9ffbc2ea2854652ee0b15
-[node name="turnHeader" type="Label" parent="."]
-offset_left = 1176.0
-offset_top = 88.0
-offset_right = 1232.0
-offset_bottom = 111.0
-text = "Turn #:
-"
+[node name="Control6" type="Control" parent="TextureRect2"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -4704.0
+offset_top = -1312.0
+offset_right = -4664.0
+offset_bottom = -1272.0
+script = ExtResource("7_odjff")
 
-[node name="turnNumber" type="Label" parent="turnHeader"]
+[node name="buttoncard6" type="Button" parent="TextureRect2/Control6"]
 layout_mode = 0
-offset_top = 32.0
-offset_right = 56.0
-offset_bottom = 55.0
+offset_left = 2088.0
+offset_top = 1020.0
+offset_right = 2464.0
+offset_bottom = 1224.0
+theme_override_font_sizes/font_size = 60
+text = "Yes"
+script = ExtResource("8_xh04b")
+
+[node name="buttoncard1" type="Button" parent="TextureRect2/Control6"]
+layout_mode = 0
+offset_left = 2536.0
+offset_top = 1020.0
+offset_right = 2944.0
+offset_bottom = 1217.0
+theme_override_font_sizes/font_size = 60
+text = "No"
+script = ExtResource("9_tg204")
+
+[node name="Label2" type="Label" parent="TextureRect2/Control6"]
+layout_mode = 0
+offset_left = 2100.0
+offset_top = 908.0
+offset_right = 2874.0
+offset_bottom = 977.0
+theme_override_font_sizes/font_size = 47
+text = "Would you like <  >       to be trump?"
+horizontal_alignment = 1
+script = ExtResource("11_4ee3c")
+
+[node name="turnNumber" type="Label" parent="."]
+offset_left = 1201.0
+offset_top = 80.0
+offset_right = 1257.0
+offset_bottom = 103.0
 text = "<turn>"
 horizontal_alignment = 1
 script = ExtResource("5_jrwic")
 
-<<<<<<< HEAD
-[node name="Control" type="Control" parent="."]
+[node name="playerLabels" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 258.0
@@ -112,339 +132,212 @@ offset_right = 332.0
 offset_bottom = 858.0
 rotation = 3.14159
 
-[node name="Label" type="Label" parent="Control"]
+[node name="Label1" type="Label" parent="playerLabels"]
 layout_mode = 0
-offset_left = 21.0
-offset_top = 259.0
-offset_right = 83.0
-offset_bottom = 472.0
-=======
-[node name="playerTurnStatic" type="Label" parent="."]
-visible = false
-offset_left = 564.0
-offset_top = 410.0
-offset_right = 1006.0
-offset_bottom = 481.0
-text = "It is player   's turn"
-script = ExtResource("6_cp70b")
+offset_left = -364.0
+offset_top = -165.001
+offset_right = -293.0
+offset_bottom = -142.001
+rotation = 3.14159
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+text = "Player 1"
 
-[node name="playerTurnNumber" type="Label" parent="playerTurnStatic"]
+[node name="Label2" type="Label" parent="playerLabels"]
 layout_mode = 0
-offset_left = 84.0
-offset_top = 1.0
-offset_right = 294.0
-offset_bottom = 66.0
-text = "< >"
-script = ExtResource("6_k3f6b")
-
-[node name="Player2Label" type="Label" parent="."]
-offset_left = 280.0
-offset_top = 360.0
-offset_right = 342.0
-offset_bottom = 573.0
->>>>>>> 41965ef93cbf31a16df9ffbc2ea2854652ee0b15
+offset_left = 10.9994
+offset_top = 225.0
+offset_right = 72.9994
+offset_bottom = 387.0
 rotation = 4.71239
+theme_override_colors/font_color = Color(1, 0.72549, 0.156863, 1)
 text = "Player 2"
 horizontal_alignment = 1
 
-<<<<<<< HEAD
-[node name="Control2" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 909.0
-offset_top = 529.0
-offset_right = 983.0
-offset_bottom = 861.0
+[node name="Label3" type="Label" parent="playerLabels"]
+layout_mode = 0
+offset_left = -340.001
+offset_top = 511.999
+offset_right = -278.001
+offset_bottom = 536.999
 rotation = 3.14159
-
-[node name="Label" type="Label" parent="Control2"]
-layout_mode = 0
-offset_left = -106.0
-offset_top = 208.0
-offset_right = -44.0
-offset_bottom = 421.0
-=======
-[node name="Player4Label" type="Label" parent="."]
-offset_left = 1000.0
-offset_top = 310.0
-offset_right = 1062.0
-offset_bottom = 523.0
->>>>>>> 41965ef93cbf31a16df9ffbc2ea2854652ee0b15
-rotation = 1.5708
-text = "Player 4"
-horizontal_alignment = 1
-
-<<<<<<< HEAD
-[node name="Control3" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 394.0
-offset_top = 25.0
-offset_right = 468.0
-offset_bottom = 357.0
-rotation = 4.71239
-
-[node name="Label" type="Label" parent="Control3"]
-layout_mode = 0
-offset_left = -90.9998
-offset_top = 203.0
-offset_right = -28.9998
-offset_bottom = 416.0
-rotation = 1.5708
-=======
-[node name="Player3Label" type="Label" parent="."]
-offset_left = 609.0
-offset_top = 50.0
-offset_right = 671.0
-offset_bottom = 263.0
->>>>>>> 41965ef93cbf31a16df9ffbc2ea2854652ee0b15
+theme_override_colors/font_color = Color(0, 0.882353, 1, 1)
 text = "Player 3
 "
 horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="."]
-offset_left = 622.0
-offset_top = 691.0
-offset_right = 693.0
-offset_bottom = 714.0
-text = "Player 1"
-
-<<<<<<< HEAD
-[node name="Control4" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 491.0
-offset_top = 235.0
-offset_right = 774.0
-offset_bottom = 346.0
-
-[node name="Label" type="Label" parent="Control4"]
+[node name="Label4" type="Label" parent="playerLabels"]
 layout_mode = 0
-offset_left = 5.0
-offset_top = -65.0
-offset_right = 301.0
-offset_bottom = -11.0
-text = "Would you like                         to  be trump?"
-script = ExtResource("10_nay7j")
-=======
-[node name="buttoncard2" type="Button" parent="."]
-visible = false
-offset_left = 1947.0
-offset_top = 553.0
-offset_right = 2010.0
-offset_bottom = 1209.0
-flat = true
-script = ExtResource("10_efgy1")
-
-[node name="buttoncard3" type="Button" parent="."]
-visible = false
-offset_left = 571.0
-offset_top = 496.0
-offset_right = 697.0
-offset_bottom = 662.0
-flat = true
-
-[node name="buttoncard4" type="Button" parent="."]
-visible = false
-offset_left = 711.0
-offset_top = 487.0
-offset_right = 837.0
-offset_bottom = 653.0
-flat = true
-
-[node name="buttoncard5" type="Button" parent="."]
-visible = false
-offset_left = 810.0
-offset_top = 495.0
-offset_right = 936.0
-offset_bottom = 661.0
-flat = true
-
-[node name="trumpAsk" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 509.0
-offset_top = 309.0
-offset_right = 792.0
-offset_bottom = 420.0
-script = ExtResource("10_ecrvb")
-
-[node name="trumpAskYes" type="Button" parent="trumpAsk"]
-layout_mode = 0
-offset_left = 152.0
-offset_top = 20.0
-offset_right = 284.0
-offset_bottom = 70.0
-text = "No"
-script = ExtResource("9_tg204")
-
-[node name="trumpAskNo" type="Button" parent="trumpAsk"]
-layout_mode = 0
-offset_left = -15.0
-offset_top = 21.0
-offset_right = 117.0
-offset_bottom = 71.0
-text = "Yes"
-script = ExtResource("9_tg204")
-
-[node name="Control" type="Control" parent="trumpAsk/trumpAskNo"]
-anchors_preset = 0
-offset_left = -9.0
-offset_top = 49.0
-offset_right = 146.0
-offset_bottom = 124.0
-
-[node name="trumpAskLabel" type="Label" parent="trumpAsk"]
-layout_mode = 0
-offset_left = -12.0
-offset_top = -46.0
-offset_right = 284.0
-offset_bottom = 8.0
-text = "Would you like                to  be trump?"
-
-[node name="trumpAskSuit" type="Label" parent="trumpAsk"]
-layout_mode = 0
-offset_left = 131.0
-offset_top = -48.0
-offset_right = 181.0
-offset_bottom = -22.0
-text = "<>"
-script = ExtResource("11_4ee3c")
->>>>>>> 41965ef93cbf31a16df9ffbc2ea2854652ee0b15
+offset_left = -750.0
+offset_top = 163.0
+offset_right = -688.0
+offset_bottom = 376.0
+rotation = 1.5708
+theme_override_colors/font_color = Color(1, 0.72549, 0.156863, 1)
+text = "Player 4"
+horizontal_alignment = 1
 
 [node name="trickScoreContainer" type="VBoxContainer" parent="."]
-offset_left = 24.0
-offset_top = 24.0
-offset_right = 157.0
-offset_bottom = 275.0
+offset_left = 44.0
+offset_top = 40.0
+offset_right = 177.0
+offset_bottom = 97.0
 theme_override_constants/separation = 2
 script = ExtResource("11_7tkpw")
 
-[node name="teamTricksHeader" type="Label" parent="trickScoreContainer"]
+[node name="teamContainer" type="HBoxContainer" parent="trickScoreContainer"]
 layout_mode = 2
-text = "Team Tricks:
-"
+
+[node name="teamTricks" type="Label" parent="trickScoreContainer/teamContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+text = "X Tricks"
 horizontal_alignment = 1
 
-[node name="teamTricks" type="Label" parent="trickScoreContainer"]
+[node name="teamScore" type="Label" parent="trickScoreContainer/teamContainer"]
 layout_mode = 2
-text = "<teamTricks>"
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+text = "X Points"
 horizontal_alignment = 1
 
-[node name="oppTricksHeader" type="Label" parent="trickScoreContainer"]
+[node name="oppContainer" type="HBoxContainer" parent="trickScoreContainer"]
 layout_mode = 2
-text = "Opp Tricks:"
+
+[node name="oppTricks" type="Label" parent="trickScoreContainer/oppContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.72549, 0.156863, 1)
+text = "X Tricks"
 horizontal_alignment = 1
 
-[node name="oppTricks" type="Label" parent="trickScoreContainer"]
+[node name="oppScore" type="Label" parent="trickScoreContainer/oppContainer"]
 layout_mode = 2
-text = "<oppTricks>"
+theme_override_colors/font_color = Color(1, 0.72549, 0.156863, 1)
+text = "X Points"
 horizontal_alignment = 1
 
-[node name="spacer" type="Label" parent="trickScoreContainer"]
-layout_mode = 2
-
-[node name="teamScoreHeader" type="Label" parent="trickScoreContainer"]
-layout_mode = 2
-text = "Team Score:"
-horizontal_alignment = 1
-
-[node name="teamScore" type="Label" parent="trickScoreContainer"]
-layout_mode = 2
-text = "<teamScore>"
-horizontal_alignment = 1
-
-[node name="oppScoreHeader" type="Label" parent="trickScoreContainer"]
-layout_mode = 2
-text = "Opp Score:"
-horizontal_alignment = 1
-
-[node name="oppScore" type="Label" parent="trickScoreContainer"]
-layout_mode = 2
-text = "<oppScore>"
-horizontal_alignment = 1
-
-<<<<<<< HEAD
 [node name="Control5" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label2" type="Label" parent="Control5"]
+[node name="Label3" type="Label" parent="Control5"]
+visible = false
 layout_mode = 0
-offset_left = 564.0
-offset_top = 410.0
-offset_right = 1006.0
-offset_bottom = 481.0
-text = "It is player's    turn"
-
-[node name="Label3" type="Label" parent="Control5/Label2"]
-layout_mode = 0
-offset_left = 96.0
-offset_top = 1.0
-offset_right = 306.0
-offset_bottom = 66.0
-text = "< >"
+offset_left = 565.0
+offset_top = 435.0
+offset_right = 775.0
+offset_bottom = 500.0
+text = "It's player X's turn"
 script = ExtResource("6_k3f6b")
 
+<<<<<<< HEAD
 [node name="Control6" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("11_2o035")
 
 [node name="buttoncard6" type="Button" parent="Control6"]
 layout_mode = 0
-offset_left = 491.0
-offset_top = 240.0
-offset_right = 610.0
-offset_bottom = 317.0
+offset_left = 498.0
+offset_top = 258.0
+offset_right = 618.0
+offset_bottom = 303.0
 theme_override_font_sizes/font_size = 20
 text = "Yes"
-flat = true
 script = ExtResource("9_tg204")
 
 [node name="buttoncard1" type="Button" parent="Control6"]
 layout_mode = 0
-offset_left = 643.0
-offset_top = 255.0
-offset_right = 775.0
-offset_bottom = 305.0
+offset_left = 640.0
+offset_top = 259.0
+offset_right = 760.0
+offset_bottom = 304.0
+theme_override_font_sizes/font_size = 20
 text = "No"
-flat = true
 script = ExtResource("9_tg204")
 
-[node name="dealerLabel" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-
-[connection signal="work" from="." to="Control5/Label2/Label3" method="_on_node_2d_work"]
-[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
-[connection signal="timeout" from="TextureRect2/Label/Timer" to="TextureRect2/Label" method="_on_timer_timeout"]
-[connection signal="focus_exited" from="Control5/Label2/Label3" to="." method="_on_label_3_focus_exited"]
-[connection signal="pressed" from="Control6/buttoncard6" to="TextureRect2/Label" method="_on_buttoncard_2_pressed"]
-[connection signal="pressed" from="Control6/buttoncard6" to="TextureRect2/Label" method="_on_buttoncard_6_pressed"]
-[connection signal="pressed" from="Control6/buttoncard6" to="Control5/Label2/Label3" method="_on_buttoncard_1_pressed"]
-[connection signal="pressed" from="Control6/buttoncard1" to="TextureRect2/Label" method="_on_buttoncard_1_pressed"]
 =======
+>>>>>>> d45a3ab142968e26e3d9b9f7179d45489172a16a
 [node name="dealerLabel" type="Label" parent="."]
-offset_left = 1022.0
-offset_top = 310.0
-offset_right = 1083.0
-offset_bottom = 333.0
-rotation = 1.5708
+offset_left = 1009.0
+offset_top = 294.0
+offset_right = 1072.0
+offset_bottom = 317.0
+rotation = 4.71239
 text = "(Dealer)"
 
-[connection signal="work" from="." to="playerTurnStatic/playerTurnNumber" method="_on_node_2d_work"]
+[node name="GameMenu" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("13_5p51i")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="GameMenu"]
+visible = false
+layout_mode = 0
+offset_left = 763.0
+offset_top = 14.0
+offset_right = 1232.0
+offset_bottom = 491.0
+texture = ExtResource("14_o56wc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameMenu/NinePatchRect"]
+layout_direction = 2
+layout_mode = 0
+offset_left = 35.0
+offset_top = 25.0
+offset_right = 436.0
+offset_bottom = 440.0
+alignment = 1
+
+[node name="Back To Game" type="Button" parent="GameMenu/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = SubResource("SystemFont_d75s8")
+text = "Back To Game"
+
+[node name="Pause" type="Button" parent="GameMenu/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Pause"
+
+[node name="Play" type="Button" parent="GameMenu/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Play"
+
+[node name="Main Menu" type="Button" parent="GameMenu/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Main Menu"
+
+[connection signal="work" from="." to="Control5/Label3" method="_on_node_2d_work"]
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
-[connection signal="focus_exited" from="playerTurnStatic/playerTurnNumber" to="." method="_on_label_3_focus_exited"]
-[connection signal="pressed" from="buttoncard2" to="playerTurnStatic/playerTurnNumber" method="_on_buttoncard_2_pressed"]
-[connection signal="pressed" from="trumpAsk/trumpAskYes" to="." method="_on_buttoncard_1_pressed"]
-[connection signal="pressed" from="trumpAsk/trumpAskYes" to="playerTurnStatic" method="_on_buttoncard_1_pressed"]
-[connection signal="pressed" from="trumpAsk/trumpAskYes" to="playerTurnStatic/playerTurnNumber" method="_on_buttoncard_1_pressed"]
-[connection signal="pressed" from="trumpAsk/trumpAskYes" to="trumpAsk" method="_on_trump_ask_yes_pressed"]
-[connection signal="pressed" from="trumpAsk/trumpAskNo" to="playerTurnStatic" method="_on_buttoncard_2_pressed"]
-[connection signal="pressed" from="trumpAsk/trumpAskNo" to="playerTurnStatic/playerTurnNumber" method="_on_buttoncard_1_pressed"]
-[connection signal="pressed" from="trumpAsk/trumpAskNo" to="trumpAsk" method="_on_trump_ask_no_pressed"]
->>>>>>> 41965ef93cbf31a16df9ffbc2ea2854652ee0b15
+[connection signal="timeout" from="TextureRect2/Label/Timer" to="TextureRect2/Label" method="_on_timer_timeout"]
+[connection signal="pressed" from="TextureRect2/Control6/buttoncard6" to="TextureRect2/Label" method="_on_buttoncard_6_pressed"]
+[connection signal="pressed" from="TextureRect2/Control6/buttoncard6" to="TextureRect2/Label" method="_on_buttoncard_2_pressed"]
+[connection signal="pressed" from="TextureRect2/Control6/buttoncard6" to="TextureRect2/Control6" method="_on_buttoncard_6_pressed"]
+[connection signal="pressed" from="TextureRect2/Control6/buttoncard6" to="Control5/Label3" method="_on_buttoncard_1_pressed"]
+[connection signal="pressed" from="TextureRect2/Control6/buttoncard1" to="TextureRect2/Label" method="_on_buttoncard_1_pressed"]
+[connection signal="pressed" from="TextureRect2/Control6/buttoncard1" to="TextureRect2/Control6" method="_on_buttoncard_1_pressed"]
+[connection signal="pressed" from="TextureRect2/Control6/buttoncard1" to="Control5/Label3" method="_on_buttoncard_1_pressed"]
+[connection signal="focus_exited" from="Control5/Label3" to="." method="_on_label_3_focus_exited"]
+<<<<<<< HEAD
+[connection signal="pressed" from="Control6/buttoncard6" to="TextureRect2/Label" method="_on_buttoncard_6_pressed"]
+[connection signal="pressed" from="Control6/buttoncard6" to="TextureRect2/Label" method="_on_buttoncard_2_pressed"]
+[connection signal="pressed" from="Control6/buttoncard6" to="Control5/Label3" method="_on_buttoncard_1_pressed"]
+[connection signal="pressed" from="Control6/buttoncard6" to="Control6" method="_on_buttoncard_6_pressed"]
+[connection signal="pressed" from="Control6/buttoncard6" to="Control6/buttoncard6" method="_on_pressed"]
+[connection signal="pressed" from="Control6/buttoncard1" to="TextureRect2/Label" method="_on_buttoncard_1_pressed"]
+[connection signal="pressed" from="Control6/buttoncard1" to="Control5/Label3" method="_on_buttoncard_1_pressed"]
+[connection signal="pressed" from="Control6/buttoncard1" to="Control6" method="_on_buttoncard_1_pressed"]
+=======
+>>>>>>> d45a3ab142968e26e3d9b9f7179d45489172a16a
+[connection signal="pressed" from="GameMenu/NinePatchRect/VBoxContainer/Back To Game" to="GameMenu" method="_on_back_to_game_pressed"]
+[connection signal="pressed" from="GameMenu/NinePatchRect/VBoxContainer/Pause" to="GameMenu" method="_on_pause_pressed"]
+[connection signal="pressed" from="GameMenu/NinePatchRect/VBoxContainer/Play" to="GameMenu" method="_on_play_pressed"]
+[connection signal="pressed" from="GameMenu/NinePatchRect/VBoxContainer/Main Menu" to="GameMenu" method="_on_main_menu_pressed"]
