@@ -32,6 +32,7 @@ func _on_buttoncard_2_pressed():
 	if (x == false):
 		trumpsuit = meow
 		set_text(str(meow) + " is now trump")
+		global.goNow.emit()
 	if (x == true):
 		global.emit_signal("delete")
 		set_text("what would like trump to be?")

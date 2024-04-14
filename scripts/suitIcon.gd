@@ -13,7 +13,8 @@ func _unhandled_input(texture):
 		if get_rect().has_point(to_local(texture.position)):
 			global.emit_signal("suitChosen", self)
 			print("arf arf bark")
-			global.emit_signal("bruh10")
+			global.bruh10.emit()
+			global.goNow.emit()
 
 	
 

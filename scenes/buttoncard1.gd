@@ -12,7 +12,8 @@ func _process(delta):
 	pass
 
 func _on_pressed():
-	global.emit_signal("hidewords")
+	global.hidewords.emit()
+	print("hide wurfs")
 	
 
 # this should be how to get the trump card while(deck[index] == null):

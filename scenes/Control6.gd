@@ -23,3 +23,7 @@ func wehiding():
 func _on_buttoncard_6_pressed():
 	self.visible =false
 	pass # Replace with function body.
+
+
+func _on_buttoncard_1_pressed():
+	pass # Replace with function body.
