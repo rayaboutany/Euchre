@@ -27,7 +27,7 @@ var dealer = int(rng.randf_range(1,4))
 var startingPlayer
 
 #boolean
-var trumpPicked = false
+var going = false
 
 #question: Attackers (Trump Selector) & Defenders Logic for Scoring?
 #question 2: Scoring for going alone? (Maybe Future)
@@ -209,11 +209,12 @@ func _ready():
 	if startingPlayer > 4: startingPlayer = 1
 	print("sP " + str(startingPlayer))
 	global.setPlayer.emit(startingPlayer)
-	if (trumpPicked):
+	if (going):
 		await get_tree().create_timer(1.0).timeout
 		startPlaying()
 		
 func startPlaying():
+	going = true
 	match (startingPlayer):
 			2:
 				playBotCard("bot1")
