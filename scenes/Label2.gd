@@ -1,4 +1,5 @@
 extends Label
+signal trumpselected
 var meow
 var poo
 # Called when the node enters the scene tree for the first time.

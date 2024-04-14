@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cj2p4rpqnj6ot"]
+[gd_scene load_steps=5 format=3 uid="uid://cj2p4rpqnj6ot"]
 
 [ext_resource type="Texture2D" uid="uid://dpwr2xxec4e02" path="res://assets/background.png" id="1_5y3qo"]
 [ext_resource type="Script" path="res://scripts/BackButton.gd" id="2_1527m"]
+[ext_resource type="Texture2D" uid="uid://dhrbtawbmkgbj" path="res://assets/cards/English_pattern_9_of_clubs.svg.png" id="3_3ipno"]
+[ext_resource type="Texture2D" uid="uid://dnyuhuwa02jgx" path="res://assets/cards/English_pattern_9_of_diamonds.svg.png" id="4_xdudr"]
 
 [node name="Lose" type="Node2D"]
 
@@ -20,12 +22,30 @@ theme_override_font_sizes/font_size = 36
 text = "Quit Game"
 script = ExtResource("2_1527m")
 
+[node name="Label2" type="Label" parent="."]
+offset_left = 552.0
+offset_top = 382.0
+offset_right = 730.0
+offset_bottom = 492.0
+theme_override_font_sizes/font_size = 40
+text = "Try Again"
+
 [node name="Label" type="Label" parent="."]
-offset_left = 480.0
+offset_left = 464.0
 offset_top = 272.0
-offset_right = 832.0
+offset_right = 816.0
 offset_bottom = 382.0
 theme_override_font_sizes/font_size = 80
 text = "You Lost!"
+
+[node name="EnglishPattern9OfClubs_svg" type="Sprite2D" parent="."]
+position = Vector2(192, 382.5)
+scale = Vector2(0.711111, 0.716667)
+texture = ExtResource("3_3ipno")
+
+[node name="EnglishPattern9OfDiamonds_svg" type="Sprite2D" parent="."]
+position = Vector2(1088, 382.5)
+scale = Vector2(0.711111, 0.716667)
+texture = ExtResource("4_xdudr")
 
 [connection signal="pressed" from="BackButton" to="BackButton" method="_on_pressed"]

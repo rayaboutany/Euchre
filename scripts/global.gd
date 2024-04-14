@@ -14,7 +14,9 @@ signal nextPlayer()
 signal setPlayer(player)
 signal delete()
 signal hideme()
-
+signal bruh10()
+signal hideno()
+signal hideyes()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var root = get_tree().root

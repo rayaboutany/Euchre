@@ -13,6 +13,9 @@ func _unhandled_input(texture):
 		if get_rect().has_point(to_local(texture.position)):
 			global.emit_signal("suitChosen", self)
 			print("arf arf bark")
+			global.emit_signal("bruh10")
+
+	
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,3 +28,4 @@ func _process(delta):
 
 func setTexture():
 	texture = load(textureURLs[woof])
+
